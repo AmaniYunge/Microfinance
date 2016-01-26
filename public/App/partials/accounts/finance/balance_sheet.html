@@ -1,0 +1,85 @@
+<div class="col-md-12 ng-scope" ng-controller="balanceSheetController as applicant">
+<div class="panel">
+<div class="panel-heading">
+    <div class="panel-title"> <i class="fa fa-credit-card"></i> Balance Sheet </div>
+</div>
+<div class="panel-body">
+<div class="row">
+    <form>
+        <div class="col-md-6">
+            <div class="col-md-3">
+                <datepicker date-format="yyyy-MM-dd">
+                    <input id="to_date" name="date" type="text"  ng-model="start_date" class="form-control" placeholder="From" required="">
+                </datepicker>
+            </div>
+            <div class="col-md-3">
+                <datepicker date-format="yyyy-MM-dd">
+                    <input id="from_date" name="date" type="text"  ng-model="end_date" class="form-control" placeholder="To" required="">
+                </datepicker>
+            </div>
+            <div class="col-md-1">
+                <a class="btn btn-primary" ng-click="cashAccountFunction()" ><i class="fa fa-book" ></i>&nbsp;Get</a>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group pull-right">
+                <button class="btn btn-primary btn-sm" type="button"><i class="fa fa-print"></i>Print</button>
+                <!--<input id="asset" name="assets_name" type="text"   ng-model="assetOb.name" class="form-control" placeholder="Asset Name" required="">-->
+            </div>
+        </div>
+    </form>
+</div>
+<div class="row"  id="printable_area">
+    <div class="col-md-12">
+<div class="row">
+    <div class="col-md-12" style="text-align: center;"><h3>{{company[0].company_name}}</h3></div>
+</div>
+    <div class="row">
+    <div class="col-md-12" style="text-align: center;"><h4>STATEMENT OF FINANCIAL POSITION AS AT {{start_date}} AND {{end_date}}</h4></div>
+    </div>
+    </div>
+<div class="col-md-12">
+    <div class="row">
+        <div class="col-md-12" style="text-align: right;">{{todays_date}}</div>
+    </div>
+    <div class="row">
+    <div class="col-md-12">
+        <table class="table table-bordered table-widget">
+            <thead>
+            <tr>
+                <th style="width: 100px!important;">Date</th>
+                <th>Particulars</th>
+                <th>Amount</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr style="border-bottom: 2px solid #CCCCCC!important;border-top: 2px solid #CCCCCC!important;"><th></th><th >Fixed Assets</th><th ></th></tr>
+            <tr ng-repeat="asset in fixedAssets"><td>{{asset.date|toHumaReadable}}</td><td>{{asset.name}}</td><td style="text-align: right;">{{asset.value}}</td></tr>
+            <tr ><th ></th><td >Total Fixed Assets</td><th style="text-align: right;">{{totalFixedAssets}}</th></tr>
+            <tr style="border-bottom: 2px solid #CCCCCC!important;border-top: 2px solid #CCCCCC!important;"><th></th><th >Current Assets</th><th ></th></tr>
+            <tr ng-repeat="asset in currentAssets"><td>{{asset.date|toHumaReadable}}</td><td>{{asset.name}}</td><td style="text-align: right;">{{asset.value}}</td></tr>
+            <tr ><th ></th><td >Total Current Assets</td><th style="text-align: right;">{{totalCurrentAssets}}</th></tr>
+            <tr ><th></th><th >TOTAL ASSET</th><th style="text-align: right;border-bottom: 3px double #cccccc!important;border-top: 2px solid #cccccc!important;">{{totalCurrentAssets+totalFixedAssets}}</th></tr>
+            <tr ><th ></th><th ></th><th ></th></tr>
+            <tr style="border-bottom: 2px solid #CCCCCC!important;border-top: 2px solid #CCCCCC!important;"><th></th><th >less CURRENT LIABILITIES</th><th ></th></tr>
+            <tr ><th ></th><th ></th><th ></th></tr>
+            <tr ><th ></th><th ></th><th ></th></tr>
+            <tr ><th ></th><th ></th><th ></th></tr>
+            <tr style="border-bottom: 2px solid #CCCCCC!important;border-top: 2px solid #CCCCCC!important;"><th></th><th >CAPITAL</th><th ></th></tr>
+            <tr ><td></td><td >Owners Equity</td><td ></td></tr>
+            <tr ><th></th><th >Retained Profit</th><th ></th></tr>
+            <tr ><th ></th><th ></th><th ></th></tr>
+            </tbody>
+        </table>
+    </div>
+    </div>
+<div style="margin-bottom: 20px;"></div>
+</div>
+</div>
+</div>
+</div>
+<!--<div class="panel-body">-->
+
+<!--</div>-->
+</div>
+</div>

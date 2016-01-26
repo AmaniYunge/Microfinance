@@ -1,0 +1,105 @@
+<div class="row" ng-controller="debtorsController as debtor">
+    <div class="col-md-12">
+        <div class="panel" >
+            <div class="panel-heading">
+                <div class="panel-title"> <i class="fa fa-shopping-cart"></i> Debtors Accounts </div>
+            </div>
+            <div class="panel-body">
+                <div class="tab-block margin-bottom-lg">
+                    <ul class="nav tabs-left tabs-border">
+                        <li class="active">
+                            <a href="tabs.html#tab14" data-toggle="tab">All Debtors</a>
+                        </li>
+                        <li class="">
+                            <a href="tabs.html#tab15" data-toggle="tab">Individual</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div id="tab14" class="tab-pane active">
+                            <form>
+                                <div class="col-md-6">
+                                    <div class="col-md-4">
+                                        <input  datepicker name="date" type="text"  ng-model="start_date" class="form-control" placeholder="From" required="">
+
+                                    </div>
+                                    <div class="col-md-4">
+                                        <input  datepicker name="date" type="text"  ng-model="end_date" class="form-control" placeholder="To" required="">
+
+                                    </div>
+                                    <div class="col-md-1">
+                                        <a class="btn btn-primary" ng-click="debtorsAccountFunction()" ><i class="fa fa-book" ></i>&nbsp;Get</a>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group pull-right">
+                                        <button class="btn btn-primary btn-sm" type="button"><i class="fa fa-print"></i>Print</button>
+                                    </div>
+                                </div>
+                            </form>
+                            <div id="print_area_all">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-12" style="text-align: center;"><h3>{{company[0].company_name}}</h3></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12" style="text-align: center;"><h4>Debtors A/C  Between {{start_date}} AND {{end_date}}</h4></div>
+                                    </div>
+                                </div>
+                                <table class="table table-bordered table-widget">
+                                    <thead>
+                                    <tr>
+                                        <th style="width: 100px!important;">Date</th>
+                                        <th>Account Name</th>
+                                        <th>DR</th>
+                                        <th>CR</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr  ng-repeat="debtor in debtors"><td>{{debtor.created_at|toHumaReadable}}</td><td >{{getApplicantName(debtor.applicant_id)}}</td><td >{{debtor.loaned_amount}}</td><td ></td></tr>
+                                    <tr style="border-bottom: 2px solid #CCCCCC!important;border-top: 2px solid #CCCCCC!important;" ng-repeat="debtorReturn in debtorsReturns"><td>{{debtorReturn.created_at|toHumaReadable}}</td><td >{{getApplicantName(debtorReturn.applicant_id)}}</td><td ></td><td >{{debtorReturn.amount}}</td></tr>
+                                    <tr style="border-bottom: 2px solid #CCCCCC!important;border-top: 2px solid #CCCCCC!important;"><th></th><th >Balance c/d</th><th ><span ng-if="totalLoan>totalLoanReturns"></span><span ng-if="totalLoan<totalLoanReturns">{{totalLoanReturns-totalLoan}}</span></th><th ><span ng-if="totalLoan<totalLoanReturns"></span><span ng-if="totalLoan>totalLoanReturns">{{totalLoan-totalLoanReturns}}</span></th></tr>
+                                    <tr style="border-bottom: 2px solid #CCCCCC!important;border-top: 2px solid #CCCCCC!important;"><th ></th><th ></th><th ><span ng-if="totalLoan>totalLoanReturns">{{totalLoan}}</span><span ng-if="totalLoan<totalLoanReturns">{{totalLoanReturns}}</span></th><th ><span ng-if="totalLoan<totalLoanReturns">{{totalLoanReturns}}</span><span ng-if="totalLoan>totalLoanReturns">{{totalLoan}}</span></th></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div id="tab15" class="tab-pane">
+                            <form>
+                                <div class="col-md-6">
+                                    <div class="col-md-4">
+                                        <input id="to_date" datepicker name="date" type="text"  ng-model="start_date" class="form-control" placeholder="From" required="">
+
+                                    </div>
+                                    <div class="col-md-4">
+                                        <input id="from_date" datepicker name="date" type="text"  ng-model="end_date" class="form-control" placeholder="To" required="">
+
+                                    </div>
+                                    <div class="col-md-1">
+                                        <a class="btn btn-primary" ng-click="debtorsAccountFunction()" ><i class="fa fa-book" ></i>&nbsp;Get</a>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group pull-right">
+                                        <button class="btn btn-primary btn-sm" type="button"><i class="fa fa-print"></i>Print</button>
+                                    </div>
+                                </div>
+                            </form>
+                            <div id="print_area_individual">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-12" style="text-align: center;"><h3>{{company[0].company_name}}</h3></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12" style="text-align: center;"><h4>Debtors A/C  Between {{start_date}} AND {{end_date}}</h4></div>
+                                    </div>
+                                </div>
+                                <debtor-account debtors="debtors" applicants="applicants"></debtor-account>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

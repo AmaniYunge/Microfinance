@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html ng-app="microfinanceApp">
+<head>
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <!--<meta charset="utf-8">-->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Microfinance</title>
+    <meta name="keywords" content="Small Business Microfinance App" />
+    <meta name="description" content="Small Business Microfinance App">
+    <meta name="author" content="Leonard Mpannde">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Font CSS  -->
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,700">
+
+    <!-- Core CSS  -->
+    <link rel="stylesheet" type="text/css" href="public/App/vendors/css/bootstrap-3.3.5/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="public/App/vendors/fonts/font-awesome/css/font-awesome.css">
+
+    <!-- Plugin CSS -->
+    <link rel="stylesheet" type="text/css" href="public/App/vendors/js/plugins/calendar/fullcalendar.css">
+    <link rel="stylesheet" type="text/css" href="public/App/vendors/js/plugins/datatables/css/datatables.min.css">
+    <link rel="stylesheet" type="text/css" href="public/App/vendors/css/animate.css">
+
+    <!-- Theme CSS -->
+    <link rel="stylesheet" type="text/css" href="public/App/vendors/css/theme.css">
+    <link rel="stylesheet" type="text/css" href="public/App/vendors/css/pages.css">
+    <link rel="stylesheet" type="text/css" href="public/App/vendors/css/plugins.css">
+    <link rel="stylesheet" type="text/css" href="public/App/vendors/css/responsive.css">
+
+    <!-- Boxed-Layout CSS -->
+    <link rel="stylesheet" type="text/css" href="public/App/vendors/css/boxed.css">
+
+    <!-- Demonstration CSS -->
+    <link rel="stylesheet" type="text/css" href="public/App/vendors/css/demo.css">
+
+    <!-- Your Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="public/App/vendors/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="public/App/vendors/css/jquery-ui.css">
+
+    <!-- Your Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="public/App/vendors/js/angular-native-datepicker/themes/classic.css">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="public/App/vendors/img/favicon.ico">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="public/App/vendors/js/html5shiv.js"></script>
+    <script src="public/App/vendors/js/respond.min.js"></script>
+
+    <![endif]-->
+
+    <script src="public/App/vendors/js/jquery/jquery.min.js"></script>
+    <script src="public/App/vendors/js/jquery-ui/jquery-ui.min.js"></script>
+    <script src="public/App/vendors/css/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+
+    <!-- Plugins - Via Local Storage-->
+    <script type="text/javascript" src="public/App/vendors/js/jquery.flot.min.js"></script>
+    <script type="text/javascript" src="public/App/vendors/js/jquery.sparkline.min.js"></script>
+    <!--<script type="text/javascript" src="public/App/vendors/js/plugins/datatables/js/datatables.js"></script>&lt;!&ndash; Datatable Bootstrap Addon &ndash;&gt;-->
+    <script type="text/javascript" src="public/App/vendors/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="public/App/vendors/js/fullcalendar.min.js"></script>
+
+    <!-- Plugins -->
+    <script type="text/javascript" src="public/App/vendors/js/plugins/calendar/gcal.js"></script><!-- Calendar Addon -->
+    <script type="text/javascript" src="public/App/vendors/js/plugins/jqueryflot/jquery.flot.resize.min.js"></script><!-- Flot Charts Addon -->
+
+    <!-- Theme Javascript -->
+    <script type="text/javascript" src="public/App/vendors/js/uniform.min.js"></script>
+    <script type="text/javascript" src="public/App/vendors/js/main.js"></script>
+    <!--<script type="text/javascript" src="js/plugins.js"></script>-->
+    <script type="text/javascript" src="public/App/vendors/js/custom.js"></script>
+
+    <script src="public/App/vendors/js/angular-1.4.7/angular.js"></script>
+    <script src="public/App/vendors/js/angular-1.4.7/angular-cookies.js"></script>
+    <script src="public/App/vendors/js/angular-1.4.7/angular-route.js"></script>
+    <script src="public/App/vendors/js/bower_components/highcharts-ng/dist/highcharts.js"></script>
+    <script src="public/App/vendors/js/bower_components/highcharts-ng/dist/exporting.js"></script>
+    <script src="public/App/vendors/js/bower_components/highcharts-ng/dist/highcharts-more.js"></script>
+    <script src="public/App/vendors/js/bower_components/highcharts-ng/dist/standalone-framework.js"></script>
+    <script src="public/App/vendors/js/bower_components/highcharts-ng/dist/highcharts-ng.js"></script>
+    <script src="public/App/vendors/js/angular-datatables.min.js"></script>
+    <script src="public/App/vendors/js/angular-native-datepicker/angular-datepicker.js"></script>
+    <script src="public/App/app.js"></script>
+    <script src="public/App/controllers/mainController.js"></script>
+    <script src="public/App/controllers/homeController.js"></script>
+    <script src="public/App/controllers/applicantController.js"></script>
+    <script src="public/App/controllers/loginController.js"></script>
+    <script src="public/App/controllers/loanController.js"></script>
+    <script src="public/App/controllers/expensesController.js"></script>
+    <script src="public/App/controllers/liabilityController.js"></script>
+    <script src="public/App/controllers/assetController.js"></script>
+    <script src="public/App/controllers/applicationController.js"></script>
+    <script src="public/App/controllers/financeController.js"></script>
+    <script src="public/App/controllers/balanceSheetController.js"></script>
+    <script src="public/App/controllers/companyController.js"></script>
+    <script src="public/App/controllers/dashboardController.js"></script>
+    <script src="public/App/controllers/capitalAccountController.js"></script>
+    <script src="public/App/controllers/cashAccountController.js"></script>
+    <script src="public/App/controllers/incomeStatementController.js"></script>
+    <script src="public/App/controllers/debtorsController.js"></script>
+    <script src="public/App/services/AuthenticationService.js"></script>
+    <script src="public/App/services/UserService.js"></script>
+    <script src="public/App/services/CashAccountService.js"></script>
+    <script src="public/App/services/ApplicationDetailService.js"></script>
+    <script src="public/App/services/CompanyService.js"></script>
+    <script src="public/App/services/companyProfitService.js"></script>
+    <script src="public/App/services/ApplicantService.js"></script>
+    <script src="public/App/services/ApplicationService.js"></script>
+    <script src="public/App/services/LoanService.js"></script>
+    <script src="public/App/services/ExpensesService.js"></script>
+    <script src="public/App/services/LiabilityService.js"></script>
+    <script src="public/App/services/AssetService.js"></script>
+    <script src="public/App/services/GrantService.js"></script>
+    <script src="public/App/services/FinanceService.js"></script>
+    <script src="public/App/services/LoanReturnService.js"></script>
+    <script src="public/App/services/utilitService.js"></script>
+    <script src="public/App/directives/infoDirective.js"></script>
+    <script src="public/App/directives/debtorDirective.js"></script>
+    <script src="public/App/filters/byIdFilter.js"></script>
+
+</head>
+
+<body class="dashboard" ng-controller="mainController">
+<div ng-controller="homeController as main">
+<!-- Start: Header -->
+<header class="navbar navbar-fixed-top">
+    <div class="pull-left"> <a class="navbar-brand" ng-href="#/">
+        <div class="navbar-logo"><span style="font-weight: bolder;font-size: 20px;">Microfinance</span>&nbsp;&nbsp;<span style="font-size: 14px;color:#cccccc;font-weight: bolder;">{{company[0].company_name}}</span></div>
+    </a> </div>
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#collapse-1"></button>
+    <div class="pull-right header-btns">
+
+        <div class="btn-group user-menu">
+            <button type="button" class="btn btn-sm dropdown-toggle" data-toggle="dropdown"> <span class="glyphicons glyphicons-user"></span> <b>Leonard Mpande</b> </button>
+            <button type="button" class="btn btn-sm dropdown-toggle padding-none" data-toggle="dropdown"> <img src="public/App/vendors/img/avatars/header/header-leo.png" alt="user avatar" width="28" height="28" /> </button>
+            <ul class="dropdown-menu checkbox-persist" role="menu">
+                <li class="menu-arrow">
+                    <div class="menu-arrow-up"></div>
+                </li>
+                <li class="dropdown-header">Leonard Mpande <span class="pull-right glyphicons glyphicons-user"></span></li>
+                <li>
+                    <ul class="dropdown-items">
+                       <li class="padding-none">
+                            <div class="dropdown-lockout"><i class="fa fa-lock"></i> <a href="screen-lock.html">Screen Lock</a></div>
+                            <div class="dropdown-signout"><i class="fa fa-sign-out"></i> <a href="login.html">Sign Out</a></div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+<!-- End: Header -->
+<!-- Start: Main -->
+<div id="main" >
+<!-- Start: Sidebar -->
+<aside id="sidebar">
+    <div id="sidebar-search">
+        <div class="sidebar-toggle"> <i class="fa fa-bars"></i> </div>
+    </div>
+    <div id="sidebar-menu">
+        <ul class="nav sidebar-nav">
+            <li class="active">
+                <a ng-href="#/dashboard">
+                    <span class="glyphicons glyphicons-star">&nbsp;&nbsp;<i class="fa fa-dashboard "></i></span>
+                    <span class="sidebar-title">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a class="accordion-toggle " >
+                    <span class="glyphicons glyphicons-settings">&nbsp;&nbsp;<i class="fa fa-calculator "></i></span>
+                    <span class="sidebar-title">Accounts</span><span class="caret"></span>
+                </a>
+                <ul id="accounts" class="nav sub-nav">
+                    <li><a  ng-href="#/accounts/capital_account"><i class="fa fa-dollar"></i>&nbsp;&nbsp;Capital Account</a></li>
+                    <li><a  ng-href="#/accounts/cash_account"><i class="fa fa-money"></i>&nbsp;&nbsp;Cash Account</a></li>
+                    <li><a  ng-href="#/accounts/income_statement"><i class="fa fa-briefcase"></i>&nbsp;&nbsp;Income Statement</a></li>
+                    <li><a  ng-href="#/accounts/debtors"><i class="fa fa-shopping-cart"></i>&nbsp;&nbsp;Debtors Account</a></li>
+                    <li><a  ng-href="#/accounts/balance_sheet"><i class="fa fa-balance-scale"></i>&nbsp;&nbsp;Balance Sheet</a></li>
+                    <li><a  ng-href="#/accounts/finances"><i class="fa fa-money"></i>&nbsp;&nbsp;Financial Transactions</a></li>
+
+                </ul>
+            </li>
+            <li> <a class="accordion-toggle menu-open" >
+                <span class="glyphicons glyphicons-settings">&nbsp;&nbsp;<i class="fa fa-users "></i></span>
+                <span class="sidebar-title">Applicants</span><span class="caret"></span>
+                </a>
+                <ul id="resources" class="nav sub-nav">
+                    <li><a  ng-href="#/applicants/add"><i class="fa fa-plus"></i>&nbsp;&nbsp;Add Applicants</a></li>
+                    <li><a ng-href="#/applicants/manage"><i class="fa fa-cog"></i>&nbsp;&nbsp;Manage</a></li>
+                </ul>
+            </li>
+            <li> <a class="accordion-toggle" href="dashboard.html#sideOne"><span class="glyphicons glyphicons-adjust_alt">&nbsp;&nbsp;<i class="fa fa-bar-chart-o "></i></span><span class="sidebar-title">Report</span><span class="caret"></span></a>
+                <ul id="sideOne" class="nav sub-nav">
+                    <li><a href="#"><span class="fa fa-cc-visa"></span> Loans</a></li>
+                </ul>
+            </li>
+            <li> <a class="accordion-toggle" href="dashboard.html#sideOne"><span class="glyphicons glyphicons-adjust_alt">&nbsp;&nbsp;<i class="fa fa-cogs "></i></span><span class="sidebar-title">Settings</span><span class="caret"></span></a>
+                <ul id="sidethree" class="nav sub-nav">
+                    <li><a ng-href="#/settings/start_capital"><span class="fa fa-bank"></span>&nbsp;&nbsp;Start Capital</a></li>
+                    <li><a ng-href="#/settings/loans"><span class="fa fa-cc-visa"></span>&nbsp;&nbsp;Loans</a></li>
+                    <li><a  ng-href="#/settings/applications"><span class="fa fa-briefcase"></span>&nbsp;&nbsp;Applications</a></li>
+                    <li><a  ng-href="#/settings/expenses"><span class="fa fa-scissors"></span>&nbsp;&nbsp;Expenses</a></li>
+                    <li><a  ng-href="#/settings/liabilities"><span class="fa fa-bitbucket"></span>&nbsp;&nbsp;Liabilites</a></li>
+                    <li><a ng-href="#/settings/assets"><span class="fa fa-tv"></span>&nbsp;&nbsp;Assets</a></li>
+                </ul>
+            </li>
+            <li> <a class="accordion-toggle" href="dashboard.html#sideOne"><span class="glyphicons glyphicons-adjust_alt">&nbsp;&nbsp;<i class="fa fa-user "></i></span><span class="sidebar-title">User Management</span><span class="caret"></span></a>
+                <ul id="sidethrees" class="nav sub-nav">
+                    <li><a ng-href="#/users/add"><i class="fa fa-user-plus"></i>&nbsp;&nbsp;Add User</a></li>
+                    <li><a  ng-href="#/users/manage"><i class="fa fa-wrench"></i>&nbsp;&nbsp;Manage</a></li>
+                </ul>
+            </li>
+
+        </ul>
+    </div>
+</aside>
+<!-- End: Sidebar -->
+<!-- Start: Content -->
+<section id="content">
+<div id="topbar">
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-home"></i></a></li>
+        <li><a href="#">Home</a></li>
+        <li class="active">Dashboard</li>
+    </ol>
+
+    <ol class="breadcrumb pull-right">
+        <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    </ol>
+    <ol class="breadcrumb pull-right">
+        <li>Time:</li>
+        <li style="font-weight: bolder"><span  my-current-time="format"></span></li>
+    </ol>
+
+</div>
+<div class="container" ng-view>
+
+</div>
+</section>
+<!-- End: Content -->
+</div>
+<!-- End: Main -->
+</div>
+<!-- Core Javascript - via CDN -->
+
+<script type="text/javascript">
+jQuery(document).ready(function() {
+
+    // Init Theme Core
+    Core.init();
+
+
+
+    // Init Datatables
+    $('#datatable, #datatable_2').dataTable( {
+        "bSort": true,
+        "bPaginate": false,
+        "bLengthChange": false,
+        "bFilter": false,
+        "bInfo": false,
+        "bAutoWidth": false,
+        "aoColumnDefs": [{ 'bSortable': false, 'aTargets': [ -1 ] }]
+    });
+
+    // Init Sparkline Plugin
+    var runSparkline = function () {
+
+        // Define Sparklines values
+        var Values1 = [0,1,5,2,4,3,5,8,7];
+        var Values2 = [3,2,3,1,0,2,5,6,4];
+        var Values3 = [6,4,5,3,4,2,1,2,3];
+        var Values4 = [2,1,2,3,2,4,2,1,0];
+
+        // Pass values, define options, and create chart
+        $('.sparkbar1').sparkline(Values1, {type: "bar",
+                    barColor: "#428bca",
+                    barWidth: "8",
+                    height: "35"}
+        );
+        $('.sparkbar2').sparkline(Values2, {type: "bar",
+                    barColor: "#5cb85c",
+                    barWidth: "8",
+                    height: "35"}
+        );
+        $('.sparkbar3').sparkline(Values3, {type: "bar",
+                    barColor: "#5bc0de",
+                    barWidth: "8",
+                    height: "35"}
+        );
+        $('.sparkbar4').sparkline(Values4, {type: "bar",
+                    barColor: "#777777",
+                    barWidth: "8",
+                    height: "35"}
+        );
+
+        // Quick function to animate the appearance of Sparklines
+        // Only ran on Sparkline elements which have the
+        // ".sparkline-delay" class and a set data-delay attr
+        (function() {
+            $('.sparkline-delay').each(function() {
+                var This = $(this)
+                var delayTime = $(this).data('delay');
+
+                $(This).children('canvas').css({"height": "0", "vertical-align": "bottom"});
+                var delayCharts = setTimeout(function () {
+                    $(This).children('canvas').animate({height: 35}, 1800);
+                }, delayTime);
+            });
+        })();
+    }
+
+    // Init Calendar Plugin
+    var runFullCalendar = function () {
+        var date = new Date();
+        var d = date.getDate();
+        var m = date.getMonth();
+        var y = date.getFullYear();
+
+        // Define Calendar options and events
+        $('#calendar').fullCalendar({
+            header: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'month,agendaWeek,agendaDay'
+            },
+            editable: true,
+            events: [
+                {
+                    title: 'All Day Event',
+                    start: new Date(y, m, 9),
+                    color: '#008aaf '
+                },
+                {
+                    title: 'Long Event',
+                    start: new Date(y, m, d-5),
+                    end: new Date(y, m, d-3)
+                },
+                {
+                    id: 999,
+                    title: 'Repeating Event',
+                    start: new Date(y, m, d+3, 16, 0),
+                    allDay: false
+                },
+                {
+                    id: 999,
+                    title: 'Repeating Event',
+                    start: new Date(y, m, d+10, 16, 0),
+                    allDay: false
+                },
+                {
+                    title: 'Meeting',
+                    start: new Date(y, m, d, 10, 30),
+                    allDay: false,
+                    color: '#0070ab'
+                },
+                {
+                    title: 'Lunch',
+                    start: new Date(y, m, d, 12, 0),
+                    end: new Date(y, m, d, 14, 0),
+                    allDay: false,
+                    color: '#0070ab'
+                },
+                {
+                    title: 'Birthday Party',
+                    start: new Date(y, m, d+1, 19, 0),
+                    end: new Date(y, m, d+1, 22, 30),
+                    allDay: false
+                },
+                {
+                    title: 'Mandatory!',
+                    start: new Date(y, m, 22),
+                    color: '#d10011'
+                }
+            ]
+        });
+    }
+
+    // Init Flot Charts Plugin
+    var runFlotCharts = function () {
+
+        // Define chart clolors ( add more colors if you want or flot will do it automatically
+        var chartColours = ['#5bc0de'];
+
+        // Generate random number for charts
+        randNum = function(){return (Math.floor( Math.random()* (1+40-20) ) ) + 20;}
+
+        // Check if element exist and draw auto updating chart
+        if($(".chart-updating").length) {
+            $(function () {
+                // We use an inline data source in the example, usually data would
+                // be fetched from a server
+                var data = [], totalPoints = 50;
+                function getRandomData() {
+                    if (data.length > 0)
+                        data = data.slice(1);
+
+                    while (data.length < totalPoints) {
+                        var prev = data.length > 0 ? data[data.length - 1] : 50;
+                        var y = prev + Math.random() * 10 - 5;
+                        if (y < 0)
+                            y = 0;
+                        if (y > 100)
+                            y = 100;
+                        data.push(y);
+                    }
+
+                    var res = [];
+                    for (var i = 0; i < data.length; ++i)
+                        res.push([i, data[i]])
+                    return res;
+                }
+
+                var updateInterval = 750;
+
+                var options = {
+                    series: {
+                        shadowSize: 0, // drawing is faster without shadows
+                        lines: {
+                            show: true,
+                            fill: true,
+                            fillColor: { colors: ['rgba(47, 137, 214, 0.4)', 'rgba(98, 174, 239, 0.3)'] },
+                            lineWidth: 1,
+                            steps: false
+                        },
+                        points: {
+                            show: false,
+                            radius: 2.5,
+                            symbol: "circle",
+                            lineWidth: 2.5
+                        }
+                    },
+                    grid: {
+                        show: true,
+                        aboveData: false,
+                        color: "#3f3f3f",
+                        labelMargin: 5,
+                        axisMargin: 0,
+                        borderWidth: 0,
+                        borderColor:null,
+                        minBorderMargin: 5 ,
+                        clickable: true,
+                        hoverable: true,
+                        autoHighlight: false,
+                        mouseActiveRadius: 20
+                    },
+                    colors: chartColours,
+                    yaxis: {
+                        min: 0,
+                        max: 100,
+                        font: {size: 11,	color: "#888888"}
+                    },
+                    xaxis: {
+                        show: true,
+                        font: {size: 11,	color: "#888888"}
+                    }
+                };
+                var plot = $.plot($(".chart-updating"), [ getRandomData() ], options);
+
+                function update() {
+                    plot.setData([ getRandomData() ]);
+                    // since the axes don't change, we don't need to call plot.setupGrid()
+                    plot.draw();
+
+                    setTimeout(update, updateInterval);
+                }
+                update();
+            });
+        }
+    }
+
+    runSparkline();
+    runFullCalendar();
+    runFlotCharts();
+
+
+});
+</script>
+</body>
+</html>

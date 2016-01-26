@@ -1,0 +1,498 @@
+/* Author: Louis Holladay
+ * Website: AdminDesigns.com
+ * Last Updated: 01/01/14 
+ 
+ * These styles control various aspects of the site
+ * which benefit from being responsive 
+ 
+---------------------------------------
+   HEADER RESPONSIVE CSS
+--------------------------------------*/
+
+
+
+/* Content Changes */
+#content,
+body.sidebar-collapsed #content {
+	margin-left: 40px;
+	left: 0px;
+	-webkit-transition: margin .1s ease-out, left .1s ease-out;
+	transition: margin .1s ease-out, left .1s ease-out;
+}
+#content > .container {
+	padding: 25px 13px 50px 15px;
+}
+
+/* Sidebar Fixed Settings */
+#sidebar.affix {
+	height: 100%;
+}
+#sidebar.affix > #sidebar-search + #sidebar-menu {
+	top: 52px;
+	bottom: 52px;
+}
+#sidebar.affix > #sidebar-menu,
+#sidebar.affix > #sidebar-search.hidden + #sidebar-menu {
+	overflow: visible;
+	position: absolute;
+	top: 1px;
+	bottom: 1px;
+	width: 100%;
+}
+
+
+/* Sidebar Column */
+#sidebar,
+body.sidebar-collapsed #sidebar {
+	width: 40px;
+    position: absolute;
+    z-index: 1024;
+    background: #FFF;
+	
+	transition: width .1s ease-out;
+	-webkit-transition: width .1s ease-out;
+}
+#sidebar:before,
+body.sidebar-collapsed #sidebar:before {
+    content: "";
+    position: fixed;
+    width: 40px;
+    top: 0;
+    bottom: 0;
+    display: block;
+    z-index: -2;
+    background: #fff;
+	
+	transition: width .1s ease-out;
+	-webkit-transition: width .1s ease-out;
+}
+/* Sidebar Search Form */
+#sidebar-search,
+body.sidebar-collapsed #sidebar-search {
+    position: relative;
+    overflow: hidden;
+    padding: 12px 13px 0 12px;
+    height: 52px;
+    max-height: 52px;
+    border-bottom: 1px solid #d2d2d2;
+    background-repeat: repeat-x;
+    background-image: -webkit-linear-gradient(top, #ffffff 1%,#f3f3f3 100%);
+    background-image: linear-gradient(to bottom, #ffffff 1%,#f3f3f3 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f3f3f3',GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+#sidebar-search form,
+body.sidebar-collapsed #sidebar-search form {
+	display: none;
+    position: relative;
+    max-width: 170px;
+    float: left;
+}
+#sidebar-search form input.search-bar,
+body.sidebar-collapsed #sidebar-search form input.search-bar {
+    padding: 3px 8px;
+    height: 29px;
+    max-height: 30px;
+    color: #999;
+    font-size: 14px;
+    outline: none;
+    background: #fff;
+}
+#sidebar-search form .field-icon-right  {
+	display: none;
+    color: #AAA;
+    font-size: 14px;
+    top: 6px;
+}
+
+/* Sidebar Collapse Toggle Button */
+#sidebar-search .sidebar-toggle,
+body.sidebar-collapsed #sidebar-search .sidebar-toggle {
+    margin-right: -6px;
+    width: 28px;
+    cursor: pointer;
+    float: right;
+    height: 28px;
+    line-height: 25px;
+    font-size: 17px;
+    color: #AAA;
+    text-align: center;
+    border-radius: 3px;
+    border: 1px solid #ddd;
+    background-repeat: repeat-x;
+    background-image: -webkit-linear-gradient(top, #ffffff 1%,#f0f0f0 100%);
+    background-image: linear-gradient(to bottom, #ffffff 1%,#f0f0f0 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f0f0f0',GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+
+/* Sidebar Navigation Menu */
+ul.sidebar-nav li { margin: 0 }
+
+ul.sidebar-nav li a { color: #777 }
+
+ul.sidebar-nav li a:hover { background-color: transparent }
+
+ul.sidebar-nav > li > a,
+body.sidebar-collapsed ul.sidebar-nav > li > a {
+    display: block;
+    text-decoration: none;
+    color: #777;
+    line-height: 45px;
+    min-height: 45px;
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+    border-bottom: 1px solid #c9c9c9;
+    box-shadow: none;
+    background-repeat: repeat-x;
+    background-image: -webkit-linear-gradient(top, #ffffff 1%,#f3f3f3 100%);
+    background-image: linear-gradient(to bottom, #ffffff 1%,#f3f3f3 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f3f3f3',GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+
+/* Side Nav Icon */
+ul.sidebar-nav > li > a .glyphicons,
+body.sidebar-collapsed ul.sidebar-nav > li > a .glyphicons {
+    width: 40px;
+    height: 45px;
+    text-align: center;
+    line-height: 45px;
+    font-size: 18px;
+    float: left;
+    margin-right: 10px;
+    padding-right: 4px;
+    margin-left: 2px;
+    top: 0;
+}
+ul.sidebar-nav li.active > a .glyphicons { color: #d9534f }
+
+/* Align Title and Submenu together */
+ul.sidebar-nav .sidebar-title,
+ul.sidebar-nav ul.sub-nav,
+body.sidebar-collapsed ul.sidebar-nav .sidebar-title,
+body.sidebar-collapsed ul.sidebar-nav ul.sub-nav {
+	border: 1px solid #ccc;
+}
+
+/* Side Nav Title */
+ul.sidebar-nav > li > a .sidebar-title,
+body.sidebar-collapsed ul.sidebar-nav > li > a .sidebar-title {
+	display: none;
+	position: absolute;
+	z-index: 9999;
+	width: 200px;
+	left: 40px;
+	top: -1px;
+	text-indent: 20px;
+	height: 46px;
+	background: #CCC;
+	border: 1px solid #AAA;
+}
+
+/* Sub-menu */
+ul.sidebar-nav ul.sub-nav,
+body.sidebar-collapsed ul.sidebar-nav ul.sub-nav {
+    display: none;
+	position: absolute;
+	z-index: 9999;
+	width: 200px;
+	left: 40px;
+	border: 1px solid #c9c9c9;
+    border-top: 0;
+    background-color: #fafafa;
+}
+
+ul.sidebar-nav ul.sub-nav > li > a,
+body.sidebar-collapsed ul.sidebar-nav ul.sub-nav > li > a {
+	 padding: 12px 20px 12px 20px;
+}
+ul.sidebar-nav ul.sub-nav > li:last-child a,
+body.sidebar-collapsed ul.sidebar-nav ul.sub-nav > li:last-child a { 
+	padding: 12px 35px 18px 20px; 
+}
+
+/* Sub Nav Icon */
+ul.sidebar-nav ul.sub-nav li span,
+body.sidebar-collapsed ul.sidebar-nav ul.sub-nav li span {
+    margin-right: 12px;
+	min-width: 15px;
+	min-height: 15px;
+	float: left;
+}
+ul.sidebar-nav ul.sub-nav > li > a:hover .glyphicons,
+body.sidebar-collapsed ul.sidebar-nav ul.sub-nav > li > a:hover .glyphicons {
+	color: #d9534f ;
+}
+
+/* Side Nav Caret */
+ul.sidebar-nav > li > a span.caret,
+body.sidebar-collapsed ul.sidebar-nav > li > a span.caret {
+	display: none;
+    position: absolute;
+    top: 45%;
+    right: 10px;
+    border-top: 5px solid;
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+}
+/* Side Nav caret state - we simply flip caret(border) */
+ul.sidebar-nav > li > a.collapsed span.caret,
+body.sidebar-collapsed ul.sidebar-nav > li > a.collapsed span.caret {
+    border-top: 0;
+    border-bottom: 5px solid;
+}
+/* Side Nav active caret state */
+ul.sidebar-nav > li.active > a span.caret,
+body.sidebar-collapsed ul.sidebar-nav > li.active > a span.caret { 
+	color: #d9534f;
+}
+
+/* Open both menu title and Sub-menu on hover */
+ul.sidebar-nav li:hover ul,
+ul.sidebar-nav li:hover a,
+ul.sidebar-nav li:hover .sidebar-title,
+body.sidebar-collapsed ul.sidebar-nav li:hover ul,
+body.sidebar-collapsed ul.sidebar-nav li:hover a,
+body.sidebar-collapsed ul.sidebar-nav li:hover .sidebar-title {
+	display: block;
+}
+
+
+
+/* SIDEBAR OPEN STATE */
+/* Sidebar Fixed Settings */
+body.sidebar-persist #sidebar.affix > #sidebar-menu,
+body.sidebar-persist #sidebar.affix > #sidebar-search.hidden + #sidebar-menu {
+	overflow: auto;
+}
+
+/* Primary Content */
+body.sidebar-persist #content {
+	left: 190px;
+	margin-left: 40px;
+	position: relative;
+	-webkit-transition: left .1s ease-out;	
+	transition: left .1s ease-out;
+}
+body.sidebar-persist #content:after {
+	left: 190px;
+	margin-left: 40px;
+}
+/* Sidebar Column */
+body.sidebar-persist #sidebar {	
+	width: 230px; 
+	-webkit-transition: width .1s ease-out;
+	transition: width .1s ease-out;
+}
+body.sidebar-persist #sidebar:before { 
+	width: 230px;
+	-webkit-transition: width .1s ease-out;
+	transition: width .1s ease-out;
+}
+
+/* Sidebar Search Form */
+body.sidebar-persist #sidebar-search form {
+	width: 165px;
+	display: block;
+}
+
+/* Sidebar Collapse Toggle Button */
+body.sidebar-persist #sidebar-search .sidebar-toggle { margin-right: 0px; }
+
+/* Side Nav Icon */
+body.sidebar-persist ul.sidebar-nav > li > a .glyphicons { border-right: 1px solid #c9c9c9; }
+
+/* Side Nav Title */
+body.sidebar-persist ul.sidebar-nav > li > a .sidebar-title {
+	display: block;
+	top: -1px;
+	text-indent: 20px;
+	height: 46px;
+	background: transparent;
+	border-color: transparent;
+}
+
+/* Side Nav Sub-menu */
+body.sidebar-persist ul.sidebar-nav ul.sub-nav {
+    display: none;
+	width: auto;
+	position: relative;
+	left: 0;
+	border: 0;
+	border-bottom: 1px solid #c9c9c9;
+    background-color: #fafafa;
+}
+
+body.sidebar-persist ul.sidebar-nav li:hover ul { display: none; }
+
+body.sidebar-persist .accordion-toggle.menu-open + .sub-nav {
+	display: block;	
+}
+
+body.sidebar-persist ul.sidebar-nav ul.sub-nav > li > a,
+body.sidebar-persist ul.sidebar-nav ul.sub-nav > li:last-child a { 
+	padding-left: 35px; 
+}
+
+/* Side Nav Caret */
+body.sidebar-persist ul.sidebar-nav > li > a span.caret { display: block; }
+
+
+/* SIDEBAR STATE ON LARGE RESOLUTIONS */
+@media (min-width: 1200px) {
+	
+/* Sidebar Fixed Settings */
+#sidebar.affix > #sidebar-menu,
+#sidebar.affix > #sidebar-search.hidden + #sidebar-menu {
+	overflow-x: auto;
+}
+body.sidebar-collapsed #sidebar.affix > #sidebar-menu,
+body.sidebar-collapsed #sidebar.affix > #sidebar-search.hidden + #sidebar-menu {
+	overflow: visible;
+}
+
+/* Primary Content */	
+#content { 
+	margin-left: 200px; 
+
+}
+#content > .container {	padding: 25px 30px 50px 30px; }
+
+/* Sidebar Column */
+#sidebar { width: 200px; }
+#sidebar:before { width: 200px; }
+
+/* Sidebar Search Form */
+#sidebar-search form {
+	max-width: 140px;	
+	display: block;
+}
+
+/* Sidebar Collapse Toggle Button */
+#sidebar-search .sidebar-toggle { margin-right: 0; }
+
+
+ul.sidebar-nav > li > a .glyphicons { border-right: 1px solid #c9c9c9; }
+
+/* Side Nav Title */
+ul.sidebar-nav > li > a .sidebar-title {
+	display: block;
+	top: -1px;
+	text-indent: 20px;
+	height: 46px;
+	background: transparent;
+	border-color: transparent;
+}
+
+/* Sub-menu */
+ul.sidebar-nav ul.sub-nav {
+    display: none;
+	width: auto;
+	position: relative;
+	left: 0;
+	border: 0;
+	border-bottom: 1px solid #c9c9c9;
+    background-color: #fafafa;
+}
+
+ul.sidebar-nav li:hover ul { display: none; }
+
+.accordion-toggle.menu-open + .sub-nav {
+	display: block;	
+}
+
+
+ul.sidebar-nav ul.sub-nav > li > a,
+ul.sidebar-nav ul.sub-nav > li:last-child a {
+	 padding-left: 25px;
+}
+
+/* Side Nav Caret */
+ul.sidebar-nav > li > a span.caret {
+	display: block;
+}
+
+
+/* COLLAPSED STATE AT 1200 RESOLUTIONS */
+body.sidebar-collapsed ul.sidebar-nav > li > a .glyphicons {
+	border-right: 0;
+}
+
+}
+
+
+@media (min-width: 1450px) {
+	
+	#content {
+		margin-left: 240px;
+	}
+	#content > .container {
+		padding: 35px 35px 50px 45px; 
+	}
+	#sidebar {
+		width: 240px;
+	}
+	#sidebar:before {
+		width: 240px;
+	}
+	#sidebar-search form {
+		max-width: 175px;	
+	}
+	ul.sidebar-nav ul.sub-nav > li > a,
+	ul.sidebar-nav ul.sub-nav > li:last-child a {
+		 padding-left: 35px;
+	}
+	
+}
+
+
+
+/*---------------------------------------
+  XS VIEWPORT
+--------------------------------------*/
+
+@media (max-width: 665px) {
+	#topbar .breadcrumb {
+		float: none;
+		text-align: center;	
+	}
+}
+
+
+
+/*---------------------------------------
+   HEADER REPONSIVE STYLES
+--------------------------------------*/
+
+@media (max-width: 565px) {
+	.navbar-brand {
+		display: none;
+	}
+}
+
+
+
+/*---------------------------------------
+   DASHBOARD REPONSIVE STYLES
+--------------------------------------*/
+/* The frontpage console buttons are fluid which makes
+* them an asthetic challenge because they contain text
+* So we hide the search bar by default and only show it
+* on extra large screens (typical desktops 1368px and up) */
+
+#console-btns #console-search-btn {
+	display: none;
+}
+
+@media (min-width: 1368px) {
+	#console-btns .row > div {
+		width: 16.666666666666664%;
+	}
+	#console-btns #console-search-btn {
+		display: block;
+		width: 33.33333333333333%;
+	}
+}
+

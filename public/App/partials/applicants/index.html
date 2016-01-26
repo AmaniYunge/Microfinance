@@ -1,0 +1,201 @@
+<div class="col-md-12" ng-controller="applicantController as applicant">
+    <div class="panel">
+        <div class="panel-heading">
+            <div class="panel-title"> <i class="fa fa-table"></i> Manage Applicants </div>
+        </div>
+        <div class="panel-body">
+            <ul class="nav well-tabs well-tabs-inverse margin-bottom">
+                <li class="active"><a href="tabs.html#tab1" data-toggle="tab">All</a></li>
+                <li class=""><a href="tabs.html#tab2" data-toggle="tab">With Pending Applications</a></li>
+                <li class=""><a href="tabs.html#tab3" data-toggle="tab">With Loans</a></li>
+                <li class=""><a href="tabs.html#tab4" data-toggle="tab">Finished Paying Loans</a></li>
+                <li class=""><a href="tabs.html#tab5" data-toggle="tab">Declined Applications</a></li>
+            </ul>
+            <div class="tab-content border-none padding-none">
+                <div id="tab1" class="tab-pane active">
+
+
+                    <table class="table table-condensed" datatable="ng" dt-options="dtOptions">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Gender</th>
+                            <th>Birth Day</th>
+                            <th>Phone</th>
+                            <th>Residence</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="applicnt in applicant.appllicants">
+
+                            <td>{{$index+1}}</td>
+                            <td>{{applicnt.first_name}} {{applicnt.middle_name}} {{applicnt.last_name}}</td>
+                            <td>{{applicnt.gender}}</td>
+                            <td>{{applicnt.birth_date}}</td>
+                            <td>{{applicnt.phone}}</td>
+                            <td>{{applicnt.residence}}</td>
+                            <td  class=" ">
+                                <a href="#/applicant/{{applicnt.id}}" title="View Applicants Information" class="edituser"><i class="fa fa-list text-success"></i> info</a>&nbsp;&nbsp;&nbsp;
+                                <a href="#/applicant/{{applicnt.id}}/application" title="Add Loan Application" class="loanapp"><i class="fa fa-briefcase text-warning"></i> application</a>&nbsp;&nbsp;&nbsp;
+                                <a href="#/applicant/{{applicnt.id}}/edit" title="edit Staff" class="edituser"><i class="fa fa-pencil text-info"></i> edit</a>&nbsp;&nbsp;&nbsp;
+                                <a style="cursor: pointer;" ng-click="applicant.deleteLoanApplicant(applicnt.id)" title="delete Applicant" class="deleteapp"><i class="fa fa-trash-o text-danger"></i> delete</a>
+
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+                <div id="tab2" class="tab-pane">
+
+                    <table class="table table-condensed" datatable="ng" dt-options="dtOptions">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Gender</th>
+                            <th>Birth Day</th>
+                            <th>Phone</th>
+                            <th>Residence</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="applicnt in applicant.appllicants">
+
+                            <td>{{$index+1}}</td>
+                            <td>{{applicnt.first_name}} {{applicnt.middle_name}} {{applicnt.last_name}}</td>
+                            <td>{{applicnt.gender}}</td>
+                            <td>{{applicnt.birth_date}}</td>
+                            <td>{{applicnt.phone}}</td>
+                            <td>{{applicnt.residence}}</td>
+                            <td  class=" ">
+                                <a href="#/applicant/{{applicnt.id}}" title="View Applicants Information" class="edituser"><i class="fa fa-list text-success"></i> info</a>&nbsp;&nbsp;&nbsp;
+                                <a href="#/applicant/{{applicnt.id}}/application" title="Add Loan Application" class="loanapp"><i class="fa fa-briefcase text-warning"></i> application</a>&nbsp;&nbsp;&nbsp;
+                                <a href="#/applicant/{{applicnt.id}}/edit" title="edit Staff" class="edituser"><i class="fa fa-pencil text-info"></i> edit</a>&nbsp;&nbsp;&nbsp;
+                                <a style="cursor: pointer;" ng-click="applicant.deleteLoanApplicant(applicnt.id)" title="delete Applicant" class="deleteapp"><i class="fa fa-trash-o text-danger"></i> delete</a>
+
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+
+                </div>
+                <div id="tab3" class="tab-pane chat-panel ">
+
+                    <table class="table table-condensed" datatable="ng" dt-options="dtOptions">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Gender</th>
+                            <th>Birth Day</th>
+                            <th>Phone</th>
+                            <th>Residence</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="applicnt in applicant.appllicants">
+
+                            <td>{{$index+1}}</td>
+                            <td>{{applicnt.first_name}} {{applicnt.middle_name}} {{applicnt.last_name}}</td>
+                            <td>{{applicnt.gender}}</td>
+                            <td>{{applicnt.birth_date}}</td>
+                            <td>{{applicnt.phone}}</td>
+                            <td>{{applicnt.residence}}</td>
+                            <td  class=" ">
+                                <a href="#/applicant/{{applicnt.id}}" title="View Applicants Information" class="edituser"><i class="fa fa-list text-success"></i> info</a>&nbsp;&nbsp;&nbsp;
+                                <a href="#/applicant/{{applicnt.id}}/application" title="Add Loan Application" class="loanapp"><i class="fa fa-briefcase text-warning"></i> application</a>&nbsp;&nbsp;&nbsp;
+                                <a href="#/applicant/{{applicnt.id}}/edit" title="edit Staff" class="edituser"><i class="fa fa-pencil text-info"></i> edit</a>&nbsp;&nbsp;&nbsp;
+                                <a style="cursor: pointer;" ng-click="applicant.deleteLoanApplicant(applicnt.id)" title="delete Applicant" class="deleteapp"><i class="fa fa-trash-o text-danger"></i> delete</a>
+
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+
+                </div>
+                <div id="tab4" class="tab-pane chat-panel ">
+
+                    <table class="table table-condensed" datatable="ng" dt-options="dtOptions">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Gender</th>
+                            <th>Birth Day</th>
+                            <th>Phone</th>
+                            <th>Residence</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="applicnt in applicant.appllicants">
+
+                            <td>{{$index+1}}</td>
+                            <td>{{applicnt.first_name}} {{applicnt.middle_name}} {{applicnt.last_name}}</td>
+                            <td>{{applicnt.gender}}</td>
+                            <td>{{applicnt.birth_date}}</td>
+                            <td>{{applicnt.phone}}</td>
+                            <td>{{applicnt.residence}}</td>
+                            <td  class=" ">
+                                <a href="#/applicant/{{applicnt.id}}" title="View Applicants Information" class="edituser"><i class="fa fa-list text-success"></i> info</a>&nbsp;&nbsp;&nbsp;
+                                <a href="#/applicant/{{applicnt.id}}/application" title="Add Loan Application" class="loanapp"><i class="fa fa-briefcase text-warning"></i> application</a>&nbsp;&nbsp;&nbsp;
+                                <a href="#/applicant/{{applicnt.id}}/edit" title="edit Staff" class="edituser"><i class="fa fa-pencil text-info"></i> edit</a>&nbsp;&nbsp;&nbsp;
+                                <a style="cursor: pointer;" ng-click="applicant.deleteLoanApplicant(applicnt.id)" title="delete Applicant" class="deleteapp"><i class="fa fa-trash-o text-danger"></i> delete</a>
+
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+
+                </div>
+                <div id="tab5" class="tab-pane chat-panel ">
+
+                    <table class="table table-condensed" datatable="ng" dt-options="dtOptions">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Gender</th>
+                            <th>Birth Day</th>
+                            <th>Phone</th>
+                            <th>Residence</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="applicnt in applicant.appllicants">
+
+                            <td>{{$index+1}}</td>
+                            <td>{{applicnt.first_name}} {{applicnt.middle_name}} {{applicnt.last_name}}</td>
+                            <td>{{applicnt.gender}}</td>
+                            <td>{{applicnt.birth_date}}</td>
+                            <td>{{applicnt.phone}}</td>
+                            <td>{{applicnt.residence}}</td>
+                            <td  class=" ">
+                                <a href="#/applicant/{{applicnt.id}}" title="View Applicants Information" class="edituser"><i class="fa fa-list text-success"></i> info</a>&nbsp;&nbsp;&nbsp;
+                                <a href="#/applicant/{{applicnt.id}}/application" title="Add Loan Application" class="loanapp"><i class="fa fa-briefcase text-warning"></i> application</a>&nbsp;&nbsp;&nbsp;
+                                <a href="#/applicant/{{applicnt.id}}/edit" title="edit Staff" class="edituser"><i class="fa fa-pencil text-info"></i> edit</a>&nbsp;&nbsp;&nbsp;
+                                <a style="cursor: pointer;" ng-click="applicant.deleteLoanApplicant(applicnt.id)" title="delete Applicant" class="deleteapp"><i class="fa fa-trash-o text-danger"></i> delete</a>
+
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+
+                </div>
+            </div>
+        </div>
+        <!--<div class="panel-body">-->
+
+        <!--</div>-->
+    </div>
+</div>

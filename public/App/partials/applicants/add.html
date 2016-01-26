@@ -1,0 +1,81 @@
+<div class="col-md-12" ng-controller="applicantController as vm">
+    <div class="panel">
+        <div class="panel-heading">
+            <div class="panel-title"> <i class="fa fa-plus"></i> Register Applicants </div>
+        </div>
+        <div class="panel-body">
+            <form class="form-horizontal" role="form" ng-submit="vm.save(applicant)">
+              <div class="col-md-12">
+              <div class="col-md-5">
+                  <div class="form-group">
+                      <label for="first_name">First Name</label>
+                      <input id="first_name" name="first_name" type="text"   ng-model="applicant.first_name" class="form-control" placeholder="First Name" required="">
+                  </div>
+                  <div class="form-group">
+                      <label for="middle_name">Middle Name</label>
+                      <input id="middle_name" name="middle_name" type="text" ng-model="applicant.middle_name" class="form-control" placeholder="Middle Name" required="">
+                  </div>
+                  <div class="form-group">
+                      <label for="last_name">Last Name</label>
+                      <input id="last_name" name="last_name" type="text" ng-model="applicant.last_name" class="form-control" placeholder="Last Name" required="">
+                  </div>
+                  <div class="form-group">
+                      <label for="gender">Gender</label>
+                      <select id="gender" name="gender" ng-model="applicant.gender" class="form-control">
+                          <option>Male</option>
+                          <option>Female</option>
+                      </select>
+                  </div>
+                  <div class="form-group">
+                      <label for="birth_date">Birth Date</label>
+
+                          <input datepicker id="birth_date" name="birth_date" type="text" ng-model="applicant.birth_date" class="form-control" placeholder="Birth Date" required="">
+
+
+                  </div>
+              </div>
+                  <div class="col-md-2"></div>
+              <div class="col-md-5">
+                  <div class="form-group">
+                      <label for="phone">Phone</label>
+                      <input id="phone" name="phone" type="text"  ng-model="applicant.phone"  class="form-control" placeholder="Phone" required="">
+                  </div>
+                  <div class="form-group">
+                      <label for="postal_address">Postal Address</label>
+                      <input id="postal_address" name="postal_address" type="text"  ng-model="applicant.postal_address"   class="form-control" placeholder="Postal Address" required="">
+                  </div>
+                  <div class="form-group">
+                      <label for="marital_status">Marital Status</label>
+                      <select id="marital_status" name="marital_status" type="text"  ng-model="applicant.marital_status"   class="form-control" placeholder="Marital Status" required="">
+                          <option>Single</option>
+                          <option>Married</option>
+                          <option>Divorced</option>
+                          <option>Widow</option>
+                      </select>
+                  </div>
+                  <div class="form-group">
+                      <label for="residence">Residence</label>
+                      <input id="residence" name="residence" type="text"  ng-model="applicant.residence" class="form-control" placeholder="Residence" required="">
+                  </div>
+                  <div class="form-group">
+                      <label for="birth_date">Family Size</label>
+                      <input id="family_size" name="family_size" type="text"  ng-model="applicant.family_size"  class="form-control" placeholder="Family Size" required="">
+                  </div>
+              </div>
+              </div>
+                <div class="col-md-12">
+                    <div class="col-md-6 col-lg-offset-3">
+                        <div class="col-sm-12 form-group text-center">
+                            <input class="btn btn-primary"  type="submit" value="Register">
+                            <input class="btn btn-warning"  type="reset" value="Reset">
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div class="col-md-12">
+                <div class="alert alert-success " ng-if="success">Applicant <b> {{current.first_name}} {{current.middle_name}} {{current.last_name}}  </b> Registered Successfully.</div>
+                <div class="alert alert-warning" ng-if="failure">Applicant <b> {{current.first_name}} {{current.middle_name}} {{current.last_name}}  </b> Fail Registration.</div>
+            </div>
+        </div>
+    </div>
+</div>

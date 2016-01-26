@@ -1,0 +1,138 @@
+<div class="row" ng-controller="companyController as comp">
+
+    <div class="{{decidedClass}}" >
+        <div class="panel">
+            <div class="panel-heading">
+                <div class="panel-title"> <i class="fa fa-table"></i> Company Start Capital </div>
+                <div class="panel-field pull-right">
+                    <a ng-click="injectCapital()" class="btn btn-sm btn-primary" >Inject Capital</a>
+                </div>
+            </div>
+            <div class="panel-body">
+                <ul class="nav well-tabs well-tabs-inverse margin-bottom">
+                </ul>
+                <div class="tab-content border-none padding-none">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel">
+                                <div  class="tab-pane active">
+                                    <div id="datatable_2_wrapper" class="dataTables_wrapper form-inline" role="grid"><div class="row"><div class="col-sm-12 datatables-toolbar"><div class="pull-right"></div><div class="pull-left"></div><div class="clearfix"></div></div></div>
+                                        <table class="table table-widget table-striped table-checklist dataTable" id="datatable_2">
+                                            <thead>
+                                            <tr role="row">
+                                                <th class="sorting_asc" role="columnheader" tabindex="0" aria-controls="datatable_2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Task: activate to sort column descending">
+                                                    Date
+                                                </th>
+                                                <th class="sorting" role="columnheader" tabindex="0" aria-controls="datatable_2" rowspan="1" colspan="1" aria-label="Progress: activate to sort column ascending">
+                                                    Title
+                                                </th>
+                                                <th class="sorting_disabled" role="columnheader" rowspan="1" colspan="1" aria-label="">
+                                                    Amount
+                                                </th>
+                                            </tr>
+                                            </thead>
+
+                                            <tbody role="alert" aria-live="polite" aria-relevant="all">
+                                            <tr class="odd">
+                                                <td class="text-slash  sorting_1">
+                                                    {{company.created_at}}
+                                                </td>
+                                                <td class=" ">
+                                                    {{company.source_type}}
+                                                </td>
+                                                <td class=" ">
+                                                    {{company.amount}}&nbsp;&nbsp;<input ng-model="start_amount" ng-if="edit" type="text">
+                                                    <!--<a ng-click="editStartCapital()" ng-if="!edit"><i class="fa fa-edit"></i>edit</a>-->
+                                                    <!--<a ng-click="updateStartCapital(start_amount)" ng-if="edit"><i class="fa fa-plus"></i>edit</a>-->
+                                                </td>
+                                            </tr>
+                                            <tr class="odd" ng-repeat="capital in capitals" ng-if="capital.source_type!=company.source_type">
+                                                <td class="text-slash  sorting_1">
+                                                    {{capital.created_at}}
+                                                </td>
+                                                <td class=" ">
+                                                    {{capital.source_type}}
+                                                </td>
+                                                <td class=" ">
+                                                    {{capital.amount}}&nbsp;&nbsp;<input ng-model="start_amount" ng-if="edit" type="text">
+                                                    <a ng-click="editStartCapital()" ng-if="!edit"><i class="fa fa-edit"></i>edit</a>
+                                                    <a ng-click="updateStartCapital(start_amount)" ng-if="edit"><i class="fa fa-plus"></i>edit</a>
+                                                </td>
+                                            </tr>
+                                            <!--<tr class="odd">-->
+                                                <!--<td class="text-slash  sorting_1">-->
+                                                    <!--{{companyAcc.updated_at}}-->
+                                                <!--</td>-->
+                                                <!--<td class=" ">-->
+                                                    <!--{{companyAcc.source_type}}-->
+                                                <!--</td>-->
+                                                <!--<td class=" ">-->
+                                                    <!--{{companyAcc.amount}}-->
+                                                <!--</td>-->
+                                            <!--</tr>-->
+                                            </tbody>
+                                        </table>
+                                        <div class="row">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--<div class="panel-body">-->
+
+        <!--</div>-->
+    </div>
+
+    <div class="col-md-4"  ng-if="formOpen" >
+        <div class="panel">
+            <div class="panel-heading">
+                <div class="panel-title"> <i class="fa fa-table"></i> Company Start Capital </div>
+                <div class="panel-field pull-right">
+                    <a ng-click="closeInjectCapital()" class="btn btn-sm btn-primary" >Close</a>
+                </div>
+            </div>
+            <div class="panel-body">
+                <ul class="nav well-tabs well-tabs-inverse margin-bottom">
+                </ul>
+                <div class="tab-content border-none padding-none">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form class="form-horizontal" role="form" ng-submit="saveCapital(capital)">
+                                <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="type">Capital Type</label>
+                                            <select id="type" ng-model="capital.source_type" class="form-control" >
+                                                <option>Cash</option>
+                                                <option>Loan</option>
+                                            </select>
+
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="amount">Amount</label>
+                                            <input pattern="\d+" id="amount" name="amount" type="text" ng-model="capital.amount" class="form-control" placeholder="Amount" required="">
+                                        </div>
+                                </div>
+                                <div class="col-md-12">
+                                        <div class="col-sm-12 form-group text-center">
+                                            <input class="btn btn-primary"  type="submit" value="Register">
+                                            <input class="btn btn-warning"  type="reset" value="Reset">
+                                        </div>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--<div class="panel-body">-->
+
+        <!--</div>-->
+    </div>
+</div>
+</div>

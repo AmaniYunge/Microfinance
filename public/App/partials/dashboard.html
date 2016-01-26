@@ -1,0 +1,214 @@
+<div class="row" ng-controller="dashboardController">
+    <div class="col-md-12">
+        <div id="console-btns">
+            <div class="row">
+                <div class="col-sm-6 col-md-3">
+                    <div class="console-btn">
+                        <div class="console-icon divider-right"> <span class="glyphicons glyphicons-cardio"></span> </div>
+                        <div class="console-text">
+                            <a ng-href="#/applicants/manage">
+                            <div class="console-title">Applicants</div>
+                            <div class="console-subtitle">View More <i class="fa fa-caret-right"></i> </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="console-btn">
+                        <div class="console-icon divider-right"> <span class="glyphicons glyphicons-print"></span> </div>
+                        <div class="console-text">
+                            <a ng-href="#/applicants/manage">
+                            <div class="console-title">Granted Loan</div>
+                            <div class="console-subtitle">View More <i class="fa fa-caret-right"></i> </div>
+                            </a>
+                        </div>
+                    </div>
+                </div> <div class="col-sm-6 col-md-3">
+                    <div class="console-btn">
+                        <div class="console-icon divider-right"> <span class="glyphicons glyphicons-print"></span> </div>
+                        <div class="console-text">
+                            <div class="console-title">Reports</div>
+                            <div class="console-subtitle">View More <i class="fa fa-caret-right"></i> </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="console-btn">
+                        <div class="console-icon divider-right"> <span class="glyphicons glyphicons-security_camera"></span> </div>
+                        <div class="console-text">
+                            <div class="console-title">Settings</div>
+                            <div class="console-subtitle">View More <i class="fa fa-caret-right"></i> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<hr class="short margin-top-none">
+<div class="row">
+<div class="col-md-12">
+<div class="row">
+<div class="col-md-6">
+    <div class="panel">
+        <div class="panel-heading">
+            <div class="panel-title"> <i class="fa fa-pie-chart"></i> Loan Distribution {{currentYear}}</div>
+        </div>
+        <div class="panel-body">
+            <highchart id="chart1" config="chartConfigPie"></highchart>
+        </div>
+        <div class="panel-footer">
+            <div class="row">
+                <div class="col-xs-4 col-sm-3 text-center">
+                    <div class="chart-btn">
+                        <div class="chart-text" >
+                            <div class="chart-title" style="color:#7CB5EC!important;">{{totalApplicatnts}}</div>
+                            <div class="chart-subtitle" style="color:#7CB5EC!important;">Applied</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-4 col-sm-3 text-center">
+                    <div class="chart-btn">
+                         <div class="chart-text">
+                            <div class="chart-title" style="color:#434348!important;">{{grantedApplicatnts}}</div>
+                            <div class="chart-subtitle" style="color:#434348!important;">Granted</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-4 col-sm-3 text-center">
+                    <div class="chart-btn">
+                        <div class="chart-text">
+                            <div class="chart-title" style="color:#90ED7D;">{{finisheddApplicatnts}}</div>
+                            <div class="chart-subtitle" style="color:#90ED7D;">Paid</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hidden-xs col-sm-3 text-center">
+                    <div class="chart-btn">
+                        <div class="chart-text" >
+                            <div class="chart-title" style="color:#F7A35C!important;">{{deniedddApplicatnts}}</div>
+                            <div class="chart-subtitle" style="color:#F7A35C!important;">Denied</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-md-6">
+    <div class="panel">
+        <div class="panel-heading">
+            <div class="panel-title"> <i class="fa fa-line-chart"></i> Monthly Average Loan Distribution</div>
+        </div>
+        <div class="panel-body">
+            <highchart id="chart1" config="chartConfigLine"></highchart>
+        </div>
+        <div class="panel-footer">
+            <div class="row">
+                <div class="col-xs-4 col-sm-3 text-center">
+                    <div class="chart-btn">
+                        <div class="chart-text">
+                            <div class="chart-title">{{maxStatistics.appllied}}</div>
+                            <div class="chart-subtitle">Max. Applied ({{maxStatistics.appliedMonth}})</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-4 col-sm-3 text-center">
+                    <div class="chart-btn">
+                        <div class="chart-text">
+                            <div class="chart-title">{{maxStatistics.granted}}</div>
+                            <div class="chart-subtitle">Max. Granted ({{maxStatistics.grantedMonth}})</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-4 col-sm-3 text-center">
+                    <div class="chart-btn">
+                        <div class="chart-text">
+                            <div class="chart-title">{{maxStatistics.paid}}</div>
+                            <div class="chart-subtitle">Max. Paid ({{maxStatistics.paidMonth}})</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hidden-xs col-sm-3 text-center">
+                    <div class="chart-btn">
+                        <div class="chart-text">
+                            <div class="chart-title">{{maxStatistics.denied}}</div>
+                            <div class="chart-subtitle">Max. Denied ({{maxStatistics.deniedMonth}})</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+<div class="col-md-12">
+    <div class="panel">
+        <div class="panel-heading">
+            <div class="panel-title"> <i class="fa fa-retweet"></i> Recent Activities ( since last {{days_span}} days )</div>
+            <ul class="nav panel-tabs">
+                <li class="{{active_tab_1}}"><a ng-click="changeClass(1)" data-toggle="tab" style="cursor:pointer;">Transactions</a></li>
+                <li class="{{active_tab_2}}"><a ng-click="changeClass(2)" data-toggle="tab2" style="cursor:pointer;">Loan Applications</a></li>
+            </ul>
+        </div>
+        <div class="panel-body">
+            <div class="tab-content padding-none border-none">
+                <div ng-if="tab==1" class="tab-pane {{active_tab_1}}">
+                    <table class="table table-widget table-striped table-checklist" id="datatable">
+                        <thead>
+                        <tr>
+                            <th>Transaction Type</th>
+                            <th>Transaction Name</th>
+                            <th>Amount</th>
+                            <th>User</th>
+                            <th>Time Happened</th>
+                        </tr>
+                        </thead>
+                        <!--{{recent_transactions}}-->
+                        <tbody>
+                        <tr ng-repeat="transaction in recent_transactions">
+                            <td>{{recent_transactions[$index].transaction_type}}</td>
+                            <td ng-if="recent_transactions[$index].expenses">{{recent_transactions[$index].expenses.name}}</td>
+                            <td ng-if="recent_transactions[$index].liabilities">{{recent_transactions[$index].liabilities.name}}</td>
+                            <td>
+                                {{recent_transactions[$index].amount}}
+                            </td>
+                            <td>{{recent_transactions[$index].created_by}}</td>
+                            <td>{{recent_transactions[$index].created_at}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div ng-if="tab==2" class="tab-pane {{active_tab_2}}">
+                    <table class="table table-striped table-widget table-checklist" >
+                        <thead>
+                        <tr>
+                            <th>Applicant</th>
+                            <th>Loan Type</th>
+                            <th>Amount</th>
+                            <th>User</th>
+                            <th>Time Happened</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr ng-repeat="recent_transaction in recent_applications">
+                            <td>{{recent_transaction.applicants.first_name}} {{recent_transaction.applicants.middle_name}} {{recent_transaction.applicants.last_name}}</td>
+                            <td>{{recent_transaction.loan.name}}</td>
+                            <td>{{recent_transaction.applied_amount}}</td>
+                            <td>{{recent_transaction.created_by}}</td>
+                            <td>{{recent_transaction.created_at}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+
+</div>

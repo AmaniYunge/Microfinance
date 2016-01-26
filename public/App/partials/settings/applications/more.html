@@ -1,0 +1,232 @@
+<div class="col-md-6" ng-controller="applicationController">
+    <div class="panel profile-panel">
+        <div class="panel-heading panel-visible">
+            <div class="panel-title"> <i class="fa fa-user"></i> Application Information</div>
+
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="profile-data">
+                        <table class="table table-widget table-checklist" >
+                            <thead>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>Applied Amount</td>
+                                <td>{{applicationInfo.applied_amount}}</td>
+                            </tr>
+                            <tr>
+                                <td>Granted Amount</td>
+                                <td>{{applicationInfo.granted_amount}}</td>
+                            </tr>
+                            <tr>
+                                <td>Status</td>
+                                <td>{{applicationInfo.status}}</td>
+                            </tr>
+                            <tr>
+                                <td>Collateral</td>
+                                <td>{{applicationInfo.collateral}}</td>
+                            </tr>
+                            <tr>
+                                <td>Collateral Value</td>
+                                <td>{{applicationInfo.collateral_value}}</td>
+                            </tr>
+                            <tr>
+                                <td>Date Applied</td>
+                                <td>{{applicationInfo.created_at}}</td>
+                            </tr>
+                            <tr>
+                                <td>Comments</td>
+                                <td>{{applicationInfo.comments}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+<div class="col-md-6">
+    <div class="panel profile-panel">
+        <div class="panel-heading panel-visible">
+            <div class="panel-title"> <i class="fa fa-user"></i> Applicant Information</div>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="profile-data">
+                        <table class="table table-widget table-checklist" >
+                            <thead>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>First Name</td>
+                                <td>{{applicationInfo.applicants.first_name}}</td>
+                            </tr>
+                            <tr>
+                                <td>Middle Name</td>
+                                <td>{{applicationInfo.applicants.middle_name}}</td>
+                            </tr>
+                            <tr>
+                                <td>Last Name</td>
+                                <td>{{applicationInfo.applicants.last_name}}</td>
+                            </tr>
+                            <tr>
+                                <td>Gender</td>
+                                <td>{{applicationInfo.applicants.gender}}</td>
+                            </tr>
+                            <tr>
+                                <td>Birth Day</td>
+                                <td>{{applicationInfo.applicants.birth_date}}</td>
+                            </tr>
+                            <tr>
+                                <td>Marital Status</td>
+                                <td>{{applicationInfo.applicants.marital_status}}</td>
+                            </tr>
+                            <tr>
+                                <td>Family Size</td>
+                                <td>{{applicationInfo.applicants.family_size}}</td>
+                            </tr>
+                            <tr>
+                                <td>Phone</td>
+                                <td>{{applicationInfo.applicants.phone}}</td>
+                            </tr>
+                            <tr>
+                                <td>Postal Address</td>
+                                <td>{{applicationInfo.applicants.postal_address}}</td>
+                            </tr>
+                            <tr>
+                                <td>Residence</td>
+                                <td>{{applicationInfo.applicants.residence}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix">{{applicant}}</div>
+        </div>
+    </div>
+</div>
+<div class="col-md-6">
+    <div class="panel profile-panel">
+        <div class="panel-heading panel-visible">
+            <div class="panel-title"> <i class="fa fa-user"></i>Sponsor Information</div>
+
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-xs-6" >
+                    <h4>Application Information</h4>
+                </div>
+                <div class="col-xs-6" style="text-align: right">
+                    <h4>{{applicant.applications[0].created_at}}</h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12" >
+                    <table class="table table-widget table-checklist" >
+                        <thead>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>First Name</td>
+                            <td>{{applicationInfo.sponsor.first_name}}</td>
+                        </tr>
+                        <tr>
+                            <td>Middle Name</td>
+                            <td>{{applicationInfo.sponsor.middle_name}}</td>
+                        </tr>
+                        <tr>
+                            <td>Last Name</td>
+                            <td>{{applicationInfo.sponsor.last_name}}</td>
+                        </tr>
+                        <tr>
+                            <td>Gender</td>
+                            <td>{{applicationInfo.sponsor.gender}}</td>
+                        </tr>
+                        <tr>
+                            <td>Birth Day</td>
+                            <td>{{applicationInfo.sponsor.birth_date}}</td>
+                        </tr>
+                        <tr>
+                            <td>Phone</td>
+                            <td>{{applicationInfo.sponsor.phone}}</td>
+                        </tr>
+                        <tr>
+                            <td>Postal Address</td>
+                            <td>{{applicationInfo.sponsor.postal_address}}</td>
+                        </tr>
+                        <tr>
+                            <td>Residence</td>
+                            <td>{{applicationInfo.sponsor.residence}}</td>
+                        </tr>
+                        <tr>
+                            <td>Occupation</td>
+                            <td>{{applicationInfo.sponsor.occupation}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+<div class="col-md-6">
+    <div class="panel profile-panel">
+        <div class="panel-heading panel-visible">
+            <div class="panel-title"> <i class="fa fa-user"></i>Loan Information</div>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-xs-12">
+                    <table class="table table-widget table-checklist" >
+                        <thead>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>Loan Name</td>
+                            <td>{{applicationInfo.loan.name}}</td>
+                        </tr>
+                        <tr>
+                            <td>Minimum Amount</td>
+                            <td>{{applicationInfo.loan.minimum_amount}}</td>
+                        </tr>
+                        <tr>
+                            <td>Maximum Amount</td>
+                            <td>{{applicationInfo.loan.maximum_amount}}</td>
+                        </tr>
+                        <tr>
+                            <td>Minimum Return Time</td>
+                            <td>{{applicationInfo.loan.min_return_time}}</td>
+                        </tr>
+                        <tr>
+                            <td>Maximum Return Time</td>
+                            <td>{{applicationInfo.loan.max_return_time}}</td>
+                        </tr>
+                        <tr>
+                            <td>Collateral</td>
+                            <td>{{applicationInfo.loan.collateral}}</td>
+                        </tr>
+                        <tr>
+                            <td>Comments</td>
+                            <td>{{applicationInfo.loan.comments}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+
+    </div>
+</div>

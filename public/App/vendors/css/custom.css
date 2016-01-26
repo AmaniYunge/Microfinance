@@ -1,0 +1,34 @@
+/* Author: Louis Holladay
+ * Website: AdminDesigns.com
+ * Last Updated: 01/12/14 
+ 
+ * This file is reserved for changes made by 
+ * the user. It's often times a good idea to 
+ * seperate your changes from the themes core.
+ * It makes modifications, and future theme
+ * updates much easier to apply.
+-----------------------------------------------*/
+
+
+/* These styles have been placed here for as 
+ * they have a high chance of needing to be
+ * changed if one decides to modify the header
+-----------------------------------------------*/
+
+/* navbar bottom border disabled by default */
+.navbar {
+	border-bottom: 1px solid transparent;
+}
+/* header button states - text colors */
+.header-btns > div > button:focus {
+	color: #666;
+}
+.header-btns > div > button:hover {
+	color: #0094d2;
+}
+
+/*---------------------------------------------
+ * Place your custom styles or styles which 
+ * have been generated with the customization 
+ * tool below this line. 
+----------------------------------------------*/

@@ -1,0 +1,241 @@
+<div class="col-md-12" ng-controller="applicantController as applicant">
+    <div class="panel">
+        <div class="panel-heading">
+            <div class="panel-title"> <i class="fa fa-table"></i> Loan Applications </div>
+        </div>
+        <div class="panel-body">
+            <ul class="nav well-tabs well-tabs-inverse margin-bottom">
+                <li class="active"><a href="tabs.html#tab1" data-toggle="tab">All</a></li>
+                <li class=""><a href="tabs.html#tab2" data-toggle="tab">Pending Applications</a></li>
+                <li class=""><a href="tabs.html#tab3" data-toggle="tab">Granted Applications</a></li>
+                <li class=""><a href="tabs.html#tab4" data-toggle="tab">With Finished Paying Loans</a></li>
+                <li class=""><a href="tabs.html#tab5" data-toggle="tab">Decline Applications</a></li>
+            </ul>
+            <div class="tab-content border-none padding-none">
+                <div id="tab1" class="tab-pane active">
+
+
+                    <table class="table table-condensed" datatable="ng" dt-options="dtOptions">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Applicant Name</th>
+                            <th>Sponsor Name</th>
+                            <th>Loan Applied</th>
+                            <th>Amount Applied</th>
+                            <!--<th>Amount Granted</th>-->
+                            <th>Date Applied</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="application in appllications">
+
+                            <td>{{$index+1}}</td>
+                            <td>{{application.applicants.first_name}} {{application.applicants.middle_name}} {{application.applicants.last_name}}</td>
+                            <td>{{application.sponsor.first_name}} {{application.sponsor.middle_name}} {{application.sponsor.last_name}}</td>
+                            <td>{{application.loan.name}}</td>
+                            <td>{{application.applied_amount}}</td>
+                            <!--<td>{{application.granted_amount}}</td>-->
+                            <!--<td>{{application.status}}</td>-->
+                            <!--<td>{{application.collateral}}</td>-->
+                            <!--<td>{{application.collateral_value}}</td>-->
+                            <td>{{application.created_at}}</td>
+                            <td  class=" ">
+                                <a href="#/settings/applications/{{application.id}}/more" title="View Application Information" class="edituser"><i class="fa fa-list text-success"></i> info</a>&nbsp;&nbsp;&nbsp;
+                                <a href="#/settings/applications/{{application.id}}/{{application.applicants.id}}/grant" title="Grant Loan " class="loanapp"><i class="fa fa-money text-warning"></i> grant</a>&nbsp;&nbsp;&nbsp;
+                                <a style="cursor: pointer;" ng-if="application.status=='pending'" ng-click="declineApplication(application.id)" title="edit Staff" class="edituser"><i class="fa fa-times  text-danger"></i> decline</a>
+                                <a style="cursor: pointer;" ng-if="application.status=='declined'" ng-click="acceptDeclinedApplication(application.id)" title="edit Staff" class="edituser"><i class="fa fa-thumbs-up  text-info"></i> accept</a>
+
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+                <div id="tab2" class="tab-pane">
+
+
+                    <table class="table table-condensed" datatable="ng" dt-options="dtOptions">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Applicant Name</th>
+                            <th>Sponsor Name</th>
+                            <th>Loan Applied</th>
+                            <th>Amount Applied</th>
+                            <!--<th>Amount Granted</th>-->
+                            <!--<th>Status</th>-->
+                            <!--<th>Collateral</th>-->
+                            <!--<th>Collatteral Value</th>-->
+                            <th>Date Applied</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="application in appllications | filterApplicationStatus:'pending'">
+
+                            <td>{{$index+1}}</td>
+                            <td>{{application.applicants.first_name}} {{application.applicants.middle_name}} {{application.applicants.last_name}}</td>
+                            <td>{{application.sponsor.first_name}} {{application.sponsor.middle_name}} {{application.sponsor.last_name}}</td>
+                            <td>{{application.loan.name}}</td>
+                            <td>{{application.applied_amount}}</td>
+                            <!--<td>{{application.granted_amount}}</td>-->
+                            <!--<td>{{application.status}}</td>-->
+                            <!--<td>{{application.collateral}}</td>-->
+                            <!--<td>{{application.collateral_value}}</td>-->
+                            <td>{{application.created_at}}</td>
+                            <td  class=" ">
+                                <a href="#/settings/applications/{{application.id}}/more" title="View Application Information" class="edituser"><i class="fa fa-list text-success"></i> info</a>&nbsp;&nbsp;&nbsp;
+                                <a href="#/settings/applications/{{application.id}}/{{application.applicants.id}}/grant" title="Grant Loan " class="loanapp"><i class="fa fa-money text-warning"></i> grant</a>&nbsp;&nbsp;&nbsp;
+                                <a style="cursor: pointer;" ng-if="application.status=='pending'" ng-click="declineApplication(application.id)" title="edit Staff" class="edituser"><i class="fa fa-times  text-danger"></i> decline</a>
+                                <a style="cursor: pointer;" ng-if="application.status=='declined'" ng-click="acceptDeclinedApplication(application.id)" title="edit Staff" class="edituser"><i class="fa fa-thumbs-up  text-info"></i> accept</a>
+
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+                <div id="tab3" class="tab-pane chat-panel ">
+
+
+
+                    <table class="table table-condensed" datatable="ng" dt-options="dtOptions">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Applicant Name</th>
+                            <th>Sponsor Name</th>
+                            <th>Loan Applied</th>
+                            <th>Amount Applied</th>
+                            <th>Amount Granted</th>
+                            <!--<th>Status</th>-->
+                            <!--<th>Collateral</th>-->
+                            <!--<th>Collatteral Value</th>-->
+                            <th>Date Applied</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="application in appllications | filterApplicationStatus:'granted'">
+
+                            <td>{{$index+1}}</td>
+                            <td>{{application.applicants.first_name}} {{application.applicants.middle_name}} {{application.applicants.last_name}}</td>
+                            <td>{{application.sponsor.first_name}} {{application.sponsor.middle_name}} {{application.sponsor.last_name}}</td>
+                            <td>{{application.loan.name}}</td>
+                            <td>{{application.applied_amount}}</td>
+                            <td>{{application.granted_amount}}</td>
+                            <!--<td>{{application.status}}</td>-->
+                            <!--<td>{{application.collateral}}</td>-->
+                            <!--<td>{{application.collateral_value}}</td>-->
+                            <td>{{application.created_at}}</td>
+                            <td  class=" ">
+                                <a href="#/settings/applications/{{application.id}}/more" title="View Application Information" class="edituser"><i class="fa fa-list text-success"></i> info</a>&nbsp;&nbsp;&nbsp;
+                                <a href="#/settings/applications/{{application.id}}/{{application.applicants.id}}/grant" title="Grant Loan " class="loanapp"><i class="fa fa-money text-warning"></i> grant</a>&nbsp;&nbsp;&nbsp;
+                                <a style="cursor: pointer;" ng-if="application.status=='pending'" ng-click="declineApplication(application.id)" title="edit Staff" class="edituser"><i class="fa fa-times  text-danger"></i> decline</a>
+                                <a style="cursor: pointer;" ng-if="application.status=='declined'" ng-click="acceptDeclinedApplication(application.id)" title="edit Staff" class="edituser"><i class="fa fa-thumbs-up  text-info"></i> accept</a>
+
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+
+                </div>
+                <div id="tab4" class="tab-pane chat-panel ">
+
+
+
+                    <table class="table table-condensed" datatable="ng" dt-options="dtOptions">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Applicant Name</th>
+                            <th>Sponsor Name</th>
+                            <th>Loan Applied</th>
+                            <th>Amount Applied</th>
+                            <!--<th>Amount Granted</th>-->
+                            <!--<th>Status</th>-->
+                            <!--<th>Collateral</th>-->
+                            <!--<th>Collatteral Value</th>-->
+                            <th>Date Applied</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="application in appllications | filterApplicationStatus:'finished'">
+
+                            <td>{{$index+1}}</td>
+                            <td>{{application.applicants.first_name}} {{application.applicants.middle_name}} {{application.applicants.last_name}}</td>
+                            <td>{{application.sponsor.first_name}} {{application.sponsor.middle_name}} {{application.sponsor.last_name}}</td>
+                            <td>{{application.loan.name}}</td>
+                            <td>{{application.applied_amount}}</td>
+                            <!--<td>{{application.granted_amount}}</td>-->
+                            <!--<td>{{application.status}}</td>-->
+                            <!--<td>{{application.collateral}}</td>-->
+                            <!--<td>{{application.collateral_value}}</td>-->
+                            <td>{{application.created_at}}</td>
+                            <td  class=" ">
+                                <a href="#/settings/applications/{{application.id}}/more" title="View Application Information" class="edituser"><i class="fa fa-list text-success"></i> info</a>&nbsp;&nbsp;&nbsp;
+                                <a href="#/settings/applications/{{application.id}}/{{application.applicants.id}}/grant" title="Grant Loan " class="loanapp"><i class="fa fa-money text-warning"></i> grant</a>&nbsp;&nbsp;&nbsp;
+                                <a style="cursor: pointer;" ng-if="application.status=='pending'" ng-click="declineApplication(application.id)" title="edit Staff" class="edituser"><i class="fa fa-times  text-danger"></i> decline</a>
+                                <a style="cursor: pointer;" ng-if="application.status=='declined'" ng-click="acceptDeclinedApplication(application.id)" title="edit Staff" class="edituser"><i class="fa fa-thumbs-up  text-info"></i> accept</a>
+
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+                <div id="tab5" class="tab-pane chat-panel ">
+
+
+                    <table class="table table-condensed" datatable="ng" dt-options="dtOptions">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Applicant Name</th>
+                            <th>Sponsor Name</th>
+                            <th>Loan Applied</th>
+                            <th>Amount Applied</th>
+                            <!--<th>Amount Granted</th>-->
+                            <!--<th>Status</th>-->
+                            <!--<th>Collateral</th>-->
+                            <!--<th>Collatteral Value</th>-->
+                            <th>Date Applied</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="application in appllications | filterApplicationStatus:'declined'">
+
+                            <td>{{$index+1}}</td>
+                            <td>{{application.applicants.first_name}} {{application.applicants.middle_name}} {{application.applicants.last_name}}</td>
+                            <td>{{application.sponsor.first_name}} {{application.sponsor.middle_name}} {{application.sponsor.last_name}}</td>
+                            <td>{{application.loan.name}}</td>
+                            <td>{{application.applied_amount}}</td>
+                            <!--<td>{{application.granted_amount}}</td>-->
+                            <!--<td>{{application.status}}</td>-->
+                            <!--<td>{{application.collateral}}</td>-->
+                            <!--<td>{{application.collateral_value}}</td>-->
+                            <td>{{application.created_at}}</td>
+                            <td  class=" ">
+                                <a href="#/settings/applications/{{application.id}}/more" title="View Application Information" class="edituser"><i class="fa fa-list text-success"></i> info</a>&nbsp;&nbsp;&nbsp;
+                                <a href="#/settings/applications/{{application.id}}/{{application.applicants.id}}/grant" title="Grant Loan " class="loanapp"><i class="fa fa-money text-warning"></i> grant</a>&nbsp;&nbsp;&nbsp;
+                                <a style="cursor: pointer;" ng-if="application.status=='pending'" ng-click="declineApplication(application.id)" title="edit Staff" class="edituser"><i class="fa fa-times  text-danger"></i> decline</a>
+                                <a style="cursor: pointer;" ng-if="application.status=='declined'" ng-click="acceptDeclinedApplication(application.id)" title="edit Staff" class="edituser"><i class="fa fa-thumbs-up  text-info"></i> accept</a>
+
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+        <!--<div class="panel-body">-->
+
+        <!--</div>-->
+    </div>
+</div>

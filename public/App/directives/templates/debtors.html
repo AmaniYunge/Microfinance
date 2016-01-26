@@ -1,0 +1,19 @@
+<br/>
+<br/>
+<br/>
+<table class="table table-bordered table-widget" ng-repeat="debtor in debtors">
+    <caption class="text-center"><h4>{{getApplicantName(debtor.applicant_id,applicants)}}</h4></caption>
+    <thead>
+    <tr>
+        <th style="width: 100px!important;">Date</th>
+        <th>Particulars</th>
+        <th>DR</th>
+        <th>Particulars</th>
+        <th>CR</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ><td>{{debtor.date|toHumaReadable}}</td><td>Cash</td><td style="text-align: right;">{{debtor.loaned_amount}}</td><td >Debtors</td><td style="text-align: right;">{{debtor.loaned_amount}}</td></tr>
+    <tr ><th ></th><th ></th><th style="border-bottom: 3px double #CCCCCC!important;border-top: 2px solid #CCCCCC!important;text-align: right;">{{debtor.loaned_amount}}</th><th ></th><th style="border-bottom: 3px double #CCCCCC!important;border-top: 2px solid #CCCCCC!important;text-align: right;">{{debtor.loaned_amount}}</th></tr>
+    </tbody>
+</table>

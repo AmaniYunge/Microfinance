@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html ng-app="microfinanceApp">
+<head>
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <title>Microfinance</title>
+    <meta name="keywords" content="Small Business Microfinance App" />
+    <meta name="description" content="Small Business Microfinance App">
+    <meta name="author" content="Leonard Mpannde">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Font CSS  -->
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,700">
+
+    <!-- Core CSS  -->
+    <link rel="stylesheet" type="text/css" href="public/App/vendors/css/bootstrap-3.3.5/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="public/App/vendors/fonts/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="fonts/glyphicons_pro/glyphicons.min.css">
+
+    <!-- Plugin CSS -->
+    <link rel="stylesheet" type="text/css" href="public/App/vendors/js/plugins/calendar/fullcalendar.css">
+    <link rel="stylesheet" type="text/css" href="public/App/vendors/js/plugins/datatables/css/datatables.min.css">
+    <link rel="stylesheet" type="text/css" href="public/App/vendors/css/animate.css">
+
+    <!-- Theme CSS -->
+    <link rel="stylesheet" type="text/css" href="public/App/vendors/css/theme.css">
+    <link rel="stylesheet" type="text/css" href="public/App/vendors/css/pages.css">
+    <link rel="stylesheet" type="text/css" href="public/App/vendors/css/plugins.css">
+    <link rel="stylesheet" type="text/css" href="public/App/vendors/css/responsive.css">
+
+    <!-- Boxed-Layout CSS -->
+    <link rel="stylesheet" type="text/css" href="public/App/vendors/css/boxed.css">
+
+    <!-- Demonstration CSS -->
+    <link rel="stylesheet" type="text/css" href="public/App/vendors/css/demo.css">
+
+    <!-- Your Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="public/App/vendors/css/custom.css">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="public/App/vendors/img/favicon.ico">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="public/App/vendors/js/html5shiv.js"></script>
+    <script src="public/App/vendors/js/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="public/App/vendors/js/angular-1.4.7/angular.js"></script>
+    <script src="public/App/vendors/js/angular-1.4.7/angular-cookies.js"></script>
+    <script src="public/App/vendors/js/angular-1.4.7/angular-route.js"></script>
+    <script src="public/App/app.js"></script>
+
+    <script src="public/App/services/AuthenticationService.js"></script>
+    <script src="public/App/services/UserService.js"></script>
+    <script src="public/App/services/ApplicationDetailService.js"></script>
+    <script src="public/App/services/CompanyService.js"></script>
+
+    <script src="public/App/controllers/mainController.js"></script>
+    <script src="public/App/controllers/homeController.js"></script>
+    <script src="public/App/controllers/loginController.js"></script>
+
+</head>
+<body class="login-page" ng-controller="mainController">
+<!--<a href="dashboard.html" id="return-arrow"> <i class="fa fa-arrow-circle-left fa-3x text-red2"></i> <span> Return <br>-->
+<!--to Theme </span> </a>-->
+
+<!-- Start: Main -->
+<div id="main" ng-controller="loginController">
+    <div class="container">
+        <div class="row">
+            <div id="page-logo"><h1>{{application.application_name}}</h1></div>
+        </div>
+        <div class="row">
+            <div class="panel">
+                <div class="panel-heading">
+                    <div class="panel-title"> <i class="fa fa-lock"></i> Login </div>
+                    <span class="panel-title-sm pull-right padding-right-sm">Not <b>Cynthia Blue?</b></span> </div>
+                <!-- Login form -->
+                <form class="cmxform" ng-submit="submit()" id="altForm" method="get">
+                    <div class="panel-body">
+                        <div class="login-avatar">{{company.company_name}}</div>
+                        <div class="form-group">
+                            <div class="input-group"> <span class="input-group-addon"><i class="fa fa-user"></i> </span>
+                                <input type="email" class="form-control phone"  ng-model="login.email"  autocomplete="off" placeholder="Email">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group"> <span class="input-group-addon"><i class="fa fa-key"></i> </span>
+                                <input type="text" class="form-control product"  ng-model="login.password" maxlength="10" autocomplete="off" placeholder="Password">
+                            </div>
+                        </div>
+                        <div class="alert alert-warning login-alert">Please read our <b>Terms of Use</b> before logging in.</div>
+                    </div>
+                    <div class="panel-footer"> <span class="panel-title-sm pull-left" style="padding-top: 7px;"><a> Forgotten Password?</a></span>
+                        <div class="form-group margin-bottom-none">
+                            <input class="btn btn-primary pull-right" type="submit" value="Login">
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </form>
+                <!-- login form -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End: Main -->
+
+<!-- Core Javascript - via CDN -->
+
+<script src="public/App/vendors/js/jquery/jquery.min.js"></script>
+<script src="public/App/vendors/js/jquery-ui/jquery-ui.min.js"></script>
+<script src="public/App/vendors/css/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+
+<!-- Plugins - Via Local Storage-->
+<script type="text/javascript" src="public/App/vendors/js/jquery.flot.min.js"></script>
+<script type="text/javascript" src="public/App/vendors/js/jquery.sparkline.min.js"></script>
+<script type="text/javascript" src="public/App/vendors/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="public/App/vendors/js/fullcalendar.min.js"></script>
+
+<!-- Plugins -->
+<script type="text/javascript" src="public/App/vendors/js/plugins/calendar/gcal.js"></script><!-- Calendar Addon -->
+<script type="text/javascript" src="public/App/vendors/js/plugins/jqueryflot/jquery.flot.resize.min.js"></script><!-- Flot Charts Addon -->
+<script type="text/javascript" src="public/App/vendors/js/plugins/datatables/js/datatables.js"></script><!-- Datatable Bootstrap Addon -->
+
+<!-- Theme Javascript -->
+<script type="text/javascript" src="public/App/vendors/js/uniform.min.js"></script>
+<script type="text/javascript" src="public/App/vendors/js/main.js"></script>
+<!--<script type="text/javascript" src="js/plugins.js"></script>-->
+<script type="text/javascript" src="public/App/vendors/js/custom.js"></script>
+<script type="text/javascript">
+
+    jQuery(document).ready(function() {
+
+        // Init Theme Core
+        Core.init();
+
+    });
+
+</script>
+
+
+</body>
+</html>

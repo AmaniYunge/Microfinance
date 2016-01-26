@@ -1,0 +1,56 @@
+<div class="col-md-12" ng-controller="loanController as loanC">
+    <div class="panel">
+        <div class="panel-heading">
+            <div class="panel-title"> <i class="fa fa-table"></i> Applications | <span class="label label-primary">{{loanInfo.name}}</span></div>
+
+        </div>
+        <div class="panel-body">
+            <ul class="nav well-tabs well-tabs-inverse margin-bottom">
+            </ul>
+            <div class="tab-content border-none padding-none">
+                <div id="tab1" class="tab-pane active">
+
+
+                    <table class="table table-condensed" datatable="ng" dt-options="dtOptions">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Applicant</th>
+                            <th>Sponsor</th>
+                            <th>Applied Amount</th>
+                            <th>Amount Granted</th>
+                            <th>Collateral</th>
+                            <th>Collateral Value</th>
+                            <th>Collateral</th>
+                            <th>Status</th>
+                            <th>Commets</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="loan in loanInfo.applications">
+
+                            <td>{{$index+1}}</td>
+                            <td>{{loan.applicants.first_name}} {{loan.applicants.middle_name}} {{loan.applicants.last_name}}</td>
+                            <td>{{loan.sponsor.first_name}} {{loan.sponsor.middle_name}} {{loan.sponsor.last_name}}</td>
+                            <td>{{loan.applied_amount}}</td>
+                            <td>{{loan.amount_granted}}</td>
+                            <td>{{loan.collateral}}</td>
+                            <td>{{loan.collateral_value}}</td>
+                            <td>{{loan.collateral}}</td>
+                            <td>{{loan.status}}</td>
+                            <td>{{loan.comments}}</td>
+                            <td  class=" ">
+                                <a href="#/settings/loans/{{loan.id}}/applications" title="View Loan Applications" class="loanapp"><i class="fa fa-briefcase text-warning"></i> more</a>&nbsp;&nbsp;&nbsp;
+                                <a ng-href="#/settings/loans/{{loan.id}}/edit" title="edit Staff" class="edituser"><i class="fa fa-pencil text-info"></i> edit</a>&nbsp;&nbsp;&nbsp;
+                                <a  style="cursor: pointer;" ng-click="loanC.deleteLoanType(loan.id)" title="delete Loan" class="deleteapp"><i class="fa fa-trash-o text-danger"></i> delete</a>
+
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,298 @@
+/* Author: Louis Holladay
+ * Website: AdminDesigns.com
+ * Last Updated: 01/12/14 
+ 
+ * This file is reserved for changes required only
+ * for the themes demo. These styles may be vital
+ * to Stardoms appearance but often times will not
+ * be useful in a true production environment.
+ 
+ * For example each slider in sliders.html has a
+ * margin of 65px, a large number only needed 
+ * because six sliders have been stacked on top 
+ * of each other. This would most likely not 
+ * happen in a real enviroment.
+---------------------------------------------------*/
+
+/* CUSTOMIZER.HTML */
+#skin-menu { display: block }
+#skin-toolbox {
+    position: fixed;
+    top: 220px;
+    right: -182px;
+    width: 180px;
+    height: 390px;
+    border-radius: 5px 0 0 5px;
+    border: 3px solid #f0ad4e;
+    z-index: 999;
+    overflow: visible !important;
+    -webkit-box-shadow: 0 2px 10px rgba(0,0,0, 0.2);
+    box-shadow: 0 2px 10px rgba(0,0,0, 0.2);
+    background-repeat: repeat-x;
+    background-image: -webkit-linear-gradient(top, #ffffff 1%,#f1f1f1 100%);
+    background-image: linear-gradient(to bottom, #ffffff 1%,#f1f1f1 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f1f1f1',GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+.skin-toolbox-toggle {
+    position: absolute;
+    top: 30px;
+    left: -43px;
+    width: 40px;
+    height: 43px;
+    border-right: 0;
+    border-radius: 3px 0 0 3px;
+    cursor: pointer;
+    line-height: 49px;
+    border: 1px solid #e69b2f;
+    text-shadow: 1px -1px #cb7f12;
+    background-repeat: repeat-x;
+    background-image: -webkit-linear-gradient(top, #fead3c 1%,#f88c00 100%);
+    background-image: linear-gradient(to bottom, #fead3c 1%,#f88c00 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fead3c', endColorstr='#f88c00',GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+.skin-toolbox-toggle .fa {
+    padding-left: 7px;
+    color: #fff;
+    font-size: 28px;
+}
+.skin-option {
+    float: left;
+    width: 22px;
+    height: 22px;
+    margin: 5px;
+    padding: 3px;
+    background-color: #dadada;
+    border: 1px solid #CCC;
+    -webkit-box-shadow: 0 -1px 1px rgba(0,0,0, 0.1) inset, 0 1px 0 rgba(255,255,255, 1);
+    box-shadow: 0 -1px 1px rgba(0,0,0, 0.1) inset, 0 1px 0 rgba(255,255,255, 1);
+}
+.skin-color {
+    width: 14px;
+    height: 14px;
+    border: 1px solid #CCC;
+    background: #FFF;
+    cursor: pointer;
+}
+.skin-toolbox-panel { padding: 20px 13px 0 }
+.skin-toolbox-panel .form-group { margin-bottom: 8px }
+.skin-toolbox-panel label { font-size: 11px }
+.skin-option.active { border: 1px solid #f0ad4e }
+#customizer-link { font-size: 14px }
+ 
+/* UPLOAD-TOOLS.HTML */ 
+body.upload-tools-page .dropzone {
+	min-height: 405px;
+}
+body.upload-tools-page .panel-body {
+	min-height: 300px;
+}
+
+/* TIMELINE.HTML */
+body.timeline-page .panel-clone {
+	display: none;
+}
+
+/* SLIDERS.HTML */
+.slider-example .form-horizontal .col-md-9 {
+	margin-top: 65px;	
+}
+.slider-example .form-horizontal .col-md-2 {
+	margin-top: 62px;	
+	margin-right: 20px;
+}
+.slider-example .form-horizontal .form-group.first .col-md-9 {
+	margin-top: 45px;
+}
+.slider-example .form-horizontal .form-group.first .col-md-2 {
+	margin-top: 42px;
+}
+.slider-example .form-horizontal .form-group:last-child {
+	margin-bottom: 40px;
+}
+
+/* PORTLETS.HTML */
+body.portlets-page .panel .tab-content {
+	padding: 0;
+	border: 0;
+	min-height: 95px;
+}
+body.portlets-page #accordion  {
+	-webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.33);
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.33);
+	margin-bottom: 35px;
+}
+
+/* MAPS.HTML */
+body.maps-page .map {
+	width: 100%;
+	height: 400px;	
+}
+body.maps-page .panel-menu button {
+	margin-right: 8px;
+	min-height: 35px;
+	min-width: 75px;
+}
+body.maps-page .panel-menu button:last-child {
+	margin-right: 0px;
+	min-height: 35px;
+}
+
+/* GALLERY.HTML */
+body.gallery-page {
+	overflow: scroll;
+}
+
+/* DYNAMIC-GALLERY.HTML */
+body.dynamic-gallery-page {
+	overflow: scroll;
+	min-height: 1600px;
+}
+
+/* FORMS.HTML */
+body.forms-page .make-switch {
+	margin-right: 10px;
+	margin-bottom: 6px;
+}
+body.forms-page #focusedInput {
+    outline: 0;
+    outline: thin dotted \9; /* IE6-9 */
+    border-color: rgba(82,168,236,.8);
+    -webkit-box-shadow: 0 0 8px rgba(82,168,236,.6);
+    box-shadow: 0 0 8px rgba(82,168,236,.6);
+}
+
+/* ELEMENTS.HTML */
+body.elements-page .panel button {
+	margin-right: 6px;
+	margin-bottom: 8px;
+}
+body.elements-page .panel .btn-group button {
+	margin-right: 0;
+	margin-bottom: 0;
+}
+body.elements-page .btn-block {
+	border-radius: 0;
+}
+
+/* CHARTS.HTML */
+body.charts-page .panel-menu label {
+	font-size: 13px;
+	font-weight: 600;
+	color: #888;
+	margin-right: 5px;
+}
+body.charts-page .legend table tr td {
+	padding: 5px 10px 5px 5px;
+}
+
+/* ANIMATIONS.HTML */
+.animate-me-btns a {
+	margin: 5px 5px 7px;
+}
+.animate-me-btns .tab-content {
+	border: 0;
+	padding-bottom: 30px;
+}
+
+/* BUTTONS.HTML */
+body.buttons-page .panel button {
+	margin-right: 6px;
+	margin-bottom: 8px;
+}
+body.buttons-page .panel .btn-group {
+	margin-right: 5px;
+}
+body.buttons-page .panel .btn-group button {
+	margin-right: 0;
+	margin-bottom: 8px;
+}
+body.buttons-page .panel .btn-group-vertical button {
+	margin-right: 0;
+	margin-bottom: 0;	
+}
+body.buttons-page .social-buttons-panel button {margin: 10px;}
+body.buttons-page .zocial, a.zocial {
+	min-height: 32px;
+	margin: 8px;
+}
+body.buttons-page .zocial.icon {min-height: 28px;}
+body.buttons-page .zocial.icon.facebook:before {padding-right: 5px;}
+
+/* 404/500.HTML */
+.icon-option-menu li a {
+	cursor: pointer;
+}
+.icon-option-menu li a i {
+	padding-right: 6px;
+	color: #777;
+}
+
+/* ICONS.HTML */
+#icon-nav.affix {top: 80px;}
+#icon-nav ul {width: 220px;}
+#icon-nav li:hover span {color: #444;}
+#icon-nav li.active span {color: #428bca}
+.panel-body .page-header {color: #428bca;font-size: 18px;}
+#glyphicons-icon-list,
+#glyphicon-icon-list,
+#imoon-icon-list,
+.fa-icon-list {
+  font-size: 12px;
+  padding-left: 0;
+  padding-bottom: 1px;
+  margin-bottom: 20px;
+  list-style: none;
+  overflow: hidden;
+}
+#glyphicons-icon-list li,
+#glyphicon-icon-list li,
+#imoon-icon-list li,
+.fa-icon-list li {
+  float: left;
+   width: 25%;
+  height: 100px;
+  padding: 5px;
+  line-height: 1.4;
+  text-align: center;
+}
+#glyphicons-icon-list .glyphicons,
+#glyphicon-icon-list .glyphicon,
+#imoon-icon-list .imoon,
+.fa-icon-list .fa {
+  display: block;
+  margin: 5px auto 15px;
+  font-size: 24px;
+}
+#glyphicons-icon-list li:hover,
+#glyphicon-icon-list li:hover,
+#imoon-icon-list li:hover,
+.fa-icon-list li:hover {
+  color: #428bca;
+}
+
+/* GLOBAL CHANGES OR ELEMENTS */
+.panel-tabs > li > a:hover {background-color: #f2f2f2;} 
+#return-arrow {
+    color: #555;
+    padding-left: 15px;
+    padding-top: 15px;
+    position: fixed;
+    opacity: 0.4;
+    cursor: pointer;
+    display: block;
+    z-index: 1050;
+}
+#return-arrow i.fa {
+    float: left;
+    padding-top: 2px;
+}
+#return-arrow span {
+    float: left;
+    padding-left: 15px;
+    padding-top: 0px;
+    font-size: 16px;
+}
+#return-arrow:hover { opacity: 1 }
+#return-arrow:hover i.fa { opacity: 0.7 }

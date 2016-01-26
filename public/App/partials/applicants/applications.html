@@ -1,0 +1,209 @@
+<style>
+    .netralize_table tr td{
+        border: 1px solid #ffffff!important;
+    }
+
+    .netralize_table tr th{
+        border: 1px solid #ffffff!important;
+    }
+</style>
+<div class="col-md-12" ng-controller="applicantController as app">
+    <div class="panel profile-panel">
+        <div class="panel-heading panel-visible">
+            <div class="panel-title"> <i class="fa fa-user"></i> Loan Application | Applicant : <span class="label label-primary" >{{applicantInfo.first_name}}  {{applicantInfo.middle_name}}  {{applicantInfo.last_name}}</span></div>
+            <div class="panel-btns pull-right margin-left">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default btn-gradient dropdown-toggle" data-toggle="dropdown"><i class="fa fa-pencil"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-xs-12">
+                        <!--{{applicantInfo.applications[pendingApplication]}}-->
+                        <!--{{applicantInfo}}-->
+                        <div class="row">
+                            <div class="col-xs-6" >
+                                <h2>Application Information</h2>
+                            </div>
+                            <div class="col-xs-6" style="text-align: right">
+                                <h4>{{applicantInfo.applications[pendingApplication].created_at}}</h4>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6" >
+                                <table class="table  netralize_table">
+                                    <tr >
+                                        <td>Loan Type:</td>
+                                        <th>{{applicantInfo.applications[pendingApplication].loan.name}}</th>
+                                    </tr>
+                                    <tr >
+                                    <td>Status:</td>
+                                    <th>{{applicantInfo.applications[pendingApplication].status}}</th>
+                                </tr> <tr >
+                                    <td>Applied Amount:</td>
+                                    <th>{{applicantInfo.applications[pendingApplication].applied_amount}}</th>
+                                </tr>
+                                    <tr >
+                                        <td>Amount Granted</td>
+                                        <th>{{applicantInfo.applications[pendingApplication].amount_granted}}</th>
+                                    </tr>
+                                    <tr >
+                                        <td>Loan Duration</td>
+                                        <th ng-repeat="loan in applicantInfo.grantedloans" ng-if="loan.application_id=applicantInfo.applications[0].id">{{loan.loan_duration}}</th>
+                                    </tr>
+                                    <tr >
+                                        <td>Collateral</td>
+                                        <td>{{applicantInfo.applications[pendingApplication].collateral}}</td>
+                                    </tr>
+
+                                </table>
+                                </br>
+                                <div class="row" >
+                                    <div class="col-xs-6" >
+                                        <a class="btn btn-sm btn-success" ng-if="pending" ng-href="#/settings/applications/{{applicantInfo.applications[pendingApplication].id}}/{{applicantInfo.id}}/grant">Grant Loan</a>
+                                    </div>
+                                </div>
+                                </br>
+                                <div >
+                                <div><h4>Sponsor</h4></div>
+                                <table class="table netralize_table">
+                                    <tr >
+                                        <td>Applicant Name:</td>
+                                        <th>{{applicantInfo.applications[pendingApplication].sponsor.first_name}}  {{applicantInfo.applications[pendingApplication].sponsor.middle_name}}  {{applicantInfo.applications[pendingApplication].sponsor.last_name}}</th>
+                                    </tr>
+                                    <tr >
+                                        <td>Gender:</td>
+                                        <th>{{applicantInfo.applications[pendingApplication].sponsor.gender}}</th>
+                                    </tr>
+                                    <tr >
+                                        <td>Phone:</td>
+                                        <th>{{applicantInfo.applications[pendingApplication].sponsor.phone}}</th>
+                                    </tr> <tr >
+                                    <td>Postal Address</td>
+                                    <th>{{applicantInfo.applications[pendingApplication].sponsor.postal_address}}</th>
+                                </tr>
+                                    <tr >
+                                        <td>Residence</td>
+                                        <th>{{applicantInfo.applications[pendingApplication].sponsor.residence}}</th>
+                                    </tr>
+                                    <tr >
+                                        <td>Occupation</td>
+                                        <th>{{applicantInfo.applications[pendingApplication].sponsor.occupation}}</th>
+                                    </tr>
+                                </table>
+                                </br>
+                                </br>
+                                <div><h4>Comments</h4></div>
+                                <table >
+                                    <tr >
+                                        <td>{{applicantInfo.applications[pendingApplication].comments}}</td>
+                                    </tr>
+                                    <tr >
+                                        <td><a ng-href="#/applicant/{{applicantInfo.id}}">More Information</a></td>
+                                    </tr>
+
+                                </table>
+                                    </div>
+                            </div>
+                            <div class="col-md-6" >
+                                <form  ng-if="hideFormToken" method="POST"  accept-charset="UTF-8" class="form-horizontal"><input name="_token" type="hidden" value="u0Ofp19owPeXJmZPmk4CewM16awCPATI6snmgfs8">
+                                    <h2 class="text-info"><i class="fa fa-exclamation"></i> Info</h2>
+                                    <h4>You can not add application for this Applicant, he/she have already applied for a loan, The Application may either be processed or the applicant has an unpaid Loan</h4>
+                                    <!-- ending the if to check if the user is vaiable to take a loan-->
+                                </form>
+                            <div ng-if="!hideFormToken">
+                                <h2> Application Form</h2>
+                                    <form class="form-horizontal" ng-submit="app.saveLoanApplication(newApplication)">
+                                <div class="thumbnail">
+
+                                            <h3>Loan Information</h3>
+                                            <input type="hidden" value="7" name="id" ng-model="newApplication.applicant_id">
+
+                                            <div class="form-group">
+                                                <label for="applied" class="control-label col-sm-3">Loan Type</label>
+                                                <div class="col-sm-9">
+                                                    <select class="form-control" ng-model="newApplication.loan_id">
+                                                        <option value="{{loan.id}}" ng-repeat="loan in loans">{{loan.name}}</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                    <div class="form-group">
+                                                <label for="applied" class="control-label col-sm-3">Applied Amount (in Tsh)</label>
+                                                <div class="col-sm-9">
+                                                    <input pattern="\d*" class="form-control"  ng-model="newApplication.applied_amount" placeholder="Applied Amount" required="required" name="applied" type="text" value="" id="applied">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="collateral" class="control-label col-sm-3">Application Fee</label>
+                                                <div class="col-sm-9">
+                                                    <input pattern="\d*" class="form-control" ng-model="newApplication.application_fee" placeholder="Application Fee" required="required"  name="fee">
+                                                </div>
+                                            </div>
+                                    <div class="form-group">
+                                                <label for="collateral" class="control-label col-sm-3">Collateral</label>
+                                                <div class="col-sm-9">
+                                                    <textarea class="form-control" ng-model="newApplication.collateral" placeholder="Assets For Loan" rows="3" name="collateral" cols="50" id="collateral"></textarea>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="collateral_val" class="control-label col-sm-3">Approximated Collateral Value (in Tsh)</label>
+                                                <div class="col-sm-9">
+                                                    <input pattern="\d*" class="form-control" ng-model="newApplication.collateral_value" placeholder="Collateral Value" required="required" name="collateral_val" type="text" value="" id="collateral_val">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="comments" class="control-label col-sm-3">Any Comments</label>
+                                                <div class="col-sm-9">
+                                                    <textarea class="form-control" ng-model="newApplication.comments" placeholder="Any Comments" rows="3" name="comments" cols="50" id="comments"></textarea> </div>
+                                            </div>
+                                            </div>
+                                        <div class="thumbnail">
+                                            <h3>Sponsor (Guarantor) Informaton</h3>
+                                            <div class="form-group">
+                                                <div class="col-sm-6">Firstname<br><input class="form-control"  ng-model="newApplication.sponsor_first_name" placeholder="First Name" required="required" name="firstname" type="text" value=""> </div>
+                                                <div class="col-sm-6">Middlename<br><input class="form-control" ng-model="newApplication.sponsor_middle_name" placeholder="Middle Name" name="middlename" type="text" value=""> </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-sm-6">Lastname<br><input class="form-control" ng-model="newApplication.sponsor_last_name" placeholder="Last Name" required="required" name="lastname" type="text" value=""> </div>
+                                                <div class="col-sm-6">Gender<br><select class="form-control" ng-model="newApplication.sponsor_gender" required="requiered" name="gender"><option value="Male">Male</option><option value="Female">Female</option></select> </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-sm-6">Phone Number<br><input class="form-control" ng-model="newApplication.sponsor_phone" placeholder="Phone Number(Required)" required="required" name="phone" type="text" value=""> </div>
+                                                <div class="col-sm-6">Postal Address<br><input class="form-control" ng-model="newApplication.sponsor_postal_address" placeholder="Postal Address(Optional)" name="postal" type="text" value=""> </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-sm-6">Residence<br><input class="form-control" ng-model="newApplication.sponsor_residence" placeholder="Residence (Required)" required="required" name="residense" type="text" value=""> </div>
+                                                <div class="col-sm-6">Birth Date<br><input datepicker class="form-control " ng-model="newApplication.sponsor_birth_date" placeholder="Bith Date" id="Birth_Date" name="birthdate" type="text" value=""> </div>
+                                            </div>
+                                            <div class="form-group">
+
+                                                <div class="col-sm-12">occupation<br><input class="form-control" ng-model="newApplication.sponsor_occupation" placeholder="occupation" name="occupation" required="" cols="50"> </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="form-group text-center">
+                                            <input class="btn btn-primary"  type="submit" value="Register">
+                                            <input class="btn btn-warning"  type="reset" value="Reset">
+                                            <a  class="btn btn-danger"><i class="fa fa-times"></i> Cancel</a>
+                                        </div>
+                                        </form>
+
+
+                                </div>
+                                </div>
+                                </br>
+                                </br>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"</div>
+        </div>
+    </div>
+</div>

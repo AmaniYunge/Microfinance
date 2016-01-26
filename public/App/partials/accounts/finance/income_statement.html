@@ -1,0 +1,107 @@
+<style>
+    div.vertical-line{
+        border-left:1px solid #ddd;
+        border-right:1px solid #ddd;
+        height: 100%;
+    }
+    div.holizontal-line{
+        border-bottom: 1px solid #ddd;
+        border-top: 1px solid #ddd;
+        /*width: 100%;*/
+    }
+</style>
+<div class="col-md-12 ng-scope" ng-controller="incomeStatementController as cash">
+    <div class="panel">
+        <div class="panel-heading">
+            <div class="panel-title"> <i class="fa fa-money"></i> Income Statement </div>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <form>
+                    <div class="col-md-6">
+                        <div class="col-md-3">
+
+                                <input id="to_date" datepicker name="date" type="text"  ng-model="start_date" class="form-control" placeholder="From" required="">
+
+                        </div>
+                        <div class="col-md-3">
+                                <input id="from_date" datepicker name="date" type="text"  ng-model="end_date" class="form-control" placeholder="To" required="">
+
+                        </div>
+                        <div class="col-md-1">
+                            <a class="btn btn-primary" ng-click="incomeStatement()" ><i class="fa fa-book" ></i>&nbsp;Get</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group pull-right">
+                            <button class="btn btn-primary btn-sm" type="button"><i class="fa fa-print"></i>Print</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="row"  id="printable_area">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-12" style="text-align: center;"><h3>{{company[0].company_name}}</h3></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12" style="text-align: center;"><h4>INCOME STATEMENT AS AT {{start_date}} AND {{end_date}}</h4></div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-12" style="text-align: right;">{{todays_date}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <table class="table table-bordered table-widget">
+                                <thead>
+                                <tr>
+                                    <th style="width: 100px!important;">Date</th>
+                                    <th>Particulars</th>
+                                    <th>Amount</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr style="border-bottom: 2px solid #CCCCCC!important;border-top: 2px solid #CCCCCC!important;">
+                                    <th></th>
+                                    <th >INCOME</th>
+                                    <th ></th>
+                                </tr>
+                                <tr ><td></td><td>Interest Income</td><td style="text-align: right;">{{totalReturnInSelectedDate}}</td></tr>
+                                <tr ><td></td><td>Application Fee</td><td style="text-align: right;">{{totalApplicationFeeInSelectedDate}}</td></tr>
+                                <tr ><th ></th><th >TOTAL INCOME</th><th style="text-align: right;">{{totalReturnInSelectedDate+totalApplicationFeeInSelectedDate}}</th></tr>
+                                <tr ><td ></td><td ></td><td ></td></tr>
+                                <tr ><td ></td><td ></td><td ></td></tr>
+                                <tr style="border-bottom: 2px solid #CCCCCC!important;border-top: 2px solid #CCCCCC!important;">
+                                    <th></th>
+                                    <th >EXPENSES</th>
+                                    <th ></th>
+                                </tr>
+                                <tr ng-repeat="expense in expensesD track by $index"><td>{{expense.created_at|toHumaReadable}}</td><td>{{expense.name}}</td><td style="text-align: right;">{{expense.value}}</td></tr>
+                                <tr ><th ></th><th >TOTAL EXPENSES</th><th style="text-align: right;">{{totalExpenses}}</th></tr>
+                                <tr ><td ></td><td ></td><td ></td></tr>
+                                <tr style="border-bottom: 2px solid #CCCCCC!important;border-top: 2px solid #CCCCCC!important;">
+                                    <th></th>
+                                    <th >NET PROFIT/LOSS</th>
+                                    <th style="text-align: right;">{{totalReturnInSelectedDate+totalApplicationFeeInSelectedDate-totalExpenses}}</th>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div style="margin-bottom: 20px;"></div>
+                </div>
+            </div>
+
+        </div>
+        <div style="margin-bottom: 20px;"></div>
+    </div>
+</div>
+</div>
+<!--<div class="panel-body">-->
+
+<!--</div>-->
+</div>
+</div>

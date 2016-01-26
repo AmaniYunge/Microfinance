@@ -1,0 +1,227 @@
+<style>
+    .netralize_table tr td{
+        border: 1px solid #ffffff!important;
+    }
+
+    .netralize_table tr th{
+        border: 1px solid #ffffff!important;
+    }
+</style>
+<div class="col-md-12">
+    <div class="panel profile-panel">
+        <div class="panel-heading panel-visible">
+            <div class="panel-title"> <i class="fa fa-user"></i> Applicant Information</div>
+            <div class="panel-btns pull-right margin-left">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default btn-gradient dropdown-toggle" data-toggle="dropdown"><i class="fa fa-pencil"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="profile-data"> <span class="profile-name"> <b>Applicant Name :</b>&nbsp;<b class="text-primary">{{applicant.first_name}}  {{applicant.middle_name}}  {{applicant.last_name}}</b> </span>
+</br>
+                                    <table class="table table-widget table-checklist">
+                                        <thead>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>Age</td>
+                                            <td>Gender</td>
+                                            <td>Birth Day</td>
+                                            <td>Phone</td>
+                                            <td>Marital Status</td>
+                                            <td>family Size</td>
+                                            <td>Postal Address</td>
+                                            <td>Residence</td>
+                                        </tr>
+                                        <tr>
+                                            <th>{{applicant.birth_date}}</th>
+                                            <th>{{applicant.gender}}</th>
+                                            <th>{{applicant.birth_date}}</th>
+                                            <th>{{applicant.phone}}</th>
+                                            <th>{{applicant.marital_status}}</th>
+                                            <th>{{applicant.family_size}}</th>
+                                            <th>{{applicant.postal_address}}</th>
+                                            <th>{{applicant.residence}}</th>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                        <!--<ul class="profile-info list-unstyled">-->
+                            <!--<li><i class="fa fa-phone"></i> 858-842-3416</li>-->
+                            <!--<li><i class="fa fa-skype"></i> lolholladay</li>-->
+                            <!--<li><i class="fa fa-globe"></i> United States, CA</li>-->
+                        <!--</ul>-->
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+<div class="{{div_class}}" >
+    <div class="panel profile-panel">
+        <div class="panel-heading panel-visible">
+            <div class="panel-title"> <i class="fa fa-user"></i> Applications</div>
+            <div class="panel-btns pull-right margin-left">
+                <div class="btn-group">
+                    <a ng-href="#/applicant/{{applicant.id}}/application" ng-if="real_status=='finished'" type="button" class="btn btn-success btn-gradient dropdown-toggle btn-sm" data-toggle="dropdown"><i class="fa fa-plus"></i>&nbsp;Add New</a>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-xs-6" >
+                    <h4>Application Information</h4>
+                </div>
+                <div class="col-xs-6" style="text-align: right">
+                    <h4>{{applicant.applications[0].created_at}}</h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12" >
+                    <table class="table netralize_table" >
+                        <tr >
+                            <td>Applicant Name:</td>
+                            <th>{{applicant.first_name}}  {{applicant.middle_name}}  {{applicant.last_name}}</th>
+                        </tr> <tr >
+                            <td>Status:</td>
+                            <th>{{applicant.applications[0].status}}</th>
+                        </tr> <tr >
+                            <td>Applied Amount:</td>
+                            <th>{{applicant.applications[0].applied_amount}}</th>
+                        </tr>
+                        <tr >
+                            <td>Amount Granted</td>
+                            <th>{{applicant.applications[0].amount_granted}}</th>
+                        </tr>
+                        <tr >
+                            <td>Loan Duration</td>
+                            <th ng-repeat="loan in applicant.grantedloans" ng-if="loan.application_id=applicant.applications[0].id">{{loan.loan_duration}}</th>
+                        </tr>
+                        <tr >
+                            <td>Collateral</td>
+                            <td>{{applicant.applications[0].collateral}}</td>
+                        </tr>
+
+                    </table>
+                    </br>
+                    <div class="row" ng-if="!no_application">
+                        <div class="col-xs-6" >
+                            <a class="btn btn-sm btn-success" ng-if="pending" ng-href="#/settings/applications/{{applicant.applications[0].id}}/{{applicant.id}}/grant">Grant Loan</a>
+                        </div>
+                    </div>
+                    </br>
+                    <div><h4>Sponsor</h4></div>
+                    <table class="table netralize_table">
+                        <tr >
+                            <td>Applicant Name:</td>
+                            <th>{{applicant.sponsor.first_name}}  {{applicant.sponsor.middle_name}}  {{applicant.sponsor.last_name}}</th>
+                        </tr>
+                        <tr >
+                            <td>Gender:</td>
+                            <th>{{applicant.sponsor.gender}}</th>
+                        </tr>
+                        <tr >
+                            <td>Phone:</td>
+                            <th>{{applicant.sponsor.phone}}</th>
+                        </tr> <tr >
+                            <td>Postal Address</td>
+                            <th>{{applicant.sponsor.postal_address}}</th>
+                        </tr>
+                        <tr >
+                            <td>Residence</td>
+                            <th>{{applicant.sponsor.residence}}</th>
+                        </tr>
+                        <tr >
+                            <td>Occupation</td>
+                            <th>{{applicant.sponsor.occupation}}</th>
+                        </tr>
+                        <!--<tr >-->
+                            <!--<td>Collateral</td>-->
+                            <!--<td>{{applicant.applications[0].comments}}</td>-->
+                        <!--</tr>-->
+                    </table>
+                    </br>
+                    </br>
+                    <div><h4>Comments</h4></div>
+                    <table >
+                        <tr >
+                            <td>{{applicant.applications[0].comments}}</td>
+                        </tr>
+
+                    </table>
+                </div>
+
+            </div>
+            <div class="clearfix"></div>
+        </div>
+
+    </div>
+</div>
+        <!--{{applicant.grantedloans}}-->
+        <br/>
+        <br/>
+        <!--{{applicant.loan_returns}}-->
+<div class="col-md-6" ng-if="applicant.applications[0].status=='granted'">
+    <div class="panel profile-panel">
+        <div class="panel-heading panel-visible">
+            <div class="panel-title"> <i class="fa fa-user"></i>Loan Processing</div>
+            <div class="panel-btns pull-right margin-left">
+                <div class="btn-group">
+
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                 <div class="col-xs-12">
+                     <div>
+                         <div>
+                             <div class="col-xs-8"><h4>Loan Returns Payment</h4></div>
+                         </div>
+                         <span ng-repeat="a_return in applicant.loan_returns | latestReturn:a_return">{{a_return.created_at}}</span>
+                         <div class="col-xs-12">
+                             <div class="col-xs-12">Total Amount To Return: {{totalAmountExpectedToReturn}}</div>
+                         </div>
+                         <div class="col-xs-12">
+                             <div class="col-xs-12">Total Amount  Returned Already: {{amountReturnedAlready}}</div>
+                         </div>
+                         <div class="col-xs-12">
+                             <div class="col-xs-12">Expected Amount To Return Today: {{amountExpectedToReturnToday}}</div>
+                             </div>
+                          <div class="col-xs-12">
+                             <div class="col-xs-12">Amount Left To Finish Loan: {{amountLeftToFinish}}</div>
+                         </div>
+
+                         <div class="col-xs-12">
+                             <form method="POST"  accept-charset="UTF-8" class="form-horizontal"  ng-submit="returnLoan(loanReturn)">
+                                <div class="form-group">
+                                   <div class="col-xs-12">
+                                         <div class="form-group">
+                                         <label for="amount">Returned Amount</label>
+                                         <input pattern="\d*" id="amount" ng-model="loanReturn.amount" class="form-control" placeholder="Returned Amount" required="required" name="return" type="text" value="">
+                                   </div>
+                                     </div>
+                                     <div class="form-group">
+                                     <div class="col-xs-12">
+                                        <label for="comments">Comments</label>
+                                        <br>
+                                        <textarea id="comments" rows="3" ng-model="loanReturn.comment" class="form-control" placeholder="Comments (If any)" required="required" name="comments" cols="50"></textarea>
+                                     </div>
+                                     </div>
+                                 </div>
+                                 <div id="output6"></div>
+                                 <div class="form-group text-center">
+                                     <input class="btn btn-primary" id="submitqn" type="submit" value="Submit">        <a href="#b" class="btn btn-danger" id="cancelgrant"><i class="fa fa-times"></i> Cancel</a>
+                                 </div>
+                             </form>
+                         </div>
+                     </div>
+                 </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>

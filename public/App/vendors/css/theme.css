@@ -1,0 +1,2136 @@
+/* Author: Louis Holladay
+ * Website: AdminDesigns.com
+ * Last Updated: 01/12/14
+ * Copyright 2014 Admin Designs
+-----------------------------------------------------   
+   Table of Contents
+-----------------------------------------------------
+ -- Shared Styles
+ -- Class Helpers
+ -- Typography
+ -- Primary Components 
+ 	a. Header
+ 	c. SideBar
+	b. Topbar/Breadcrumbs
+ -- Form Elements
+	a. Labels
+	b. Badges
+	c. Icons
+	d. Alerts
+	e. Buttons
+	f. Progress Bars
+ 	g. Sliders
+	h. Fields
+ -- Theme Elements
+	a. Tables
+	b. Pricing Tables
+	c. Panels
+	d. Tabs
+	e. Accordions
+	f. Modals
+	g. Popovers
+ -- Widgets 
+    a. Table
+	b. Chat
+	c. Messenger
+	d. Calendar
+	e. Timeline
+ -- Color System	
+ -- Layout Settings
+ 
+----------------------------------------------------*/
+
+/* --------------------------------------
+   SHARED STYLES
+---------------------------------------*/
+body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans',Helvetica, Arial, sans-serif;
+    color: #666666;
+    -webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
+    -webkit-text-size-adjust: 100%;
+    font-size-adjust: 100%;
+    font-weight: 400;
+    font-size: 13px;
+	line-height: 1.475;
+    background-color: #FFF;
+}
+#main {
+    width: 100%;
+    position: relative;
+}
+#content {
+    margin-left: 240px;
+    display: block;
+    min-height: 100%;
+	position: relative;
+}
+#content:after {
+    content: "";
+    position: fixed;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    display: block;
+    z-index: -2;
+    background-color: #e8e8e8;
+    -webkit-box-shadow: 0 -1px 3px 0 rgba(0, 0, 0, 0.33) inset;
+    box-shadow: 0 -1px 3px 0 rgba(0, 0, 0, 0.33) inset;
+}
+/* Bootstraps ".container" class has been changed to a fluid full 
+ * width container. It's also used as the primary wrapper for 
+ * our page content. To maintain typical bootstrap usability 
+ * we apply the wrapper styles only to the direct child of #content. 
+ * This insures it's only used once and can again be used elsewhere */
+.container { width: 100% }
+#content > .container {
+    max-width: 1665px !important;
+    padding: 35px 35px 50px 45px;
+}
+
+/* ---------------------------------------
+   CLASS HELPERS
+----------------------------------------*/
+.padding-none { padding: 0 !important }
+.padding { padding: 10px !important }
+.padding-sm { padding: 5px !important }
+.padding-lg { padding: 22px !important }
+.padding-top-none { padding-top: 0 !important }
+.padding-top { padding-top: 14px !important }
+.padding-top-sm { padding-top: 5px !important }
+.padding-top-lg { padding-top: 22px !important }
+.padding-right-none { padding-right: 0 !important }
+.padding-right { padding-right: 14px !important }
+.padding-right-sm { padding-right: 5px !important }
+.padding-right-lg { padding-right: 22px !important }
+.padding-bottom-none { padding-bottom: 0 !important }
+.padding-bottom { padding-bottom: 14px !important }
+.padding-bottom-sm { padding-bottom: 5px !important }
+.padding-bottom-lg { padding-bottom: 22px !important }
+.padding-left-none { padding-left: 0 !important }
+.padding-left { padding-left: 14px !important }
+.padding-left-sm { padding-left: 5px !important }
+.padding-left-lg { padding-left: 22px !important }
+.margin-none { margin: 0 !important }
+.margin { margin: 14px !important }
+.margin-sm { margin: 5px !important }
+.margin-lg { margin: 22px !important }
+.margin-top-none { margin-top: 0 !important }
+.margin-top { margin-top: 14px !important }
+.margin-top-lg { margin-top: 22px !important }
+.margin-top-sm { margin-top: 5px !important }
+.margin-right-none { margin-right: 0 !important }
+.margin-right { margin-right: 14px !important }
+.margin-right-lg { margin-right: 22px !important }
+.margin-right-sm { margin-right: 5px !important }
+.margin-bottom-none { margin-bottom: 0 !important }
+.margin-bottom { margin-bottom: 14px !important }
+.margin-bottom-lg { margin-bottom: 22px !important }
+.margin-bottom-sm { margin-bottom: 5px !important }
+.margin-left-none { margin-left: 0 !important }
+.margin-left { margin-left: 14px !important }
+.margin-left-lg { margin-left: 22px !important }
+.margin-left-sm { margin-left: 5px !important }
+.border-left-none { border-left: none !important }
+.border-right-none { border-right: none !important }
+.border-bottom-none { border-bottom: none !important }
+.border-top-none { border-top: none !important }
+.border-none { border: none !important }
+.inline-object { display: inline-block !important }
+/* Useful for centering columns that don't
+ * occupy an entire body/container */
+.center-column {
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+/* Useful for emphasizing a disabled input */
+.option-disabled { opacity: 0.6 }
+
+/* ---------------------------------------
+   TYPOGRAPHY
+----------------------------------------*/
+ul, ol { padding-left: 30px }
+li { margin-bottom: 7px }
+a { color: #666 }
+a:hover { color: #d9534f }
+a:focus { outline: none }
+p {
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+    line-height: 22px;
+    font-weight: 400;
+}
+p.small, p small { font-size: 13px }
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    color: inherit;
+    text-rendering: optimizelegibility;
+    margin-bottom: 10px;
+}
+h1 {
+    font-size: 30px;
+    line-height: 45px;
+}
+h2 {
+    font-size: 24px;
+    line-height: 36px;
+}
+h3 {
+    font-size: 18px;
+    line-height: 27px;
+}
+h4, h5, h6 { line-height: 18px }
+h4 { font-size: 14px }
+h5 { font-size: 12px }
+h6 {
+    font-size: 11px;
+    color: #999999;
+    text-transform: uppercase;
+}
+h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
+    font-weight: normal;
+    color: #999999;
+}
+.semi-bold { font-weight: 600 }
+/* Dividers */
+hr {
+    margin: 35px 0;
+    border-top: 1px solid #DDD;
+}
+hr.alt { border-top: 1px dashed #CCC }
+hr.short { margin: 20px 0 }
+hr.tall { margin: 55px 0 }
+/* Specialty Header - Also a Divider */
+.page-header {
+    text-shadow: 0 1px #FFF;
+    border-bottom: 1px solid #c9c9c9;
+    margin-bottom: 30px;
+    -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.75);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.75);
+}
+
+/* ---------------------------------------
+   ANIMATIONS
+----------------------------------------*/
+/* used in conjuction with "data-animate" 
+ * attr to create a delayed page animation
+ * read docs for more info on proper use*/
+.animated-delay { opacity: 0 }
+.sparkline-delay {
+	height: 0;
+	display: block;
+	line-height: 40px;
+}
+
+/* ---------------------------------------
+   HEADER
+----------------------------------------*/
+.navbar {
+    z-index: 1030;
+    margin-bottom: 0;
+    border-radius: 0;
+    min-height: 51px;
+    background-color: #FFF;
+    border-bottom: 1px solid transparent;
+    -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1),0 1px 0 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1),0 1px 0 0 rgba(0, 0, 0, 0.1);
+}
+.navbar-brand {
+    /*width: 200px;*/
+    padding: 10px 20px;
+}
+.navbar-brand .navbar-logo {
+    /*max-width: 125px;*/
+    float: left;
+}
+/* Header Buttons */
+.header-btns { padding: 10px }
+.header-btns > div {
+    display: inline-block;
+    position: relative;
+    margin-right: 5px;
+}
+.header-btns > div > button {
+	color: #666;
+	border-color: rgb(204,204,204) rgba(0, 0, 0, 0.19) rgba(0, 0, 0, 0.18);
+	background-color: #f5f5f4;
+    background-repeat: repeat-x;
+    background-image: -webkit-linear-gradient(top, #ffffff 1%,#f5f5f5 100%);
+    background-image: linear-gradient(to bottom, #ffffff 1%,#f5f5f5 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f5f5f5',GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+.header-btns > div > button:hover { color: #0094d2 }
+
+/* Header Button Icons */
+.header-btns > div > button > .glyphicon,
+.header-btns > div > button > .glyphicons,
+.header-btns > div > button > .fa {
+		font-size: 1.25em;
+}
+
+.header-btns .user-menu > .btn:first-child { border-radius: 3px 0 0 3px }
+.header-btns .user-menu > .btn:last-child { border: 0 }
+/* Header Button Dropdowns */
+.header-btns ul.dropdown-menu {
+    margin-top: 17px;
+    width: 300px;
+    background: #f5f5f5;
+    list-style: none;
+    left: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.4);
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.4);
+}
+/* Positions individual button dropdowns */
+.messages-menu ul.dropdown-menu { margin-left: -45px }
+.tasks-menu ul.dropdown-menu {
+    width: 430px;
+    margin-left: -240px;
+}
+.user-menu ul.dropdown-menu {
+    width: 250px;
+    margin-left: -120px;
+}
+.alerts-menu ul.dropdown-menu {
+    width: 300px;
+    margin-left: -70px;
+}
+/* Header Menu Dropdown - Header */
+.header-btns .dropdown-header {
+    padding: 12px 20px;
+    margin: 0;
+    z-index: 999;
+    font-size: 14px;
+    font-weight: 700;
+    color: #555;
+    background: #FFF;
+    position: relative;
+    border-radius: 3px 3px 0 0;
+    -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1),0 2px 3px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1),0 2px 3px rgba(0, 0, 0, 0.05);
+}
+/* Header Menu Dropdown - Items */
+.dropdown-menu ul.dropdown-items {
+    padding: 0;
+    list-style: none;
+}
+ul.dropdown-items > li {
+    padding: 10px 14px;
+    margin: 0;
+    border-bottom: 1px solid #DDD;
+    z-index: 888;
+    position: relative;
+    cursor: pointer;
+	font-size: 13px;
+}
+.user-menu ul.dropdown-items > li { padding: 8px 14px }
+ul.dropdown-items > li:hover { background: #EEE }
+ul.dropdown-items > li:last-child { border-bottom: 0 }
+ul.dropdown-items > li a:hover {
+    background: transparent;
+    text-decoration: none;
+	color: #666;
+}
+/* Special on-hover styles for user dropdown menu */
+.user-menu ul.dropdown-items > li:hover i.fa { color: #d9534f; }
+.user-menu ul.dropdown-items > li:last-child:hover i.fa { color: #888; }
+.user-menu ul.dropdown-items > li:last-child > div:hover i.fa { color: #d9534f; }
+
+/* Header Menu Dropdown - Footer */
+.header-btns .dropdown-footer {
+    padding: 11px 20px;
+    margin: 0;
+    z-index: 999;
+    font-size: 11px;
+    color: #999;
+    background: #FFF;
+    text-align: center;
+    position: relative;
+    border-radius: 0 0 3px 3px;
+    -webkit-box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.1),0 -2px 3px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.1),0 -2px 3px rgba(0, 0, 0, 0.05);
+}
+.header-btns .dropdown-footer a { color: #428bca }
+.header-btns .dropdown-footer a:hover { background: transparent }
+.header-btns .dropdown-footer i.fa { padding-left: 3px }
+/* Header Menu Dropdown - Top Directional Arrow */
+.header-btns .menu-arrow {
+    position: absolute;
+    top: -12px;
+    left: 10%;
+    overflow: hidden;
+}
+.header-btns .menu-arrow .menu-arrow-up {
+    background: url(../img/form/menu-arrow-up.png) no-repeat top left;
+    width: 25px;
+    height: 14px;
+    display: block;
+}
+.messages-menu .menu-arrow { left: 20% }
+.alerts-menu .menu-arrow { left: 27% }
+.tasks-menu .menu-arrow { left: 59% }
+.user-menu .menu-arrow { left: 69% }
+/* Header Menu Dropdown - Item contents */
+/* Item Avatar */
+.header-btns .item-avatar {
+    width: 45px;
+    margin-right: 12px;
+    display: inline-block;
+    vertical-align: middle;
+    border: 1px solid #CCC;
+}
+/* Item Icon */
+.header-btns .item-icon {
+    width: 40px;
+    margin-right: 5px;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 20px;
+    text-align: center;
+    color: #888;
+}
+.tasks-menu .item-icon { width: 30px }
+/* Item Message */
+.header-btns .item-message {
+    width: 200px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.user-menu .item-message { width: 170px }
+.tasks-menu .item-message { width: 215px }
+/* Item Label */
+.header-btns .item-label {
+    width: 80px;
+    display: inline-block;
+}
+/* Item Checkbox */
+.header-btns .item-checkbox {
+    position: absolute;
+    right: 20px;
+    top: 14px;
+}
+/* User Dropdown Menu */
+.user-menu .dropdown-lockout {
+    width: 50%;
+    float: left;
+    font-size: 13px;
+    padding: 11px 0 11px 15px;
+    background: #fff;
+    border-top: 1px solid #bbb;
+}
+.user-menu .dropdown-signout {
+    width: 50%;
+    float: left;
+    padding: 11px 5px 11px 15px;
+    background: #fff;
+    border-left: 1px dashed #ccc;
+    border-top: 1px solid #bbb;
+}
+/* User Dropdown Menu - Signout Buttons */
+.user-menu .dropdown-lockout .fa, .user-menu .dropdown-signout .fa {
+    padding-right: 7px;
+    font-size: 20px;
+    color: #888;
+    vertical-align: top;
+}
+/* Dropdown Checklist Toggle - The Task menu is a clickable checklist */
+.task-checked > div:not(.item-checkbox) { opacity: 0.4 }
+/* add a text line through effect on any clickable checklist by adding ".text-slash" */
+.task-checked .text-slash { text-decoration: line-through }
+
+/* ---------------------------------------
+   SIDE MENU
+----------------------------------------*/
+
+
+/* SIDEBAR ALTERNATE STYLES */
+/* Flat White */
+#sidebar.sidebar-alt-white ul.sidebar-nav > li > a {
+    background: #FFF;
+    border-color: #ddd;
+}
+#sidebar.sidebar-alt-white ul.sub-nav {
+    background: #f8f8f8;
+    border-color: #ddd;
+}
+/* Flat Grey */
+#sidebar.sidebar-alt-grey:before { background: #f2f2f2 }
+#sidebar.sidebar-alt-grey ul.sidebar-nav > li > a {
+    background: #f2f2f2;
+    border-color: #ddd;
+}
+#sidebar.sidebar-alt-grey ul.sub-nav {
+    background: #f8f8f8;
+    border-color: #ddd;
+}
+
+/* --------------------------------------
+   TOPBAR/BREADCRUMBS
+--------------------------------------*/
+#topbar {
+    z-index: 1023;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 52px;
+    max-height: 52px;
+    padding-left: 20px;
+    border-left: 1px solid #d2d2d2;
+    border-bottom: 1px solid #CCC;
+    background: url(../img/patterns/8.png) repeat top left;
+}
+.breadcrumb {
+    float: left;
+    padding: 0;
+    padding-top: 16px;
+    margin-bottom: 0;
+    border-radius: 0;
+    font-size: 14px;
+    background-color: transparent;
+}
+.breadcrumb .glyphicons {
+    font-size: 13px;
+    top: 0;
+}
+
+/* ---------------------------------------
+   LABELS
+----------------------------------------*/
+.label {
+    padding: .3em .7em .4em;
+    font-size: 84%;
+    font-weight: 600;
+}
+/* Label Shapes - ".label" required */
+.label.label-rounded {
+    padding: .2em 0.85em .3em;
+    border-radius: 1em;
+}
+/* Label Sizes - ".label" required */
+.label-sm {
+    padding: .2em .6em .3em;
+    font-size: 75%;
+}
+.label-lg {
+    padding: .4em .9em .5em;
+    font-size: 95%;
+}
+label.error {
+    color: #d9534f;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* --------------------------------------
+   BADGES
+--------------------------------------*/
+.badge {
+    padding: 3px 7px;
+    font-size: 12px;
+    font-weight: 600;
+}
+/* Badge Sizes - ".badge" required */
+.badge-sm {
+    padding: 2px 6px;
+    font-size: 11px;
+}
+.badge-lg { padding: 4px 8px }
+
+/* --------------------------------------------
+   ICONS
+   --------------------------------------------
+   See documentation for a full
+   explanation of available libraries
+   and their associated classes
+----------------------------------------------*/
+
+/* Some font libraries have large file sizes. 
+ * We optionally can attach .wf-loading to the 
+ * body tag and have the fonts only visible after 
+ * they are fully loaded or cached. Prevents rough
+ * icon flash and is currently used only on index.html */
+.wf-loading .glyphicons,
+.wf-loading .glyphicon,
+.wf-loading .imoon,
+.wf-loading .fa { 
+	opacity: 0 !important;
+}
+
+/* Icons */ 
+.glyphicons,.glyphicon,
+.imoon, .fa { 
+	opacity: 1;
+	transition: opacity 0.3s ease-in;
+   -moz-transition: opacity 0.3s ease-in;
+   -webkit-transition: opacity 0.3s ease-in;
+}
+ 
+/* Buttons with Icons 
+* Cross browser problems were creating problems when
+* an icon was given a larger font size than its sibling
+* text. To fix Line height, vertical align, and top
+* positioning have been redefined */
+.btn .glyphicons, .btn .glyphicon { 
+	top: -1px;
+	vertical-align: middle;
+	line-height: 0;
+	font-size: 1.1em;
+}
+
+ /* Glyphicon Pro and Halfling */
+.glyphicons-2x, .glyphicon-2x { font-size: 2em }
+.glyphicons-3x, .glyphicon-3x { font-size: 3em }
+.glyphicons-4x, .glyphicon-4x { font-size: 4em }
+.glyphicons-5x, .glyphicon-5x { font-size: 5em }
+
+/* Icomoon Font Icons */
+.imoon-2x { font-size: 2em }
+.imoon-3x { font-size: 3em }
+.imoon-4x { font-size: 4em }
+.imoon-5x { font-size: 5em }
+
+/* A helper class to align icons right in control-forms */
+i.field-icon-right {
+    position: absolute;
+    right: 10px;
+    top: 8px;
+}
+
+/* -----------------------------------------
+   ALERTS
+------------------------------------------*/
+/* Alert Sizes */
+.alert { font-size: 14px }
+.alert-sm { padding: 8px 35px 8px 15px }
+.alert-lg {
+    padding: 25px 35px 25px 15px;
+    font-size: 16px;
+}
+/* Alert Dismiss Icon */
+.alert-dismissable .close { color: #666 }
+
+/* -----------------------------------------
+   BUTTONS
+------------------------------------------*/
+/* Button Settings */
+.btn {
+    color: #FFF;
+    outline: none;
+	line-height: 1.47;
+}
+.btn:focus { color: #FFF }
+.btn-link { color: #444 }
+.btn-link:hover { color: #444 }
+/* Button Sizes */
+.btn-sm { line-height: 1.5; }
+.btn-lg { line-height: 1.33;}
+/* Button Shapes */
+.btn-square { border-radius: 0; }
+
+/* Button Colors */
+/* These are only colors that follow Bootstraps
+ * color scheme. Stardom includes many more colors
+ * are at end of this doc */
+.btn-success.btn-gradient {
+    border-color: #3f9d00;
+    background-color: #44ab00;
+}
+.btn-info.btn-gradient {
+    border-color: #269abc;
+    background-color: #14abd8;
+}
+.btn-primary.btn-gradient { background-color: #0088cc }
+.btn-warning.btn-gradient { background-color: #f28900 }
+.btn-danger.btn-gradient { background-color: #d3332e }
+.btn-default.btn-gradient { background-color: #f0f0f0 }
+/* Adds a custom "Alert"(purple) button to 
+ * the Bootstrap button lineup */
+.btn-alert { background-color: #7857ca }
+.btn-alert.btn-gradient { background-color: #5d3ab5 }
+.btn-alert .caret { border-top-color: #FFF }
+/* Button Hover effect */
+.btn:hover {
+    color: #FFF;
+    background-image: -webkit-linear-gradient(top, rgba(255,255,255, 0.13) 1%,rgba(255,255,255,0.13) 100%);
+    background-image: linear-gradient(to bottom, rgba(255,255,255, 0.13) 1%,rgba(255,255,255,0.13) 100%);
+}
+.btn-gradient:hover {
+    background-image: -webkit-linear-gradient(top, rgba(255,255,255, 0.45) 1%,rgba(255,255,255,0.15) 100%);
+    background-image: linear-gradient(to bottom, rgba(255,255,255, 0.45) 1%,rgba(255,255,255,0.15) 100%);
+}
+/* Button Gradients 
+ * Gradients are created using a transparent gradient 
+ * overlay. This way you can transform any element 
+ * with a background color into a gradient without 
+ * having to use additional colors */
+.btn-gradient {
+    background-repeat: repeat-x;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.40);
+    border-color: rgba(0, 0, 0, 0.07) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.18);
+    -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
+    background-image: -webkit-linear-gradient(top, rgba(255,255,255, 0.30) 1%,rgba(255,255,255,0.15) 100%);
+    background-image: linear-gradient(to bottom, rgba(255,255,255, 0.30) 1%,rgba(255,255,255,0.15) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80ffffff',endColorstr='#00ffffff',GradientType=0);
+}
+
+/* ---------------------------------------
+   PROGRESS BARS
+---------------------------------------*/
+.progress {
+    height: 18px;
+    background-color: #f1f1f1;
+    -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+.progress-bar { line-height: 18px }
+/* Progress Bar Sizes - ".progress" always required */
+.progress.progress-sm { height: 12px }
+.progress.progress-sm .progress-bar { line-height: 12px }
+.progress.progress-lg { height: 28px }
+.progress.progress-lg .progress-bar { line-height: 28px }
+
+/* ---------------------------------------
+   SLIDERS
+---------------------------------------*/
+/* Slider Container */
+.ui-rangeSlider .ui-rangeSlider-bar {
+    margin: 5px 0;
+    height: 20px;
+    background-color: #6390a7;
+}
+/* Slider Inner bar */
+.ui-rangeSlider .ui-rangeSlider-innerBar {
+    height: 24px;
+    margin: 3px 0;
+    background-color: #FFF;
+    border: 1px solid #CCC;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 1px 2px rgba(0,0,0, 0.10) inset, 0 -1px 0 rgba(255,255,255, 0.65) inset;
+    box-shadow: 0 1px 2px rgba(0,0,0, 0.10) inset, 0 -1px 0 rgba(255,255,255, 0.65) inset;
+}
+/* Slider Label */
+.ui-rangeSlider-label {
+    border: 0;
+    box-shadow: none;
+    background: none;
+    background-image: none;
+}
+.ui-rangeSlider-label-value {
+    position: relative;
+    top: -8px;
+    min-width: 40px;
+    min-height: 25px;
+    text-align: center;
+    line-height: 25px;
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: 4px;
+    background: #fafafa;
+    background-image: none;
+    -webkit-box-shadow: 0 1px 2px rgba(0,0,0, 0.25);
+    box-shadow: 0 1px 2px rgba(0,0,0, 0.25);
+}
+.ui-rangeSlider-label:after {
+    content: "\f0d7";
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    margin: 0 -6px;
+    color: #f8f8f8;
+    font-family: FontAwesome;
+    font-size: 18px;
+    text-align: center;
+    text-shadow: 0 1px 2px rgba(0,0,0, 0.25);
+}
+/* Slider Input Label */
+input.ui-editRangeSlider-inputValue {
+    border: 1px solid #DDD;
+    width: 2.2em;
+}
+/* Slider Handles */
+.ui-rangeSlider .ui-rangeSlider-handle { background: none }
+.ui-rangeSlider .ui-rangeSlider-handle-inner {
+    background: url(../img/form/slider-knob.png) no-repeat center top;
+    width: 22px;
+    height: 24px;
+}
+.ui-rangeSlider-leftHandle .ui-rangeSlider-handle-inner { margin-left: -10px }
+.ui-rangeSlider-rightHandle .ui-rangeSlider-handle-inner { margin-left: -4px }
+/* Slider Arrows */
+.ui-rangeSlider-arrow { margin: 6px 0 }
+.ui-rangeSlider-arrow.ui-rangeSlider-leftArrow { left: -13px !important }
+.ui-rangeSlider-arrow.ui-rangeSlider-rightArrow { right: -13px !important }
+
+/* ----------------------------------------
+   FIELD ELEMENTS
+-----------------------------------------*/
+/* Alternate Text Field Style - Gradient */
+.text-field-alt {
+    min-height: 40px;
+    border-radius: 1px;
+    border: 1px solid #cccccc;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    background-repeat: repeat-x;
+    background-image: -webkit-linear-gradient(top, #ffffff 1%,#f2f2f2 100%);
+    background-image: linear-gradient(to bottom, #ffffff 1%,#f2f2f2 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f2f2f2',GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+
+/* Default Select List */
+select { cursor: pointer; }
+
+/* Boostrap Input Groups */
+.input-group-addon { min-width: 40px }
+/* Bootstrap Help Block */
+.help-block {
+    margin-top: 7px;
+    color: #888;
+}
+/* Checkboxes and Radios */
+div.checker, div.checker span, div.checker input { cursor: pointer }
+div.checker, div.radio { margin-right: 3px }
+label .checker, label .radio, .form-horizontal label .checker, .form-horizontal label .radio { padding-top: 0 }
+.radio-inline, .checkbox-inline {
+    padding-left: 5px;
+    vertical-align: top;
+}
+
+/* JQuery UI Spinner */
+.ui-spinner-input {
+    color: inherit;
+    min-height: 36px;
+}
+.ui-spinner-button {
+    cursor: pointer;
+    display: block;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    width: 16px;
+    height: 50%;
+    padding: 0;
+    margin: 0;
+    font-size: .5em;
+    text-align: center;
+}
+.input-group .ui-spinner .form-control:first-child {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+.ui-spinner .ui-icon {
+    position: absolute;
+    margin-top: -2px;
+    top: 50%;
+    left: 0;
+    text-indent: 0;
+}
+.ui-spinner-up .ui-icon { margin-top: -6px }
+.ui-spinner-up { top: 0 }
+.ui-spinner-down { bottom: 0 }
+/* TR overrides */
+.ui-spinner .ui-icon-triangle-1-s {
+    /* needed to correct false icon sprite pos */
+    background-position: -65px -16px;
+}
+
+
+/* ---------------------------------------
+   TABLES
+----------------------------------------*/
+/* Table first item changes */
+.table tbody > tr:first-child > td { border-top: 0 }
+/* Table-striped item changes */
+.table-striped > tbody > tr:nth-child(even) > td {
+    background-color: #f8f8f8;
+    border-bottom: 1px dashed #c9c9c9;
+    padding: 13px 8px;
+}
+.table-striped > tbody > tr:nth-child(odd) > td {
+    background-color: #FFF;
+    border-bottom: 1px dashed #c9c9c9;
+    padding: 13px 8px;
+}
+
+/* ---------------------------------------
+   PRICING TABLES
+---------------------------------------*/
+/* Regular Pricing Plan */
+.pricing-tables .pricing-plan {
+    padding: 0 0 20px 0;
+    margin: 30px -16px 20px -16px;
+    border: 1px solid #CCC;
+    background-color: #f6f6f6;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+/* Pricing Table Title */
+.pricing-tables .pricing-title {
+    padding: 25px 5px 20px;
+    border-bottom: 1px solid #DDD;
+}
+.pricing-tables .pricing-title h3 {
+    margin-bottom: 0;
+    font-weight: 200;
+    text-transform: none;
+    font-size: 26px;
+    color: #555;
+}
+/* Pricing Table Cost Figure */
+.pricing-info { margin: 20px 0 }
+.pricing-info .currency-sign {
+    color: #333;
+    font-size: 26px;
+    font-weight: 200;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: -20px;
+    padding-left: 5px;
+    padding-top: 6px;
+}
+.pricing-info h2 {
+    display: inline-block;
+    margin-bottom: 0;
+    color: #444;
+    font-size: 54px;
+    font-weight: 600;
+}
+.pricing-info h6 {
+    color: #888;
+    font-weight: 200;
+    margin: 4px 0 0;
+}
+/* Pricing Table Item Features */
+.pricing-features ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid #DDD;
+}
+.pricing-features li {
+    padding: 10px 0;
+    border-bottom: 1px solid #DDD;
+    background-color: #FFF;
+    color: #999;
+    margin: 0;
+}
+.pricing-tables .pricing-features li b { font-weight: 600 }
+.pricing-tables .pricing-features li i.fa {
+    font-size: 15px;
+    color: #777;
+    padding-right: 8px;
+}
+/* Pricing Table Icons */
+.pricing-tables .pricing-icons ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.pricing-tables .pricing-icons li {
+    padding: 10px 0;
+    border-bottom: 1px solid #DDD;
+    background-color: #FFF;
+    font-size: 18px;
+    margin: 0;
+}
+.pricing-tables .pricing-icons li i.fa-times { color: #e74a4a }
+.pricing-tables .pricing-icons li i.fa-ellipsis-h { color: #555 }
+/* Pricing Table Sign Up Button*/
+.pricing-tables a.btn {
+    margin-top: 25px;
+    padding: 8px 26px;
+}
+/* Hero Pricing Plan Modifications */
+.hero-plan { z-index: 10 }
+.hero-plan .pricing-plan {
+    background-color: #f6f6f6;
+    padding: 0 0 20px 0;
+    margin: 0 -17px 20px -17px;
+    border-bottom: 1px solid #BBB;
+    -webkit-box-shadow: 0 0 20px rgba(100, 100, 100, 0.2);
+    box-shadow: 0 0 20px rgba(100, 100, 100, 0.2);
+}
+.hero-plan .pricing-plan .pricing-title {
+    color: #FFF;
+    margin: -1px -1px 0 -1px;
+}
+.hero-plan .pricing-plan .pricing-title h3 {
+    color: #FFF;
+    font-weight: 600;
+}
+.hero-plan .pricing-plan .pricing-subtitle {
+    text-transform: uppercase;
+    font-size: 12px;
+    margin-top: 4px;
+    font-weight: 600;
+}
+.hero-plan .pricing-plan a.btn { margin: 40px 0 20px }
+
+/* ---------------------------------------------
+   PANELS 
+ -----------------------------------------------   
+   Bootstrap Panels are a vital element in this
+   Theme. Reading the Stardom Docs to better 
+   understand this component is recommended
+ ----------------------------------------------*/
+/* Overflow is hidden by default. Helper class to reverse */
+.panel.panel-visible, .panel-heading.panel-visible { overflow: visible !important }
+.panel {
+    position: relative;
+    margin-bottom: 35px;
+    overflow: hidden;
+    border-color: #c9c9c9;
+    -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.33);
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.33);
+}
+.panel-heading {
+    overflow: hidden;
+    position: relative;
+    height: 57px;
+    padding: 10px 20px 9px;
+    color: #666;
+    border-bottom: 1px solid #c9c9c9;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 33px;
+    border-radius: 3px 3px 0 0;
+    background-repeat: repeat-x;
+    background-image: -webkit-linear-gradient(top, #ffffff 1%,#f2f2f2 100%);
+    background-image: linear-gradient(to bottom, #ffffff 1%,#f2f2f2 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f2f2f2',GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+.panel-title {
+    float: left;
+    padding-top: 1px;
+    font-size: 14px;
+    text-shadow: 0 1px #ffffff;
+}
+.panel-heading .panel-title i.fa {
+    margin-top: -3px;
+    padding-right: 8px;
+    font-size: 17px;
+    vertical-align: middle;
+}
+/* Helpful for wrapping form components in
+ * when placing them in the header. Otherwise
+ * they can break the title with their width */
+.panel-heading .panel-field { max-width: 140px }
+/* PANEL TITLES */
+/* Used as a divider Bbetween panel content */
+.panel-body-title {
+    margin-bottom: 20px;
+    padding: 10px 0 15px;
+    color: #666;
+    border-bottom: 1px solid #DDD;
+    line-height: 18px;
+}
+/* Used as small text in panel header and footers */
+.panel-title-sm {
+    padding-right: 5px;
+    color: #888;
+    font-size: 12px;
+    font-weight: 700;
+    text-shadow: 0 1px #ffffff;
+}
+/* PANEL ALTERNATE STYLE - Minimal */
+.panel.panel-alt {
+    border-color: #DDD;
+    box-shadow: none;
+    background: #FFF;
+}
+.panel.panel-alt > .panel-heading {
+    height: 45px;
+    padding: 0 20px;
+    background-color: #FFF;
+    font-size: 14px;
+    line-height: 43px;
+    box-shadow: none;
+}
+.panel.panel-alt .panel-body {
+    padding: 20px 30px;
+    background-color: #fcfcfc;
+    line-height: 22px;
+}
+/* PANEL ADDON - MENU */
+/* Typically placed under the panel header 
+ * and used to hold buttons or menus */
+.panel-menu {
+    padding: 10px 13px;
+    background-color: #eee;
+    border-bottom: 1px solid #C9c9c9;
+}
+.panel-heading + .panel-menu {
+    -webkit-box-shadow: 0 5px 5px -4px rgba(0, 0, 0, 0.15) inset;
+    box-shadow: 0 5px 5px -4px rgba(0, 0, 0, 0.15) inset;
+}
+.panel-menu .btn-default.btn-gradient.active {
+    background-color: #FFF;
+    color: #39b1d5;
+    box-shadow: none;
+}
+/* PANEL ADDON - SIDEMENU  */
+/* A side column great for housing an
+ * extra nav list. When used its sibling
+ * panel body (content) is modified */
+.panel-sidemenu + .panel-body {
+    position: relative;
+    float: left;
+    width: 70%;
+    margin: 40px 3.5% 100px;
+    padding: 0;
+}
+/* Sidemenu and content are both floated. 
+ * to create equal heights we expand the sidemenu 
+ * with padding and allow its parent container 
+ * to catch the overflow */
+.panel-sidemenu {
+    position: relative;
+    float: left;
+    width: 23%;
+    height: 100%;
+    padding: 5px;
+    background-color: #f6f6f6;
+    border-right: 1px solid #CCC;
+    margin-bottom: -2000px;
+    padding-bottom: 2000px;
+}
+.panel-sidemenu ul.nav {
+    margin-top: 30px;
+    padding-left: 30px;
+}
+.panel-sidemenu ul.nav li {
+    margin-bottom: 4px;
+    list-style: none;
+}
+.panel-sidemenu ul.nav li.nav-title {
+    padding: 10px 0;
+    color: #777;
+    font-weight: 700;
+    text-decoration: none;
+    text-shadow: 0 1px #FFF;
+}
+.panel-sidemenu ul.nav li.nav-title:hover { color: #777 }
+.panel-sidemenu ul.nav li a {
+    padding: 5px 0;
+    color: #888;
+}
+.panel-sidemenu ul.nav li a:hover { background: none }
+.panel-sidemenu ul.nav li .fa {
+    width: 28px;
+    color: #BBB;
+    font-size: 18px;
+}
+.panel-sidemenu ul.nav li:hover, .panel-sidemenu ul.nav li:hover .fa { Color: #5bc0de }
+.panel-sidemenu ul.nav li.active, .panel-sidemenu ul.nav li.active .fa { color: #5bc0de }
+.panel-sidemenu ul.nav .divider {
+    width: 80%;
+    height: 1px;
+    margin: 9px 0;
+    overflow: hidden;
+    background: #e2e2e2;
+}
+/* Sidemenu is hidden on small devices */
+@media (max-width: 1000px) { 
+    .panel-sidemenu { display: none }
+    .panel-sidemenu + .panel-body {
+        width: 93%;
+        margin: 40px 3.5% 100px;
+    }
+}
+/* PANEL ADDON - BODY SEARCHBAR */
+/* Useful anywhere but in this theme it is 
+ * only used or seen inside a panel body */
+.search-widget { position: relative }
+#search-widget {
+    height: 85px;
+    margin-bottom: 50px;
+    padding: 20px 25px;
+    background: #f4f7fa;
+    border: 1px solid #d8dee6;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 0 3px rgba(0,0,0, 0.05) inset;
+    box-shadow: 0 0 3px rgba(0,0,0, 0.05) inset;
+}
+.search-bar-widget {
+    float: left;
+    width: 82%;
+    min-height: 43px;
+    padding: 9px 12px 9px 40px;
+}
+#search-widget .search-widget-icon {
+    position: absolute;
+    top: 14px;
+    left: 15px;
+    color: #999;
+    font-size: 16px;
+}
+#search-widget button {
+    float: left;
+    width: 16%;
+    margin-left: 2%;
+    padding: 10px;
+    font-weight: 600;
+}
+/* PANEL TAB CORRECTION */
+/* If you want a panel-like footer inside a tababble
+ * area you need to wrap the content in a ".tab-body"
+ * class. See timeline.html for an example(event panel) */
+.tab-body { padding: 20px 20px 15px }
+.tab-footer {
+    padding: 10px 15px;
+    background-color: #f5f5f5;
+    border-top: 1px solid #dddddd;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+/* Mildly styles a font awesome based icon group
+ * used in occasionaly in panel heading. Look at 
+ * message widget on index.html for example */
+.mini-action-icons i.fa {
+    position: relative;
+    top: 2px;
+    padding-right: 10px;
+    color: #777;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* --------------------------------------
+   PANEL TABS
+---------------------------------------*/
+/* Panel Tab Navigation must be placed inside
+ * ".panel-heading" see Stardom Docs for example */
+.panel-tabs {
+    float: right;
+    margin-top: -10px;
+}
+.panel-tabs > li {
+    float: left;
+    margin-bottom: -1px;
+}
+.panel-tabs > li > a {
+    line-height: 1.428571429;
+    border-radius: 0;
+    padding: 19px 15px 17px;
+    border: 1px solid transparent;
+    border-right: 1px solid #DDD;
+    font-size: 12px;
+    color: #777;
+}
+.panel-tabs > li > a:hover {
+    background-color: transparent;
+}
+.panel-tabs > li:first-child > a { border-left: 1px solid #DDD }
+/* hover and active states */
+.panel-tabs > li.active > a, .panel-tabs > li.active > a:hover, .panel-tabs > li.active > a:focus {
+    color: #555555;
+    cursor: default;
+    background: #ffffff;
+    padding: 19px 15px 21px;
+}
+/* panel tab icons */
+.panel-tabs li i.fa { font-size: 14px }
+.panel-tabs .imoon {
+    font-size: 14px;
+    vertical-align: middle;
+}
+
+/* --------------------------------------
+   TABS
+---------------------------------------*/
+/* TAB CONTAINER */
+.tab-block { position: relative }
+.tab-block .tab-content {
+    overflow: auto;
+    background-color: #FFF;
+}
+/* TAB CONTENT PANEL */
+.tab-content {
+    position: relative;
+    z-index: 10;
+    min-height: 170px;
+    padding: 16px 12px;
+    border: 1px solid #CCC;
+}
+/* TAB NAVIGATION */
+.nav-tabs {
+    position: relative;
+    top: 1px;
+}
+.nav-tabs > li {
+    float: left;
+    margin-bottom: -1px;
+}
+.nav-tabs > li > a {
+    position: relative;
+    z-index: 9;
+    padding: 12px 16px;
+    margin-right: -1px;
+    font-weight: 700;
+    color: #777;
+    font-size: 12px;
+    text-shadow: 0 1px #ffffff;
+    border-color: #CFCFCF;
+    border-radius: 0;
+    background-repeat: repeat-x;
+    background-image: -webkit-linear-gradient(top, #ffffff 1%,#f0f0f0 100%);
+    background-image: linear-gradient(to bottom, #ffffff 1%,#f0f0f0 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f0f0f0',GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+.nav-tabs > li:first-child > a { margin-left: 0 }
+/* TAB NAVIGATION STATES */
+.nav-tabs > li > a:hover {
+    color: #428bca;
+    border-color: #CFCFCF;
+}
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+    cursor: default;
+    position: relative;
+    z-index: 12;
+    color: #555555;
+    background: #FFF;
+    border-color: #CFCFCF;
+    border-bottom: 1px solid #FFF;
+}
+/* TAB NAVIGATION ICONS */
+.nav-tabs li i.fa { font-size: 14px }
+.nav-tabs li i.fa.fa-caret-down { font-size: 12px }
+/* open state for dropdown menus in nav 
+ * containers. Also a direct bootstrap override */
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
+    color: #428bca;
+    border-color: #CFCFCF;
+}
+/* TAB NAVIGATION - ALT STYLE: BORDER */
+.tabs-border.nav-tabs > li.active > a, .tabs-border .nav-tabs > li.active > a {
+    margin-top: -1px;
+    border-top: 2px solid #428bca;
+}
+/* TAB NAVIGATION - ALT STYLE: BACKGROUND */
+.tabs-bg.nav {
+    background: #f5f5f5;
+    border: 1px solid #CCC;
+    padding: 10px 10px 0;
+}
+/* TABS - NAVIGATION BELOW */
+.tabs-below {
+    position: relative;
+    top: -1px;
+}
+.tabs-below > li {
+    float: left;
+    margin-top: -1px;
+}
+.tabs-below > li > a {
+    position: relative;
+    z-index: 9;
+    margin-right: -1px;
+    padding: 12px 16px;
+    font-size: 12px;
+    color: #777;
+    font-weight: 700;
+    border: 1px solid #CFCFCF;
+    text-shadow: 0 1px #ffffff;
+    background-repeat: repeat-x;
+    background-image: -webkit-linear-gradient(top, #ffffff 1%,#f0f0f0 100%);
+    background-image: linear-gradient(to bottom, #ffffff 1%,#f0f0f0 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f0f0f0',GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+/* TAB NAVIGATION STATES */
+.tabs-below > li > a:hover { }
+.tabs-below > li.active > a, .tabs-below > li.active > a:hover, .tabs-below > li.active > a:focus {
+    cursor: default;
+    position: relative;
+    z-index: 12;
+    color: #555555;
+    background: #FFF;
+    border-color: #CFCFCF;
+    border-top: 1px solid #FFF;
+}
+/* TAB NAVIGATION - ALT STYLE: BORDER */
+.tabs-border.tabs-below > li.active > a, .tabs-border .tabs-below > li.active > a {
+    margin-bottom: -1px;
+    border-bottom: 2px solid #428bca;
+}
+/* TAB NAVIGATION - ALT STYLE: BACKGROUND */
+.tabs-bg.tabs-below {
+    background: #f5f5f5;
+    border: 1px solid #CCC;
+    padding: 0 10px 10px;
+}
+/* TABS - NAVIGATION LEFT */
+.tabs-left { float: left }
+.tabs-left > li {
+    float: none;
+    margin: 0 -1px -1px 0;
+}
+.tabs-left > li > a {
+    padding: 12px 16px;
+    color: #777;
+    font-size: 12px;
+    font-weight: 700;
+    text-shadow: 0 1px #ffffff;
+    border: 1px solid transparent;
+    border-color: #CFCFCF;
+    background: #f8f8f8;
+    background-repeat: repeat-x;
+    background-image: -webkit-linear-gradient(top, #ffffff 1%,#f0f0f0 100%);
+    background-image: linear-gradient(to bottom, #ffffff 1%,#f0f0f0 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f0f0f0',GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+/* TAB NAVIGATION STATES */
+.tabs-left > li > a:hover { }
+.tabs-left > li.active > a, .tabs-left > li.active > a:hover, .tabs-left > li.active > a:focus {
+    color: #555;
+    border-color: #CCC #FFF #CCC #CCC;
+    cursor: default;
+    position: relative;
+    z-index: 12;
+    background: #FFF;
+}
+/* TAB NAVIGATION - ALT STYLE: BORDER */
+.tabs-border.tabs-left > li.active > a, .tabs-border .tabs-left > li.active > a {
+    margin-left: -1px;
+    border-left: 2px solid #428bca;
+}
+
+/* WELL TABS - GREY MICRO NAV TABS */
+.well-tabs { position:relative; }
+.well-tabs li {
+	float: left;
+	margin: 4px 6px;
+}
+.well-tabs li:first-child {
+	margin-left: 0;
+}
+.well-tabs li a { 
+	background: #f0f0f0;
+	border-radius: 4px;
+	border: 1px solid #DDD;
+	font-size: 11px;
+	font-weight: 600;
+	color: #888;
+	padding: 6px 8px;
+	line-height: 15px;
+}
+.well-tabs li a:hover,.well-tabs li.active a {
+	background-color: #FFF;
+}
+/* Same style but inversed colors */
+.well-tabs-inverse li a { 
+	background: transparent;
+	border-radius: 4px;
+	border: 1px solid #ddd;
+	font-size: 11px;
+	font-weight: 600;
+	color: #888;
+	padding: 6px 8px;
+	line-height: 15px;
+}
+.well-tabs-inverse li a:hover,.well-tabs-inverse li.active a {
+	background-color: #f0f0f0;
+	border: 1px solid #ddd;
+}
+
+/* --------------------------------------
+   PANEL ACCORDION
+---------------------------------------*/
+/* Created with Bootstrap Panels */
+.accordion.panel-group .panel {
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+.accordion.panel-group .panel + .panel { margin-top: 10px }
+/* Accordion Header */
+.accordion .panel-heading a {
+    text-decoration: none;
+    display: block;
+}
+/* Accordion Toggle Arrows */
+.accordion .accordion-toggle-icon i.fa {
+    float: left;
+    line-height: 36px;
+    min-width: 31px;
+    padding-right: 5px;
+    font-size: 18px;
+}
+/* Accordion Toggle Arrow States */
+.accordion .accordion-toggle-icon i:first-child { display: block }
+.accordion .accordion-toggle-icon i:last-child { display: none }
+.accordion .collapsed .accordion-toggle-icon i:first-child { display: none }
+.accordion .collapsed .accordion-toggle-icon i:last-child { display: block }
+/* Accordion Widget - Alt Size, Small */
+.accordion.accordion-sm .panel-heading {
+    padding: 0 20px;
+    height: 40px;
+    line-height: 40px;
+}
+.accordion.accordion-sm .accordion-toggle-icon i:first-child, .accordion.accordion-sm .accordion-toggle-icon i:last-child { line-height: 40px }
+/* Accordion Widget - Alt Style, White */
+.accordion.accordion-alt.panel-group .panel {
+    border-color: #DDD;
+    box-shadow: none;
+}
+.accordion.accordion-alt.panel-group .panel > .panel-heading {
+    background-color: #FFF;
+    padding: 0 20px;
+    height: 45px;
+    line-height: 43px;
+    font-size: 14px;
+    box-shadow: none;
+}
+.accordion.accordion-alt.panel-group .panel > .panel-heading > a {
+    color: #444;
+    font-weight: 400;
+}
+.accordion.accordion-alt.panel-group .panel > .panel-heading > a.collapsed { color: #888 }
+.accordion.accordion-alt.panel-group .panel > .panel-heading > a.collapsed:hover { color: #444 }
+.accordion.accordion-alt .accordion-toggle-icon i:first-child, .accordion.accordion-alt .accordion-toggle-icon i:last-child {
+    color: #BBB;
+    line-height: 45px;
+    font-size: 15px;
+    min-width: 26px;
+}
+.accordion.accordion-alt.panel-group .panel .panel-body {
+    background-color: #fcfcfc;
+    padding: 20px 30px;
+    line-height: 22px;
+}
+
+/* --------------------------------------
+   PAGINATIONS
+---------------------------------------*/
+/* MINI PAGERS */
+.pager {
+    margin: 5px 0;
+    cursor: pointer;
+}
+.pager li > a, .pager li > span { font-size: 14px }
+.pager.pager-sm li > a, .pager.pager-sm li > span { font-size: 12px }
+.pager.pager-lg li > a, .pager.pager-lg li > span { font-size: 16px }
+/* PAGINATIONS */
+.pagination {
+    margin: 5px 0;
+    cursor: pointer;
+}
+/* ROUNDED PAGINATION */
+.pagination-rounded > li:first-child > a { border-radius: 50% 0 0 50% }
+.pagination-rounded > li:last-child > a { border-radius: 0 50% 50% 0 }
+/* ALT STYLE */
+.pagination-alt > li > a {
+    margin: 0 4px;
+    border-radius: 2px;
+    font-weight: 600;
+    color: #666;
+    text-shadow: 0 1px #FFF;
+    padding: 4px 11px;
+    border-color: #ccc;
+    -webkit-box-shadow: 0 1px 2px rgba(0,0,0, 0.1);
+    box-shadow: 0 1px 2px rgba(0,0,0, 0.1);
+    background-repeat: repeat-x;
+    background-image: -webkit-linear-gradient(top, #ffffff 1%,#f1f1f1 100%);
+    background-image: linear-gradient(to bottom, #ffffff 1%,#f1f1f1 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f1f1f1',GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+.pagination-alt > li.active > a {
+    background-color: #555;
+    background-image: none;
+    border-color: #444;
+}
+/* SIZES FOR ALT STYLE */
+.pagination-alt.pagination-sm > li > a {
+    margin: 0 3px;
+    font-weight: 700;
+    padding: 4px 9px;
+}
+.pagination-alt.pagination-lg > li > a {
+    margin: 0 5px;
+    padding: 4px 13px;
+}
+/* pagination-alt fixes */
+.pagination-alt.pagination-sm > li:first-child > a, .pagination-alt.pagination-lg > li:first-child > a { margin-left: 0 }
+
+/* -----------------------------------------
+   BOOTSTRAP MODALS
+-----------------------------------------*/
+/* Modal sizes - element always requires
+ * default ".modal-dialog" class */
+.modal-dialog-sm { width: auto }
+@media screen and (min-width: 768px) { 
+    .modal-dialog { padding-top: 50px }
+    .modal-dialog-sm { width: 425px }
+}
+/* Modal Header */
+.modal-header {
+    position: relative;
+    height: 52px;
+    padding: 10px 20px 9px;
+    color: #666;
+    font-size: 14px;
+    font-weight: 700;
+    text-shadow: 0 1px #ffffff;
+    line-height: 31px;
+    border-radius: 3px 3px 0 0;
+    border-bottom: 1px solid #c9c9c9;
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15),0 -1px 1px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15),0 -1px 1px rgba(0, 0, 0, 0.05);
+    background-repeat: repeat-x;
+    background-image: -webkit-linear-gradient(top, #ffffff 1%,#f2f2f2 100%);
+    background-image: linear-gradient(to bottom, #ffffff 1%,#f2f2f2 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f2f2f2',GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+.modal-header .modal-title { line-height: 31px }
+.modal-header .close { margin-top: 6px }
+/* Modal Body */
+.modal-body { }
+/* Modal Footer */
+.modal-footer {
+    padding: 10px 15px;
+    background-color: #f5f5f5;
+    border-top: 1px solid #dddddd;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+/* ---------------------------------------
+   CUSTOM MODALS
+----------------------------------------*/
+/* Login Form Modal */
+#formModal .modal-content {
+	width: 400px;
+	margin: 0 auto;
+	position: relative;
+}
+#formModal .modal-header .modal-title {
+	line-height: 35px;
+}
+#formModal .modal-header button {
+	margin-top: 6px;
+}
+#formModal .modal-footer button {
+	margin-top: 0;
+}
+#formModal .modal-body {
+	padding: 15px 20px 0 20px;
+}
+#formModal #login-avatar {
+	margin: 15px 20px 25px;
+	padding-bottom: 25px;
+	border-bottom: 1px dashed #DDD;
+}
+#formModal #login-avatar img {
+	display: block;
+	margin: 0 auto;
+	padding: 5px;
+	border: 2px solid #DDD;
+}
+#formModal .login-alert {
+	font-size: 13px;
+	padding: 9px 13px;
+}
+
+/* ---------------------------------------
+   BOOTSTRAP POPOVER
+----------------------------------------*/
+.popover { z-index: 1100 }
+
+/*----------------------------------------------
+   TABLE WIDGET
+------------------------------------------------
+ This is a multi-purpose widget. Apply it to
+ any table to access specific table styles.
+ Avatars, titles, etc. Commonly inside a panel.
+----------------------------------------------*/
+.table-checklist td { cursor: pointer }
+.table-widget .tab-content {
+    padding: 0;
+    border: 0;
+    overflow: hidden;
+}
+/* Table items (labels, badges, progress bars etc) */
+.table-widget .progress {
+    width: 80%;
+    height: 13px;
+    margin: 0;
+}
+.table-widget .label, .table-widget .badge { margin-right: 7px }
+/* Tables with the .table-checklist class become clickable
+ * if you want text to have a line-through effect on click
+ * add the .text-slash class to the element */
+.table-checklist tr.task-checked { color: #BBB }
+.table-checklist tr.task-checked .text-slash { text-decoration: line-through }
+/* Table item checked state - class added via JS */
+.table-checklist tr.task-checked .label, .table-checklist tr.task-checked .progress { opacity: 0.3 }
+
+/*----------------------------------------------
+   CHAT WIDGET
+-----------------------------------------------   
+ Created with Panels. Activate by adding
+ ".chat-panel" to panel wrapper (".panel")
+----------------------------------------------*/
+.chat-panel .media-img img {
+    max-width: 70px;
+    margin-right: 8px;
+    border: 1px solid #CCC;
+}
+.chat-panel .media-heading {
+    color: #777;
+    font-weight: 600;
+}
+.chat-panel .media-timestamp {
+    color: #999;
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 10px;
+}
+.chat-panel .media-content {
+    padding: 10px 15px;
+    color: #777;
+    line-height: 25px;
+    border: 1px solid #d5d5d5;
+    border-radius: 3px;
+    background-repeat: repeat-x;
+    background-image: -webkit-linear-gradient(top, #ffffff 1%,#f3f3f3 100%);
+    background-image: linear-gradient(to bottom, #ffffff 1%,#f3f3f3 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f3f3f3',GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+.media, .media .media { margin-top: 20px }
+
+/* ---------------------------------------------
+   MESSENGER WIDGET
+------------------------------------------------
+   Not to be confused with the comments widget. 
+   unlike the comments Widget this has a listing 
+   of online and offline site users.
+----------------------------------------------*/
+/* Messenger user list table */
+.message-widget .table tbody > tr > td {
+    padding: 10px 8px;
+    border-top: 1px dashed #c9c9c9;
+    vertical-align: middle;
+}
+.message-widget .table tbody > tr:first-child > td { border-top: 0 }
+.message-widget .avatar { width: 15% }
+.message-widget .avatar img {
+    min-width: 50px;
+    max-width: 50px;
+}
+
+/* -----------------------------------------
+   CALENDAR WIDGET
+------------------------------------------*/
+#calendar { position: relative }
+.external-event {
+    margin: 10px 0;
+    padding: 7px;
+    color: #FFF;
+    cursor: pointer;
+    border-radius: 3px;
+    background-color: #368d0d;
+    background-repeat: repeat-x;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.40);
+	border: 1px solid #CCC;
+    border-color: rgba(0, 0, 0, 0.07) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.18);
+    -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
+    background-image: -webkit-linear-gradient(top, rgba(255,255,255, 0.30) 1%,rgba(255,255,255,0.15) 100%);
+    background-image: linear-gradient(to bottom, rgba(255,255,255, 0.30) 1%,rgba(255,255,255,0.15) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80ffffff',endColorstr='#00ffffff',GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+.fc-header .fc-button {
+    height: 35px;
+    padding: 5px 10px;
+    background-color: #f7f7f7;
+    color: #666;
+    font-size: 12px;
+    font-weight: 700;
+    text-align: center;
+    border: 1px solid #CCC;
+    text-shadow: 0 1px #ffffff;
+    background-repeat: repeat-x;
+    background-image: -webkit-linear-gradient(top, #ffffff 1%,#f1f1f1 100%);
+    background-image: linear-gradient(to bottom, #ffffff 1%,#f1f1f1 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f1f1f1',GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+.fc-header-left {
+    position: absolute;
+    top: -61px;
+    right: 167px;
+    width: auto;
+}
+.fc-header-right {
+    position: absolute;
+    top: -61px;
+    right: 0;
+    width: auto;
+}
+.fc-button.fc-state-down, .fc-button.fc-state-active {
+    background-color: #EEE;
+    -webkit-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.05);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+.fc-event {
+    margin: 4px;
+    background-color: #368d0d;
+    background-repeat: repeat-x;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.40);
+    border-color: rgba(0, 0, 0, 0.07) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.18);
+    -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
+    background-image: -webkit-linear-gradient(top, rgba(255,255,255, 0.30) 1%,rgba(255,255,255,0.15) 100%);
+    background-image: linear-gradient(to bottom, rgba(255,255,255, 0.30) 1%,rgba(255,255,255,0.15) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80ffffff',endColorstr='#00ffffff',GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+.fc-header-left .fc-button, .fc-header-right .fc-button { margin-left: 0 }
+.fc-header-title { margin: 10px 0 20px }
+.fc-grid .fc-day-header {
+    border: 0;
+    border-bottom: 1px solid #DDD;
+}
+.fc-grid .fc-day-number {
+    font-size: 14px;
+    font-weight: 600;
+}
+.fc-state-highlight { background-color: #f8f8f8 }
+.fc-event-inner { padding: 7px }
+
+/* ---------------------------------------
+   TIMELINE WIDGET - Not Timeline Page
+----------------------------------------*/
+.timeline-widget {
+    position: relative;
+    margin: 4px 0 0;
+    padding: 0;
+    list-style: none;
+}
+.timeline-icon {
+    z-index: 11;
+    position: relative;
+    float: left;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    margin-right: 10px;
+    padding-top: 1px;
+    padding-right: 1px;
+    border-radius: 50%;
+    background: #DDD;
+    -webkit-box-shadow: 1px 0 1px #AAA inset,-1px 0 1px #ffffff inset;
+    box-shadow: 1px 0 1px #AAA inset,-1px 0 1px #ffffff inset;
+}
+.timeline-widget span.glyphicons {
+    z-index: 11;
+    position: relative;
+	top: 2px;
+    width: auto;
+    padding: 6px;
+    font-size: 18px;
+    border-radius: 50%;
+    -webkit-box-shadow: 1px 1px 2px #AAA;
+    box-shadow: 1px 1px 2px #AAA;
+    background-color: #FFFFFF;
+    background-repeat: repeat-x;
+    background-image: -webkit-linear-gradient(top, #FFFFFF 1%, #F1F1F1 100%);
+    background-image: linear-gradient(to bottom, #FFFFFF 1%, #F1F1F1 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80ffffff',endColorstr='#00f1f1f1',GradientType=0);	
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+.timeline-widget .media {
+    position: relative;
+    font-size: 14px;
+    min-height: 60px;
+    padding-bottom: 15px;
+    margin: 0;
+}
+.timeline-widget .media:after {
+    position: absolute;
+    top: 0;
+    left: 20px;
+    width: 8px;
+    height: 100%;
+    content: "";
+    z-index: 10;
+    background: #DDD;
+    -webkit-box-shadow: 1px 0 1px #AAA inset,-1px 0 1px #f5f5f5 inset;
+    box-shadow: 1px 0 1px #AAA inset,-1px 0 1px #f5f5f5 inset;
+}
+.timeline-widget .media:last-child:after {
+    display: none;
+    content: "";
+}
+.timeline-widget .date {
+    padding-left: 5px;
+    color: #888;
+    font-size: 12px;
+}
+.timeline-widget .media-body { padding-top: 10px }
+
+/* ----------------------------------------
+  STARDOM COLOR SYSTEM
+-----------------------------------------*/
+/* COLORS FOR BADGES - BOOTSTRAP THEMED */
+.badge-default { background-color: #999 }
+.badge-primary { background-color: #428bca }
+.badge-success { background-color: #5cb85c }
+.badge-info { background-color: #5bc0de }
+.badge-warning { background-color: #f0ad4e }
+.badge-danger { background-color: #d9534f }
+.badge-alert { background-color: #7857ca }
+.badge-inverse, .label-inverse { background-color: #444 }
+/* COLORS FOR BADGES - CUSTOM THEMED */
+.badge-grey { background-color: #666 }
+.badge-dark { background-color: #363a3e }
+.badge-blue { background-color: #6395cf }
+.badge-teal { background-color: #4fbdc8 }
+.badge-green { background-color: #7ec35d }
+.badge-purple { background-color: #7857ca }
+.badge-maroon { background-color: #b94fb5 }
+.badge-pink { background-color: #ef679d }
+.badge-ruby { background-color: #e33459 }
+.badge-red { background-color: #ee4e3c }
+.badge-orange { background-color: #ff802c }
+.badge-yellow { background-color: #efcf1d }
+/* COLORS FOR PROGRESS BARS - always requires ".progress-bar" class */
+.progress-bar-alert { background-color: #7857ca }
+.progress-bar-grey { background-color: #666 }
+.progress-bar-dark { background-color: #363a3e }
+.progress-bar-blue { background-color: #6395cf }
+.progress-bar-teal { background-color: #4fbdc8 }
+.progress-bar-green { background-color: #7ec35d }
+.progress-bar-purple { background-color: #7857ca }
+.progress-bar-maroon { background-color: #b94fb5 }
+.progress-bar-pink { background-color: #ef679d }
+.progress-bar-ruby { background-color: #e33459 }
+.progress-bar-red { background-color: #ee4e3c }
+.progress-bar-orange { background-color: #ff802c }
+.progress-bar-yellow { background-color: #efcf1d }
+/* COLORS FOR SLIDER INPUT BARS */
+/* take note of where color class is applied */
+.ui-rangeSlider.slider-light .ui-rangeSlider-bar { background-color: #e2e2e2 }
+.ui-rangeSlider.slider-grey .ui-rangeSlider-bar { background-color: #666 }
+.ui-rangeSlider.slider-dark .ui-rangeSlider-bar { background-color: #363a3e }
+.ui-rangeSlider.slider-blue .ui-rangeSlider-bar { background-color: #6395cf }
+.ui-rangeSlider.slider-teal .ui-rangeSlider-bar { background-color: #4fbdc8 }
+.ui-rangeSlider.slider-green .ui-rangeSlider-bar { background-color: #7ec35d }
+.ui-rangeSlider.slider-purple .ui-rangeSlider-bar { background-color: #7857ca }
+.ui-rangeSlider.slider-maroon .ui-rangeSlider-bar { background-color: #b94fb5 }
+.ui-rangeSlider.slider-pink .ui-rangeSlider-bar { background-color: #ef679d }
+.ui-rangeSlider.slider-ruby .ui-rangeSlider-bar { background-color: #e33459 }
+.ui-rangeSlider.slider-red .ui-rangeSlider-bar { background-color: #ee4e3c }
+.ui-rangeSlider.slider-orange .ui-rangeSlider-bar { background-color: #ff802c }
+.ui-rangeSlider.slider-yellow .ui-rangeSlider-bar { background-color: #efcf1d }
+/*------------------------------------------------------
+* NOTE: Colors past this point use a much larger and 
+* different naming system. These colors are only used on 
+* vital theme elements to prevent unnecessary CSS bloat.
+* But they still allow for unparralleled customization.
+--------------------------------------------------------*/
+
+/* Flat Colors - TEXT/ICONS FORM 
+* Uses a single "color" style which makes them perfect
+* to use on ANY element requiring a color, such as icons! 
+--------------------------------------------------------*/
+.text-blue { color: #35b5d7 }
+.text-blue2 { color: #3093c7 }
+.text-blue3 { color: #4f96b4 }
+.text-blue4 { color: #287bab }
+.text-blue5 { color: #1c5b86 }
+.text-blue6 { color: #205066 }
+.text-blue7 { color: #21334b }
+.text-green { color: #6db54b }
+.text-green2 { color: #71aa61 }
+.text-green3 { color: #417447 }
+.text-green4 { color: #47741A }
+.text-green5 { color: #1C4905 }
+.text-red { color: #e4151d }
+.text-red2 { color: #d10011 }
+.text-red3 { color: #bf0d14 }
+.text-red4 { color: #930b1f }
+.text-purple { color: #BB7EA6 }
+.text-purple2 { color: #7a5067 }
+.text-purple3 { color: #89264f }
+.text-purple4 { color: #462b4c }
+.text-orange { color: #E94216 }
+.text-orange2 { color: #f56333 }
+.text-orange3 { color: #fb7e2a }
+.text-orange4 { color: #ff802c }
+.text-yellow { color: #f0c92f }
+.text-yellow2 { color: #E1BC4A }
+.text-creme { color: #feda83 }
+.text-creme2 { color: #fae3b4 }
+.text-creme3 { color: #d3c27b }
+.text-brown { color: #b29579 }
+.text-brown2 { color: #7b5d3a }
+.text-brown3 { color: #563330 }
+.text-dark5 { color: #1e1c1f }
+.text-dark4 { color: #323232 }
+.text-dark3 { color: #494949 }
+.text-dark2 { color: #666666 }
+.text-dark { color: #777777 }
+.text-light7 { color: #aaaaaa }
+.text-light6 { color: #bbbbbb }
+.text-light5 { color: #cccccc }
+.text-light4 { color: #dddddd }
+.text-light3 { color: #e5e5e5 }
+.text-light2 { color: #f0f0f0 }
+.text-light { color: #ffffff }
+.text-alert { color: #7857ca }
+/* FLAT COLORS - .BTN FORM
+* These elements were designed to function using only the 
+* background-color style which makes it perfectly acceptable 
+* to use them on any element which requires a background.
+* They have only been given "btn" names to conform to typical
+* bootstrap html styling. Feel free to change them!
+----------------------------------------------------------*/
+.btn-blue { background-color: #35b5d7 }
+.btn-blue2 { background-color: #3093c7 }
+.btn-blue3 { background-color: #4f96b4 }
+.btn-blue4 { background-color: #287bab }
+.btn-blue5 { background-color: #1c5b86 }
+.btn-blue6 { background-color: #205066 }
+.btn-blue7 { background-color: #21334b }
+.btn-green { background-color: #6db54b }
+.btn-green2 { background-color: #71aa61 }
+.btn-green3 { background-color: #417447 }
+.btn-green4 { background-color: #47741A }
+.btn-green5 { background-color: #1C4905 }
+.btn-red { background-color: #e4151d }
+.btn-red2 { background-color: #d10011 }
+.btn-red3 { background-color: #bf0d14 }
+.btn-red4 { background-color: #930b1f }
+.btn-purple { background-color: #BB7EA6 }
+.btn-purple2 { background-color: #7a5067 }
+.btn-purple3 { background-color: #89264f }
+.btn-purple4 { background-color: #462b4c }
+.btn-orange { background-color: #E94216 }
+.btn-orange2 { background-color: #f56333 }
+.btn-orange3 { background-color: #fb7e2a }
+.btn-yellow { background-color: #f0c92f }
+.btn-yellow2 { background-color: #E1BC4A }
+.btn-brown { background-color: #b29579 }
+.btn-brown2 { background-color: #7b5d3a }
+.btn-brown3 { background-color: #563330 }
+.btn-creme { background-color: #feda83 }
+.btn-creme2 { background-color: #fae3b4 }
+.btn-creme3 { background-color: #d3c27b }
+.btn-dark5 { background-color: #1e1c1f }
+.btn-dark4 { background-color: #323232 }
+.btn-dark3 { background-color: #494949 }
+.btn-dark2 { background-color: #666666 }
+.btn-dark { background-color: #777777 }
+.btn-light7 { background-color: #aaaaaa }
+.btn-light6 { background-color: #bbbbbb }
+.btn-light5 { background-color: #cccccc }
+.btn-light4 { background-color: #dddddd }
+.btn-light3 { background-color: #e5e5e5 }
+.btn-light2 { background-color: #f0f0f0 }
+.btn-light { background-color: #ffffff }
+/* GRADIENT COLORS - .BTN FORM  
+* These elements were designed to function using only the
+* background-color style which makes it perfectly acceptable 
+* to use them on any element which requires a background.
+* They have only been given "btn" names to conform to typical
+* bootstrap html styling. Feel free to change them!
+----------------------------------------------------------*/
+.btn-blue.btn-gradient { background-color: #008aaf }
+.btn-blue2.btn-gradient { background-color: #0070ab }
+.btn-blue3.btn-gradient { background-color: #066b95 }
+.btn-blue4.btn-gradient { background-color: #005789 }
+.btn-blue5.btn-gradient { background-color: #00416d }
+.btn-blue6.btn-gradient { background-color: #043a53 }
+.btn-blue7.btn-gradient { background-color: #09203f }
+.btn-green.btn-gradient { background-color: #368d0d }
+.btn-green2.btn-gradient { background-color: #33881b }
+.btn-green3.btn-gradient { background-color: #00520a }
+.btn-green4.btn-gradient { background-color: #274d00 }
+.btn-green5.btn-gradient { background-color: #0d2f00 }
+.btn-red.btn-gradient { background-color: #eb050e }
+.btn-red2.btn-gradient { background-color: #d10011 }
+.btn-red3.btn-gradient { background-color: #a6050b }
+.btn-red4.btn-gradient { background-color: #930b1f }
+.btn-purple.btn-gradient { background-color: #9c457e }
+.btn-purple2.btn-gradient { background-color: #6a254b }
+.btn-purple3.btn-gradient { background-color: #71002f }
+.btn-purple4.btn-gradient { background-color: #36143e }
+.btn-orange.btn-gradient { background-color: #f93e0d }
+.btn-orange2.btn-gradient { background-color: #fe561f }
+.btn-orange3.btn-gradient { background-color: #ff7214 }
+.btn-yellow.btn-gradient { background-color: #fac908 }
+.btn-yellow2.btn-gradient { background-color: #e9bb2d }
+.btn-brown.btn-gradient { background-color: #99714b }
+.btn-brown2.btn-gradient { background-color: #6c4517 }
+.btn-brown3.btn-gradient { background-color: #4f1a16 }
+.btn-creme.btn-gradient { background-color: #ffd266 }
+.btn-creme2.btn-gradient { background-color: #fedd9a }
+.btn-creme3.btn-gradient { background-color: #bca339 }
+.btn-dark5.btn-gradient { background-color: #151416 }
+.btn-dark4.btn-gradient { background-color: #2c2c2c }
+.btn-dark3.btn-gradient { background-color: #333333 }
+.btn-dark2.btn-gradient { background-color: #444444 }
+.btn-dark.btn-gradient { background-color: #555555 }
+/* COLOR MODIFICATIONS SPECIFICALLY FOR BUTTONS
+* Any variations to buttons were placed below so that
+* the above classes contain only color styles. This
+* allows the styles to be used on any element rather 
+* than just "Text" or "Buttons" as their name suggest
+----------------------------------------------------------*/
+.btn-creme { border-color: #f5c348 }
+.btn-creme2 { border-color: #f7ca5c }
+.btn-light6 { border-color: #e5e5e5 }
+.btn-light7 { border-color: #eee }
+.btn-light, .btn-light2, .btn-light3, .btn-light4, .btn-light5, .btn-light6, .btn-light7, .btn-default { color: #555 }
+.btn-light:focus, .btn-light2:focus, .btn-light3:focus, .btn-light4:focus, .btn-light5:focus, .btn-light6:focus, .btn-light7:focus, .btn-default:focus { color: #555 }
+.btn-light.btn-gradient, .btn-light2.btn-gradient, .btn-light3.btn-gradient, .btn-light4.btn-gradient, .btn-light5.btn-gradient, .btn-light6.btn-gradient, .btn-light7.btn-gradient, .btn-default.btn-gradient {
+    text-shadow: 0 1px #ffffff;
+    border-color: rgb(204,204,204) rgba(0, 0, 0, 0.19) rgba(0, 0, 0, 0.18);
+    background-image: -webkit-linear-gradient(top, rgba(255,255,255, 0.9) 50%,rgba(255,255,255,0.1) 100%);
+    background-image: linear-gradient(to bottom, rgba(255,255,255, 0.9) 10%,rgba(255,255,255,0.1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80ffffff',endColorstr='#00ffffff',GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+.btn-creme:focus, .btn-creme2:focus, .btn-yellow:focus, .btn-yellow2:focus { color: #ca8f00 }
+.btn-creme, .btn-creme2, .btn-yellow, .btn-yellow2 {
+    color: #ca8f00;
+    font-weight: 600;
+    text-shadow: 0 -1px 0 rgba(255, 255, 255, 0.55);
+}
+.btn-yellow:hover, .btn-yellow2:hover, .btn-creme:hover, .btn-creme2:hover, .btn-creme3:hover, .btn-light:hover, .btn-light2:hover, .btn-light3:hover, .btn-light4:hover, .btn-light5:hover, .btn-light6:hover, .btn-light7:hover, .btn-default:hover { color: #555 }
+
+
+/* ---------------------------------------
+   LAYOUT SETTINGS
+----------------------------------------*/
+body.hidden-breadcrumbs #topbar { display: none }
+body.hidden-searchbar #sidebar-search { display: none }
+/* fixed elements */
+#sidebar.affix, #topbar.affix { position: fixed }
+/* give top padding to an element if its sibling is fixed 
+ * this compensates for the change in height */
+header.navbar-fixed-top + #main { padding-top: 50px }
+#topbar.affix + .container { padding-top: 87px }
+/* for preview only - no real use in development enviroment */
+body.hidden-breadcrumbs.fixed-breadcrumbs #content > .container { padding-top: 35px }
+body.sidebar-collapsed #sidebar:before { width: 40px }

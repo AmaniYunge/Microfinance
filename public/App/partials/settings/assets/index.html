@@ -1,0 +1,151 @@
+<div class="col-md-12" ng-controller="assetController as assetC">
+    <div class="col-md-8">
+
+        <div class="panel" >
+            <div class="panel-heading">
+                <div class="panel-title"> <i class="fa fa-table"></i> Assets </div>
+            </div>
+            <div class="panel-body">
+                <ul class="nav well-tabs well-tabs-inverse margin-bottom">
+                </ul>
+                <div class="tab-content border-none padding-none">
+                    <div id="tab1" class="tab-pane active">
+
+
+                        <!--<table class="table table-condensed" datatable="ng" dt-options="dtOptions">-->
+                        <table class="table table-condensed" >
+                            <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th>Value</th>
+                                <th>Date Bought</th>
+                                <th>Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="exp in assets">
+
+                                <td>{{$index+1}}</td>
+                                <td>{{exp.name}} </td>
+                                <td>{{exp.type}} </td>
+                                <td>{{exp.value}} </td>
+                                <td>{{exp.date}} </td>
+                                <td>
+                                    <a style="cursor: pointer" ng-click="assetC.editAssets(exp.id)" title="edit asset" class="edituser"><i class="fa fa-pencil text-info"></i> edit</a>&nbsp;&nbsp;&nbsp;
+                                    <a style="cursor: pointer"  ng-click="assetC.deleteAssets(exp.id)" title="delete asset" class="deleteapp"><i class="fa fa-trash-o text-danger"></i> delete</a>
+
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!--<div class="panel-body">-->
+
+            <!--</div>-->
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="panel" ng-if="add_assets" >
+            <div class="panel-heading">
+                <div class="panel-title"> <i class="fa fa-plus"></i> Add Assets </div>
+            </div>
+            <div class="panel-body" >
+                <form class="form-horizontal" role="form" ng-submit="assetC.saveAssets(assetOb)">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="asset">Asset Name</label>
+                            <input id="asset" name="assets_name" type="text"   ng-model="assetOb.name" class="form-control" placeholder="Asset Name" required="">
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="asset_type">Asset Type</label>
+                            <select id="asset_type" name="assets_name" type="text"   ng-model="assetOb.type" class="form-control" placeholder="Asset Type" required="">
+                                <option>Fixed Asset</option>
+                                <option>Current Asset</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="value">Value</label>
+                            <input id="value" name="value" type="text"   ng-model="assetOb.value" class="form-control" placeholder="Value" required="">
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="date">Date</label>
+                                <input id="date" datepicker name="date" type="text"  ng-model="assetOb.date" class="form-control" placeholder="Date" required="">
+
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="col-sm-12 form-group text-center">
+                            <input class="btn btn-primary"  type="submit" value="Register">
+                            <input class="btn btn-warning"  type="reset" value="Reset">
+                        </div>
+
+                    </div>
+                </form>
+                <div class="col-md-12">
+                    <div class="alert alert-success " ng-if="success">Asset <b> {{current.name}} </b> Registered Successfully.</div>
+                    <div class="alert alert-warning" ng-if="failure">Asset <b> {{current.name}} </b> Fail Registration.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel" ng-if="edit_assets">
+            <div class="panel-heading">
+                <div class="panel-title"> <i class="fa fa-pencil"></i> Edit Assets </div>
+            </div>
+            <div class="panel-body">
+                <form class="form-horizontal" role="form" ng-submit="assetC.updateAssets(asset_to_edit)">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="asset_edit">Asset Name</label>
+                            <input id="asset_edit" name="asset_name" type="text"   ng-model="asset_to_edit.name" class="form-control" placeholder="Asset Name" required="">
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="asset_type_edit">Asset Type</label>
+                        <select id="asset_type_edit" name="assets_name" type="text"   ng-model="asset_to_edit.type" class="form-control" placeholder="Asset Type" required="">
+                            <option>Fixed Asset</option>
+                            <option>Current Asset</option>
+                        </select>
+                    </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="value_e">Value</label>
+                            <input id="value_e" name="value" type="text"   ng-model="asset_to_edit.value" class="form-control" placeholder="Value" required="">
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="asset_edit">Date Bought</label>
+                            <datepicker date-format="yyyy-MM-dd">
+                            <input id="date_bought"  name="date_bought" type="text"   ng-model="asset_to_edit.date" class="form-control" placeholder="Date Bought" required="">
+                            </datepicker>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="col-sm-12 form-group text-center">
+                            <input class="btn btn-primary"  type="submit" value="Update">
+                            <input class="btn btn-warning"  type="reset" value="Reset">
+                        </div>
+
+                    </div>
+                </form>
+                <div class="col-md-12">
+                    <div class="alert alert-success " ng-if="success">Asset <b> {{current.name}}</b> Updated Successfully.</div>
+                    <div class="alert alert-warning" ng-if="failure">Asset <b> {{current.name}}</b> Fail Updating.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

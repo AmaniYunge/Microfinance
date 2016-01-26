@@ -1,0 +1,332 @@
+/* Author: Louis Holladay
+ * Website: AdminDesigns.com
+ * Last Updated: 01/12/14 
+ 
+ * This file contains changes needed alter the
+ * page layout of every page from fullwidth
+ * to boxed-layout. Activated by adding the 
+ * "boxed-layout" class to the pages body
+--------------------------------------------*/
+
+/* GLOBAL CHANGES ACROSS ALL PAGES */
+
+/* We make the main content 1150px wide.
+ * if the window is <1150px we return the 
+ * body to a fluid 100% layout */
+body.boxed-layout { background: #f9f9f9; }
+body.boxed-layout #main {
+    width: 1150px !important;
+    margin: 0 auto;
+}
+@media (max-width: 1150px) { 
+	body.boxed-layout #main,
+	body.boxed-layout .navbar {
+		width: 100% !important;
+	}	
+}
+
+/* The background for Stardoms main content 
+ * is usually added with the psuedo selector 
+ * ":after" on "#content". For boxed layout we 
+ * move this to #main and hide "#content:after" 
+ * This prevents a sidebar transition bug */
+body.boxed-layout #content:after { display: none;}	
+body.boxed-layout #main:after { 
+    content: "";
+    position: fixed;
+    width: 1152px;
+    top: 0;
+    bottom: 0;
+    display: block;
+    z-index: -2;
+	margin-left: -1px;
+	border-left: 1px solid #c9c9c9;
+	border-right: 1px solid #c9c9c9;
+	background: #e8e8e8;
+}	
+
+/* Navbar */
+body.boxed-layout .navbar {
+    width: 1150px !important;
+    margin: 0 auto !important;
+    box-shadow: none;
+	border-bottom: 1px solid #c9c9c9;
+}
+
+/* Sidebar */
+body.boxed-layout #sidebar-search { box-shadow: none }
+body.boxed-layout #sidebar:before {
+	margin-left: 1px;
+	border-right: 1px solid #CCC;
+}
+
+/* Shrink Container at large resolutions */
+@media (min-width: 1450px) {
+	#content > .container {
+		padding: 35px 30px 50px 30px;	
+	}
+}
+
+/*----------------------------------------------
+ * IMPORTANT - Many pages have had the width of 
+ * their columns completely altered. All pages 
+ * requiring the same column adjustments have
+ * been grouped together and then listed in a 
+ * directory(see below). Percentages listed 
+ * below refer to the columns new width.
+* ---------------------------------------------
+   PAGES REQUIRING 100% COLUMNS(in order):
+   * DASHBOARD.HTML
+   * CHARTS.HTML 
+   * TABS.HTML 
+   * FORMS.HTML 
+   * EDITORS.HTML 
+   * MAPS.HTML 
+   * ELEMENTS.HTML 
+   * VALIDATION.HTML 
+   * WIZARD.HTML 
+   * PRICING-TABLES.HTML 
+   * FILE-MANAGERS.HTML 
+   * UPLOAD-TOOLS.HTML 
+   * DYNAMIC-GALLERY.HTML 
+   * IMAGE-TOOLS.HTML 
+   * INVOICE-PAGE.HTML
+   * WIDGETS.HTML
+   * FAQ.HTML
+   * GALLERY.HTML
+   * TIMELINE.HTML
+--------------------------------------------------
+ * Notes: Most columns were targeted using the
+ * direct descendant CSS operator as to not effect
+ * other columns used further down the page. If 
+ * you have changed a columns default Stardom 
+ * HTML you will need to update this.
+-------------------------------------------------*/
+body.boxed-layout.dashboard .container > .row > .col-md-4,
+body.boxed-layout.dashboard .container > .row > .col-md-8,
+body.boxed-layout.charts-page .container > .row > .col-md-6,
+body.boxed-layout.tabs-page .container > .row > .col-md-6,
+body.boxed-layout.forms-page .container > .row > .col-md-6,
+body.boxed-layout.editors-page .container > .row > .col-md-6,
+body.boxed-layout.maps-page .container > .row > .col-md-6,
+body.boxed-layout.elements-page .container > .row > .col-md-6, 
+body.boxed-layout.validation-page .container > .row > .col-md-6,
+body.boxed-layout.wizard-page .container > .row > .col-md-10.col-md-offset-1,
+body.boxed-layout.pricing-tables-page .container > .row > .col-md-10.col-md-offset-1,
+body.boxed-layout.file-manager-page .container > .row > .col-lg-10.col-lg-offset-1,
+body.boxed-layout.upload-tools-page .container > .row > .col-md-6,
+body.boxed-layout.dynamic-gallery-page .container > .row > .col-md-10.col-md-offset-1,
+body.boxed-layout.image-tools-page .container > .row > .col-md-6,
+body.boxed-layout.invoice-page .container > .row > .col-lg-11,
+body.boxed-layout.widgets-page .container > .row > .col-lg-8,
+body.boxed-layout.widgets-page .container > .row > .col-lg-4,
+body.boxed-layout.faq-page .container > .row > .col-lg-10,
+body.boxed-layout.gallery-page .container > .row > .col-md-10,
+body.boxed-layout.timeline-page #timeline {
+    width: 100%;
+    float: none;
+	margin-left: 0;
+}
+
+/* ---------------------------------------
+   PAGES REQUIRING 90% COLUMNS(in order):
+   * EDITABLE.HTML
+   * XEDIT.HTML
+   * PROFILE.HTML
+----------------------------------------*/
+body.boxed-layout.editable-page .container > .row .col-md-10.col-md-offset-1,
+body.boxed-layout.xedit-page .container > .row .col-md-8,
+body.boxed-layout.profile-page .container > .row > .col-lg-4,
+body.boxed-layout.profile-page .container > .row > .col-lg-8 {
+    width: 90%;
+	float: none;
+	margin: 0 auto;
+}
+
+/* ----------------------------------------
+   PAGES REQUIRING 50% COLUMNS(in order):
+   * PORTLETS.HTML 
+   * TYPOGRAPHY.HTML 
+------------------------------------------*/
+@media (min-width: 1200px) {
+	body.boxed-layout.portlets-page .container > .row > .col-lg-4.col-sm-6,
+	body.boxed-layout.typography-page .container > .row > .col-lg-3 {
+		width: 50%;
+		float: left;
+	}
+}
+
+/* -----------------------------------------
+	PAGES REQUIRING A CUSTOM LAYOUT(in order):
+    * SKETCHPAD.HTML - 92%
+	* MESSAGES.HTML - 85%
+	* ICONS.HTML - 80% + 20% COLUMN
+-------------------------------------------*/
+body.boxed-layout.sketchpad-page .container > .row > .col-lg-7 { 
+    width: 92%;
+	margin-left: 7%;
+}
+body.boxed-layout.messages-page .container > .row > .col-lg-4,
+body.boxed-layout.messages-page .container > .row > .col-lg-8 {
+    width: 85%;
+    float: none;
+	margin: 0 auto;
+}
+body.boxed-layout.icons-page .container > .row > .col-md-9 { 
+    width: 80%;
+	margin-left: 0;
+	float: left;
+}
+body.boxed-layout.icons-page .container > .row > .col-md-3 { 
+    width: 20%;
+	float: left;
+}
+
+/* ----------------------------------------
+ * All column changes have been listed 
+ * above. Styles below are for pages 
+ * which require adjustments to individual 
+ * elements(buttons, backgrounds, etc)
+/* ----------------------------------------
+   PAGES LISTED BELOW INCLUDE(in order):
+   * DASHBOARD/INDEX.HTML
+   * TIMELINE.HTML
+   * GALLERY.HTML
+   * MESSAGES.HTML
+   * PROFILE.HTML
+   * FAQ.HTML
+   * DATATABLES.HTML
+   * ICONS.HTML
+   * ANIMATIONS.HTML
+   * SKETCHPAD.HTML
+   * WIDGETS.HTML
+   * INVOICE-PAGE.HTML
+   * MINIMAL(login, screenlock, etc)
+-----------------------------------------*/
+
+/* DASHBOARD.HTML / INDEX.HTML */
+body.boxed-layout.dashboard .message-widget {
+	margin-top: 0;	
+}
+body.boxed-layout.dashboard .console-btn-5, 
+body.boxed-layout.dashboard #timeline-widget,
+body.boxed-layout.dashboard #console-search-btn { 
+	display: none !important 
+}
+@media (min-width: 1368px) {
+	body.boxed-layout.dashboard #console-btns .row > div {
+		width: 25%;
+		float: left;
+	}
+}
+
+/* TIMELINE.HTML */
+body.boxed-layout.timeline-page #timeline .panel-menu .glyphicons {
+    display: none;
+}
+
+/* GALLERY.HTML */
+body.boxed-layout.gallery-page .container > .row .placeholder {
+    height: 50px;
+}
+
+/*  MESSAGES.HTML  */
+body.boxed-layout.messages-page .container > .row > .col-lg-4 .panel {
+    margin-bottom: 20px;
+}
+body.boxed-layout.messages-page .container > .row table tr:nth-of-type(3),
+body.boxed-layout.messages-page .container > .row table tr:nth-of-type(4),
+body.boxed-layout.messages-page .container > .row table tr:nth-of-type(5) {
+	display: none;
+}
+
+/* PROFILE.HTML */
+body.boxed-layout.profile-page .container > .row > .col-lg-4 .panel {
+    margin-bottom: 20px;
+}
+body.boxed-layout.profile-page .container > .row .console-btn {
+    margin-bottom: 0;
+}
+body.boxed-layout.profile-page .container > .row .profile-panel .panel-footer {
+	padding: 10px 16px 4px;
+}
+
+/* FAQ.HTML */
+body.boxed-layout.faq-page .faq-panel > .panel-sidemenu {
+    display: none;
+}
+body.boxed-layout.faq-page .faq-panel > .panel-body {
+    width: 93%;
+	margin: 30px 3.5% 40px;
+}
+body.boxed-layout.faq-page .faq-panel > .panel-body #search-widget {
+    margin-bottom: 30px;
+}
+
+/* DATATABLES.HTML */
+body.boxed-layout.datatables-page table th:nth-of-type(2),
+body.boxed-layout.datatables-page table td:nth-of-type(2),
+body.boxed-layout.datatables-page table td:nth-of-type(4),
+body.boxed-layout.datatables-page table th:nth-of-type(4) {
+	display: none !important;
+}
+
+/* ICONS.HTML */
+body.boxed-layout.icons-page #icon-nav ul { 
+    width: 110%;
+}
+body.boxed-layout.icons-page #icon-nav ul .console-icon { 
+    display: none;
+}
+@media (max-width: 1150px) {
+	body.boxed-layout.icons-page #icon-nav{ 
+  	  right: 0;
+	}
+}
+
+/* ANIMATIONS.HTML */
+body.boxed-layout.animations-page .container > .row #animate-me-panel { 
+    position: fixed;
+	max-width: 350px;
+}
+
+/* SKETCHPAD.HTML */
+body.boxed-layout.sketchpad-page .container > .row > .col-lg-4 { 
+    display: none !important;
+	width: 0;
+}
+
+/* WIDGETS.HTML */
+body.boxed-layout.widgets-page .container > .row #timeline-widget {
+    display: block !important;
+}
+body.boxed-layout.widgets-page .container > .row .timeline-widget {
+    width: 370px;
+	margin: 0 auto;
+}
+
+/* INVOICE-PAGE.HTML */
+body.boxed-layout.invoice-page .container > .row > .col-lg-11 .panel-sidemenu {
+    display: none;
+}
+body.boxed-layout.invoice-page .container > .row > .col-lg-11 #invoice-item {
+    width: 95%;
+	margin: 40px 2.5% 60px;
+}
+
+/*  MINIMAL PAGE
+  - coming-soon, login, screen-lock
+----------------------------------------*/
+body.boxed-layout.coming-soon-page {
+	background: #f7f7f7;
+}
+body.boxed-layout.login-page,
+body.boxed-layout.screenlock-page {
+	background: url(../img/patterns/5.png) repeat top left #f6f6f6;
+}
+body.boxed-layout.coming-soon-page #main:after,
+body.boxed-layout.login-page #main:after,
+body.boxed-layout.screenlock-page #main:after {
+	display: none;
+
+}

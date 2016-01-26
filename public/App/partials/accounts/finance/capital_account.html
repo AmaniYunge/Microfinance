@@ -1,0 +1,91 @@
+<style>
+    div.vertical-line{
+        border-left:1px solid #ddd;
+        border-right:1px solid #ddd;
+        height: 100%;
+    }
+    div.holizontal-line{
+        border-bottom: 1px solid #ddd;
+        border-top: 1px solid #ddd;
+        /*width: 100%;*/
+    }
+</style>
+<div class="col-md-12 ng-scope" ng-controller="capitalAccountController as capital">
+    <div class="panel">
+        <div class="panel-heading">
+            <div class="panel-title"> <i class="fa fa-dollar"></i> Capital Account </div>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <form>
+                    <div class="col-md-6">
+                        <div class="col-md-3">
+                                <input id="to_date" datepicker name="date" type="text"  ng-model="start_date" class="form-control" placeholder="From" required="">
+                        </div>
+                        <div class="col-md-3">
+                                <input id="from_date" datepicker name="date" type="text"  ng-model="end_date" class="form-control" placeholder="To" required="">
+                         </div>
+                        <div class="col-md-1">
+                            <a class="btn btn-primary" ng-click="getCapitalAccount()" ><i class="fa fa-book" ></i>&nbsp;Get</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                    <div class="form-group pull-right">
+                        <button class="btn btn-primary btn-sm" ng-click="printCapitalAccount('printable_area')" type="button"><i class="fa fa-print"></i>Print</button>
+                        <!--<input id="asset" name="assets_name" type="text"   ng-model="assetOb.name" class="form-control" placeholder="Asset Name" required="">-->
+                    </div>
+                </div>
+                </form>
+            </div>
+            <div class="row"  id="printable_area">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-12" style="text-align: center;"><h3>{{company[0].company_name}}</h3></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12" style="text-align: center;"><h4>CAPITAL ACCOUNT AS AT {{start_date}} AND {{end_date}}</h4></div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-12" style="text-align: right;">{{todays_date}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <table class="table table-bordered table-widget">
+                                <thead>
+                                <tr>
+                                    <th style="width: 100px!important;">Date</th>
+                                    <th>Particulars</th>
+                                    <th>DR</th>
+                                    <th>CR</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr ><td>{{current_year}}-01-01</td><td>Balance b/d</td><td></td><td style="text-align: right;">{{balance_bd_last_year}}</td></tr>
+                                <tr ng-repeat="cashed in cash"><td>{{cashed.created_at|toHumaReadable}}</td><td>Cash</td><td></td><td style="text-align: right;">{{cashed.amount}}</td></tr>
+                                <tr ng-repeat="loaned in loan"><td >{{loaned.created_at|toHumaReadable}}</td><td >Loan</td><td></td><td style="text-align: right;">{{loaned.amount}}</td></tr>
+
+                                <tr >
+                                    <td ></td>
+                                    <td >Balance c/d</td>
+                                    <th style="border-bottom: 2px solid #CCCCCC!important;border-top: 2px solid #CCCCCC!important;text-align: right;">{{total_loan_and_cash_and_balance}}</th>
+                                    <th ></th>
+                                </tr>
+                                <tr ><td ></td><td ></td><th style="border-bottom: 3px double #CCCCCC!important;border-top: 2px solid #CCCCCC!important;text-align: right">{{total_loan_and_cash_and_balance}}</th><th style="border-bottom: 3px double #CCCCCC!important;border-top: 2px solid #CCCCCC!important;text-align: right">{{total_loan_and_cash_and_balance}}</th></tr>
+                                <tr ><td >{{(current_year+1)}}-01-01</td><td >Balance b/d</td><td></td><th style="text-align: right;">{{balance_bd_last_year+total_loan_and_cash_and_balance}}</th></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div style="margin-bottom: 20px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--<div class="panel-body">-->
+
+<!--</div>-->
+</div>
+</div>
